@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lourdes Corsi — Links</title>
+  <meta name="description" content="Educadora Parental. Te ajudo a criar filhos obedientes e viver a maternidade sem culpa." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --coral:      #E8645A;
+      --coral-dark: #C94E44;
+      --coral-light:#F5877F;
+      --orange:     #F5A623;
+      --cream:      #FDF8F5;
+      --cream-dark: #F5EDE6;
+      --text:       #2D1B13;
+      --text-mid:   #5C3D2E;
+      --text-light: #9B7B6B;
+      --white:      #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Orbs de fundo */
+    .bg-orb-1 {
+      position: fixed; pointer-events: none; z-index: 0;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(232,100,90,0.13) 0%, transparent 65%);
+      top: -160px; right: -180px;
+      animation: drift1 14s ease-in-out infinite alternate;
+    }
+    .bg-orb-2 {
+      position: fixed; pointer-events: none; z-index: 0;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(245,166,35,0.11) 0%, transparent 65%);
+      bottom: -80px; left: -120px;
+      animation: drift2 18s ease-in-out infinite alternate;
+    }
+    @keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(-30px,40px); } }
+    @keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(30px,-30px); } }
+
+    /* ── CONTAINER ── */
+    .container {
+      width: 100%;
+      max-width: 480px;
+      padding: 48px 20px 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── PROFILE ── */
+    .profile {
+      text-align: center;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .avatar-ring {
+      width: 118px; height: 118px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--coral) 0%, var(--orange) 100%);
+      display: inline-block;
+      box-shadow: 0 8px 32px rgba(232,100,90,0.30);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-6px); }
+    }
+
+    .avatar {
+      width: 112px; height: 112px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border: 3px solid var(--white);
+    }
+
+    .profile-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .profile-role {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--coral);
+      background: rgba(232,100,90,0.09);
+      border: 1px solid rgba(232,100,90,0.18);
+      padding: 5px 16px; border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .profile-bio {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* ── SOCIAL ROW (topo) ── */
+    .social-row {
+      display: flex; justify-content: center; gap: 10px;
+      margin-top: 18px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .social-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px;
+      background: var(--white);
+      border-radius: 50%;
+      text-decoration: none;
+      border: 1.5px solid var(--cream-dark);
+      box-shadow: 0 2px 10px rgba(45,27,19,0.08);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(45,27,19,0.15);
+      border-color: var(--coral-light);
+    }
+
+    .social-btn svg { width: 18px; height: 18px; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 28px 0 16px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cream-dark), transparent);
+    }
+
+    .divider span {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--text-light); white-space: nowrap;
+    }
+
+    /* ── FEATURED LINK ── */
+    .link-featured {
+      display: flex; align-items: center; gap: 16px;
+      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
+      border-radius: 20px;
+      padding: 20px 22px;
+      text-decoration: none;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(232,100,90,0.38);
+      transition: transform 0.22s, box-shadow 0.22s;
+      animation: fadeUp 0.6s 0.25s ease both;
+    }
+
+    .link-featured::before {
+      content: '';
+      position: absolute;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 60%);
+      top: -80px; right: -50px;
+      pointer-events: none;
+    }
+
+    .link-featured:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(232,100,90,0.48);
+    }
+
+    .lf-icon {
+      width: 52px; height: 52px; min-width: 52px;
+      background: rgba(255,255,255,0.20);
+      border-radius: 15px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .lf-text { flex: 1; }
+
+    .lf-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      opacity: 0.75; margin-bottom: 4px;
+    }
+
+    .lf-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; font-weight: 700;
+      margin-bottom: 3px; line-height: 1.2;
+    }
+
+    .lf-desc {
+      font-size: 12px; opacity: 0.80; line-height: 1.4;
+    }
+
+    .lf-arrow {
+      font-size: 22px; opacity: 0.7; flex-shrink: 0;
+      margin-left: 4px;
+      transition: transform 0.2s;
+    }
+
+    .link-featured:hover .lf-arrow { transform: translateX(4px); }
+
+    /* ── LINK CARDS ── */
+    .links-list {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+
+    .link-card {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--white);
+      border-radius: 18px;
+      padding: 16px 18px;
+      text-decoration: none;
+      color: var(--text);
+      border: 1.5px solid var(--cream-dark);
+      box-shadow: 0 2px 12px rgba(45,27,19,0.06);
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      transition: width 0.22s;
+    }
+
+    .link-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(45,27,19,0.13);
+    }
+
+    .link-card:hover::before { width: 6px; }
+
+    .lc-icon {
+      width: 50px; height: 50px; min-width: 50px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+
+    .lc-text { flex: 1; min-width: 0; }
+
+    .lc-title {
+      font-size: 15px; font-weight: 700;
+      color: var(--text); margin-bottom: 3px; line-height: 1.3;
+    }
+
+    .lc-desc {
+      font-size: 12px; color: var(--text-light); line-height: 1.4;
+    }
+
+    .lc-arrow {
+      font-size: 18px; color: var(--text-light);
+      flex-shrink: 0; margin-left: 6px;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .link-card:hover .lc-arrow { transform: translateX(3px); }
+
+    /* Variantes de cor */
+    .card-coral::before { background: var(--coral); }
+    .card-coral .lc-icon { background: rgba(232,100,90,0.09); }
+    .card-coral:hover { border-color: rgba(232,100,90,0.25); }
+    .card-coral:hover .lc-arrow { color: var(--coral); }
+
+    .card-orange::before { background: var(--orange); }
+    .card-orange .lc-icon { background: rgba(245,166,35,0.10); }
+    .card-orange:hover { border-color: rgba(245,166,35,0.30); }
+    .card-orange:hover .lc-arrow { color: var(--orange); }
+
+    .card-purple::before { background: #7B68EE; }
+    .card-purple .lc-icon { background: rgba(123,104,238,0.09); }
+    .card-purple:hover { border-color: rgba(123,104,238,0.25); }
+    .card-purple:hover .lc-arrow { color: #7B68EE; }
+
+    .card-red::before { background: #E02020; }
+    .card-red .lc-icon { background: rgba(224,32,32,0.08); }
+    .card-red:hover { border-color: rgba(224,32,32,0.20); }
+    .card-red:hover .lc-arrow { color: #E02020; }
+
+    /* Animação escalonada nos cards */
+    .link-card:nth-child(1) { animation: fadeUp 0.6s 0.35s ease both; }
+    .link-card:nth-child(2) { animation: fadeUp 0.6s 0.45s ease both; }
+    .link-card:nth-child(3) { animation: fadeUp 0.6s 0.55s ease both; }
+    .link-card:nth-child(4) { animation: fadeUp 0.6s 0.65s ease both; }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 44px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-light);
+      animation: fadeUp 0.6s 0.7s ease both;
+    }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbs -->
+  <div class="bg-orb-1"></div>
+  <div class="bg-orb-2"></div>
+
+  <div class="container">
+
+    <!-- Perfil -->
+    <div class="profile">
+      <div class="avatar-wrap">
+        <div class="avatar-ring">
+          <img class="avatar" src="../guia-bsc-01/assets/img/lourdes.jpg" alt="Lourdes Corsi" />
+        </div>
+      </div>
+      <h1 class="profile-name">Lourdes Corsi</h1>
+      <div class="profile-role">💛 Educadora Parental</div>
+      <p class="profile-bio">Te ajudo a criar filhos obedientes e viver a maternidade sem culpa.</p>
+
+      <!-- Redes sociais -->
+      <div class="social-row">
+        <a class="social-btn" href="https://instagram.com/lourdescorsi" target="_blank" rel="noopener" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#E8645A"/>
+          </svg>
+        </a>
+        <a class="social-btn" href="https://youtube.com/@lourdescorsi" target="_blank" rel="noopener" title="YouTube">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#E02020"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card destaque: Sessão de Clareza -->
+    <a class="link-featured" href="https://form.respondi.app/h6W9fy5G" target="_blank" rel="noopener">
+      <div class="lf-icon">🌟</div>
+      <div class="lf-text">
+        <div class="lf-label">Atendimento individual</div>
+        <div class="lf-title">Sessão de Clareza</div>
+        <div class="lf-desc">Pra você que busca acompanhamento individualizado</div>
+      </div>
+      <span class="lf-arrow">→</span>
+    </a>
+
+    <!-- Divisor -->
+    <div class="divider">
+      <span>Cursos &amp; Programas</span>
+    </div>
+
+    <!-- Links -->
+    <div class="links-list">
+
+      <a class="link-card card-coral" href="https://paginas-lou.vercel.app/guia-bsc-01" target="_blank" rel="noopener">
+        <div class="lc-icon">📖</div>
+        <div class="lc-text">
+          <div class="lc-title">Guia dos 4 Temperamentos</div>
+          <div class="lc-desc">Descubra e entenda o temperamento do seu filho</div>
+        </div>
+        <span class="lc-arrow">›</span>
+      </a>
+
+      <a class="link-card card-orange" href="https://www.lourdescorsi.com/pgv-escola-de-maes" target="_blank" rel="noopener">
+        <div class="lc-icon">👩‍👧</div>
+        <div class="lc-text">
+          <div class="lc-title">Escola de Mães</div>
+          <div class="lc-desc">Comunidade, encontros mensais e acervo completo de aulas</div>
+        </div>
+        <span class="lc-arrow">›</span>
+      </a>
+
+      <a class="link-card card-purple" href="https://www.lourdescorsi.com/sos-birras" target="_blank" rel="noopener">
+        <div class="lc-icon">😤</div>
+        <div class="lc-text">
+          <div class="lc-title">SOS Birras</div>
+          <div class="lc-desc">Lide com as birras — antes, durante e depois</div>
+        </div>
+        <span class="lc-arrow">›</span>
+      </a>
+
+      <a class="link-card card-red" href="https://www.lourdescorsi.com/rotina-visual" target="_blank" rel="noopener">
+        <div class="lc-icon">▶️</div>
+        <div class="lc-text">
+          <div class="lc-title">Rotina Visual</div>
+          <div class="lc-desc">Canal do YouTube</div>
+        </div>
+        <span class="lc-arrow">›</span>
+      </a>
+
+    </div>
+
+    <div class="footer">
+      <p>© 2026 Lourdes Corsi · Todos os direitos reservados</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
