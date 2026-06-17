@@ -424,7 +424,7 @@
     #oferta {
       position: relative;
       background: linear-gradient(160deg, var(--coral-light) 0%, var(--coral) 40%, var(--coral-dark) 100%);
-      padding: 64px 24px 80px; text-align: center; overflow: hidden;
+      padding: 52px 24px 72px; text-align: center; overflow: hidden;
     }
 
     #oferta::before {
@@ -439,47 +439,35 @@
       bottom: -60px; right: 5%; pointer-events: none;
     }
 
-    .oferta-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.35);
-      color: var(--white);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 2.5px; text-transform: uppercase;
-      padding: 8px 22px; border-radius: 100px;
-      margin-bottom: 18px; position: relative; z-index: 2;
-    }
-
     .oferta-titulo {
-      font-family: 'Playfair Display', serif; font-weight: 700;
-      font-size: clamp(30px,5vw,50px); color: var(--white);
-      margin-bottom: 36px; position: relative; z-index: 2;
-      line-height: 1.15;
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-weight: 700;
+      font-size: clamp(26px, 5vw, 44px);
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 7px;
+      text-decoration-thickness: 2px;
+      margin-bottom: 24px; position: relative; z-index: 2;
     }
 
-    .oferta-titulo span {
-      display: block;
-      font-size: clamp(22px,3.5vw,34px);
-      font-weight: 400;
-      opacity: 0.88;
-      margin-top: 6px;
-    }
-
-    /* Imagem + card colados — imagem sobrepõe o topo do card */
+    /* Wrapper empilha imagem + card sem gap */
     .oferta-wrapper {
-      max-width: 540px; margin: 0 auto;
+      max-width: 520px; margin: 0 auto;
       position: relative; z-index: 2;
     }
 
     .oferta-combo-img {
-      max-width: 420px; margin: 0 auto -56px;
-      filter: drop-shadow(0 14px 36px rgba(0,0,0,0.28));
+      display: block;
+      max-width: 380px; width: 78%;
+      margin: 0 auto;
       position: relative; z-index: 3;
+      transform: translateY(64px);
+      filter: drop-shadow(0 12px 30px rgba(0,0,0,0.26));
     }
 
     .oferta-card {
       background: var(--white); border-radius: 24px;
-      padding: 72px 32px 36px;
+      padding: 80px 28px 32px;
       box-shadow: 0 20px 80px rgba(0,0,0,0.18);
       position: relative; z-index: 2;
     }
@@ -908,11 +896,7 @@
 
   <!-- OFERTA -->
   <section id="oferta">
-    <div class="oferta-badge">⚡ Oferta por tempo limitado</div>
-    <h2 class="oferta-titulo">
-      Tudo isso pelo valor de
-      <span>um jantar fora de casa</span>
-    </h2>
+    <h2 class="oferta-titulo">Oferta por tempo limitado!</h2>
 
     <div class="oferta-wrapper">
       <img src="assets/img/mockups/combo.png" class="oferta-combo-img" alt="Kit completo Guia dos 4 Temperamentos" />
