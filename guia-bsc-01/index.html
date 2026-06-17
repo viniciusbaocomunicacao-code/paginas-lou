@@ -519,7 +519,11 @@
 
     @media (max-width: 640px) {
       .oferta-box { grid-template-columns: 1fr; }
-      .oferta-left { border-right: none; border-bottom: 1px solid var(--cream-dark); padding: 24px; }
+      .oferta-left {
+        border-right: none; border-bottom: 1px solid var(--cream-dark);
+        padding: 20px 24px; max-height: 280px;
+      }
+      .oferta-left img { max-width: 280px; margin: 0 auto; }
       .oferta-right { padding: 28px 24px; }
     }
 
@@ -643,11 +647,11 @@
       /* Hero */
       #hero { padding: 36px 20px 52px; }
       .hero-logo { margin-bottom: 24px; }
-      .hero-logo img { height: 88px; }
+      .hero-logo img { height: 120px; }
       #hero .eyebrow { font-size: 11px; margin-bottom: 12px; }
       #hero h1 { font-size: clamp(24px, 6.5vw, 38px); margin-bottom: 14px; }
       #hero .hero-sub { font-size: 16px; margin-bottom: 24px; }
-      .video-wrap { border-radius: 12px; margin-bottom: 24px; }
+      .video-wrap { border-radius: 12px; margin-bottom: 24px; aspect-ratio: 9/16; }
       .btn-cta { font-size: 15px; padding: 17px 24px; }
       .btn-cta-wrap { margin-top: 20px; }
       .payment-icons { gap: 8px; margin-top: 14px; }
@@ -656,9 +660,9 @@
       /* Carrosséis */
       #depoimentos-rapidos    { padding: 44px 0; }
       #depoimentos-secundarios{ padding: 44px 0; }
-      .dep-slide    { width: 220px; }
+      .dep-slide    { width: 280px; }
       .dep-slide-sm { width: 270px; }
-      .carousel-track  { gap: 14px; }
+      .carousel-track  { gap: 16px; }
       .carousel2-track { gap: 14px; }
 
       /* Dor */
@@ -688,15 +692,16 @@
 
       /* Incluso */
       .incluso-grid { grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
-      .incluso-card .img-wrap { min-height: 130px; padding: 16px; }
-      .incluso-card .img-wrap img { max-height: 100px; }
+      .incluso-card .img-wrap { min-height: 180px; padding: 20px; }
+      .incluso-card .img-wrap img { max-height: 150px; }
       .incluso-card h3 { font-size: 15px; }
       .incluso-card p  { font-size: 13px; }
       .incluso-card .card-body { padding: 14px 14px 0; }
 
       /* Oferta */
       #oferta { padding: 44px 20px 56px; }
-      .oferta-pill { font-size: 10px; letter-spacing: 1.5px; padding: 8px 18px; margin-bottom: 20px; }
+      .oferta-pill { font-size: 13px; letter-spacing: 1px; padding: 10px 22px; margin-bottom: 20px; }
+      .oferta-left img { max-width: 300px; }
       .oferta-right { padding: 28px 24px; }
       .oferta-item  { font-size: 14px; }
       .oferta-preco { font-size: 52px; margin-bottom: 16px; }
@@ -735,39 +740,38 @@
 
       /* Hero */
       #hero { padding: 28px 16px 44px; }
-      .hero-logo img { height: 76px; }
+      .hero-logo img { height: 100px; }
       #hero h1 { font-size: 23px; line-height: 1.35; }
       #hero .hero-sub { font-size: 15px; }
       .btn-cta { font-size: 13px; padding: 16px 18px; letter-spacing: 0.5px; display: block; width: 100%; text-align: center; }
       .btn-cta-wrap { text-align: center; }
 
       /* Carrosséis */
-      .dep-slide    { width: 195px; }
+      .dep-slide    { width: 260px; }
       .dep-slide-sm { width: 245px; }
 
       /* Virada */
       .stat-row { gap: 20px; }
       .stat-item .num { font-size: 42px; }
 
-      /* Temperamentos — 1 coluna em telas muito pequenas */
+      /* Temperamentos — 1 coluna, card vertical centralizado */
       .temp-grid { grid-template-columns: 1fr; gap: 12px; }
-      .temp-card {
-        padding: 18px 20px;
-        display: flex; align-items: center; gap: 16px;
-        text-align: left;
-      }
-      .temp-card .emoji { font-size: 34px; margin-bottom: 0; flex-shrink: 0; }
-      .temp-card h3 { font-size: 15px; margin-bottom: 4px; }
+      .temp-card { padding: 24px 20px; text-align: center; display: block; }
+      .temp-card .emoji { font-size: 36px; margin-bottom: 10px; }
+      .temp-card h3 { font-size: 16px; margin-bottom: 4px; }
       .temp-card p  { font-size: 13px; }
 
       /* Incluso — 1 coluna */
       .incluso-grid { grid-template-columns: 1fr; }
+      .incluso-card .img-wrap { min-height: 200px; }
+      .incluso-card .img-wrap img { max-height: 170px; }
 
       /* Oferta */
       #oferta { padding: 36px 16px 48px; }
-      .oferta-pill { font-size: 9px; padding: 7px 14px; }
-      .oferta-left  { padding: 20px 16px; }
-      .oferta-right { padding: 24px 18px; }
+      .oferta-pill { font-size: 11px; padding: 8px 16px; }
+      .oferta-left  { padding: 16px; }
+      .oferta-left img { max-width: 260px; }
+      .oferta-right { padding: 20px 18px; }
       .oferta-preco { font-size: 44px; margin-bottom: 16px; }
       .oferta-item  { font-size: 13px; gap: 6px; }
       .oferta-item .item-price { font-size: 13px; }
