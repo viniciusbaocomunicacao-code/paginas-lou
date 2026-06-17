@@ -424,19 +424,13 @@
     #oferta {
       position: relative;
       background: linear-gradient(160deg, var(--coral-light) 0%, var(--coral) 40%, var(--coral-dark) 100%);
-      padding: 52px 24px 72px; text-align: center; overflow: hidden;
+      padding: 52px 24px 72px; text-align: center;
     }
 
     #oferta::before {
       content: ''; position: absolute; width: 600px; height: 600px;
       background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
-      top: -150px; left: 50%; transform: translateX(-50%); pointer-events: none;
-    }
-
-    #oferta::after {
-      content: ''; position: absolute; width: 280px; height: 280px;
-      background: radial-gradient(circle, rgba(245,166,35,0.22) 0%, transparent 65%);
-      bottom: -60px; right: 5%; pointer-events: none;
+      top: -150px; left: 50%; transform: translateX(-50%); pointer-events: none; z-index: 0;
     }
 
     .oferta-titulo {
@@ -450,26 +444,26 @@
       margin-bottom: 24px; position: relative; z-index: 2;
     }
 
-    /* Wrapper empilha imagem + card sem gap */
     .oferta-wrapper {
       max-width: 520px; margin: 0 auto;
       position: relative; z-index: 2;
     }
 
+    /* Imagem flutua, card sobe para cobrir a parte inferior da imagem */
     .oferta-combo-img {
       display: block;
-      max-width: 380px; width: 78%;
+      max-width: 400px; width: 82%;
       margin: 0 auto;
-      position: relative; z-index: 3;
-      transform: translateY(64px);
-      filter: drop-shadow(0 12px 30px rgba(0,0,0,0.26));
+      position: relative; z-index: 2;
+      filter: drop-shadow(0 12px 30px rgba(0,0,0,0.28));
     }
 
     .oferta-card {
       background: var(--white); border-radius: 24px;
-      padding: 80px 28px 32px;
+      margin-top: -110px;
+      padding: 126px 28px 36px;
       box-shadow: 0 20px 80px rgba(0,0,0,0.18);
-      position: relative; z-index: 2;
+      position: relative; z-index: 1;
     }
 
     .oferta-items {
