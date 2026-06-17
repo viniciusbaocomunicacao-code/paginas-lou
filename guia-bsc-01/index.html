@@ -21,7 +21,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -56,46 +56,40 @@
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; }
 
-    /* ── SEÇÕES ── */
     section { padding: 72px 24px; }
-
-    .container     { max-width: 860px;  margin: 0 auto; }
-    .container-wide{ max-width: 1100px; margin: 0 auto; }
+    .container      { max-width: 860px;  margin: 0 auto; }
+    .container-wide { max-width: 1100px; margin: 0 auto; }
 
     .section-tag {
-      display: inline-block;
-      background: var(--coral);
-      color: var(--white);
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase;
+      display: inline-block; background: var(--coral); color: var(--white);
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
       padding: 6px 16px; border-radius: 100px; margin-bottom: 20px;
     }
 
-    .section-title   { font-size: clamp(28px,4vw,42px); color: var(--text); margin-bottom: 16px; }
-    .section-subtitle{ font-size: 18px; color: var(--text-mid); max-width: 640px; margin: 0 auto 40px; }
-    .text-center     { text-align: center; }
+    .section-title    { font-size: clamp(28px,4vw,42px); color: var(--text); margin-bottom: 16px; }
+    .section-subtitle { font-size: 18px; color: var(--text-mid); max-width: 640px; margin: 0 auto 40px; }
+    .text-center      { text-align: center; }
 
     /* ── CTA BUTTON ── */
     .btn-cta {
       display: inline-block;
       background: linear-gradient(135deg, #2ecc71 0%, #1a9e55 100%);
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
+      color: var(--white); font-family: 'Inter', sans-serif;
       font-size: 18px; font-weight: 700; letter-spacing: 0.5px;
       padding: 20px 48px; border-radius: 100px; text-align: center;
-      box-shadow: 0 8px 32px rgba(39,174,96,0.4), 0 0 0 0 rgba(39,174,96,0.4);
+      box-shadow: 0 8px 32px rgba(39,174,96,0.4);
       transition: transform 0.2s, box-shadow 0.2s;
       cursor: pointer; border: none; text-transform: uppercase;
       animation: pulse-glow 2.5s ease-in-out infinite;
     }
 
     @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 8px 32px rgba(39,174,96,0.4), 0 0 0 0 rgba(39,174,96,0.3); }
-      50%       { box-shadow: 0 8px 40px rgba(39,174,96,0.5), 0 0 0 12px rgba(39,174,96,0); }
+      0%,100% { box-shadow: 0 8px 32px rgba(39,174,96,0.4), 0 0 0 0 rgba(39,174,96,0.3); }
+      50%      { box-shadow: 0 8px 40px rgba(39,174,96,0.5), 0 0 0 12px rgba(39,174,96,0); }
     }
 
-    .btn-cta:hover { transform: translateY(-3px); animation: none; box-shadow: 0 16px 48px rgba(39,174,96,0.5); }
-    .btn-cta:active{ transform: translateY(0); }
+    .btn-cta:hover  { transform: translateY(-3px); animation: none; box-shadow: 0 16px 48px rgba(39,174,96,0.5); }
+    .btn-cta:active { transform: translateY(0); }
 
     .btn-cta-wrap { text-align: center; margin-top: 32px; }
 
@@ -104,64 +98,54 @@
       display: flex; align-items: center; justify-content: center; gap: 6px;
     }
 
+    /* ── SHIMMER DIVIDER ── */
+    .shimmer-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--coral-light), var(--orange), var(--coral-light), transparent);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: -200% 0; }
+      100% { background-position:  200% 0; }
+    }
+
     /* ── HERO ── */
     #hero {
       position: relative;
       background: linear-gradient(180deg, #FFF0EE 0%, var(--cream) 100%);
-      padding: 52px 24px 72px;
-      text-align: center;
-      overflow: hidden;
+      padding: 52px 24px 72px; text-align: center; overflow: hidden;
     }
 
-    /* Glow orbs de fundo */
     #hero::before {
-      content: '';
-      position: absolute;
+      content: ''; position: absolute;
       width: 600px; height: 600px;
       background: radial-gradient(circle, rgba(232,100,90,0.18) 0%, transparent 65%);
-      top: -160px; left: -180px;
-      pointer-events: none;
+      top: -160px; left: -180px; pointer-events: none;
       animation: orb-float 8s ease-in-out infinite;
     }
 
     #hero::after {
-      content: '';
-      position: absolute;
+      content: ''; position: absolute;
       width: 480px; height: 480px;
       background: radial-gradient(circle, rgba(245,166,35,0.14) 0%, transparent 65%);
-      bottom: -80px; right: -120px;
-      pointer-events: none;
+      bottom: -80px; right: -120px; pointer-events: none;
       animation: orb-float 10s ease-in-out infinite reverse;
     }
 
     @keyframes orb-float {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50%       { transform: translateY(-30px) scale(1.05); }
+      0%,100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-30px) scale(1.05); }
     }
 
-    /* Logo no hero */
+    /* Logo sem moldura */
     .hero-logo {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 44px;
-      position: relative;
-      z-index: 2;
+      display: flex; justify-content: center;
+      margin-bottom: 44px; position: relative; z-index: 2;
     }
 
-    .hero-logo-inner {
-      display: inline-block;
-      background: rgba(255,255,255,0.95);
-      border-radius: 20px;
-      padding: 18px 40px;
-      box-shadow:
-        0 0 0 1px rgba(232,100,90,0.12),
-        0 12px 48px rgba(45,27,19,0.22),
-        0 4px 16px rgba(232,100,90,0.18);
-    }
-
-    .hero-logo-inner img {
-      height: 130px;
-    }
+    .hero-logo img { height: 140px; }
 
     #hero .eyebrow {
       font-size: 14px; font-weight: 600; color: var(--coral);
@@ -171,53 +155,44 @@
 
     #hero h1 {
       font-size: clamp(30px,5vw,52px); color: var(--text);
-      max-width: 780px; margin: 0 auto 24px;
-      position: relative; z-index: 2;
+      max-width: 780px; margin: 0 auto 24px; position: relative; z-index: 2;
     }
 
     #hero h1 span { color: var(--coral); }
 
     #hero .hero-sub {
       font-size: 18px; color: var(--text-mid);
-      max-width: 560px; margin: 0 auto 40px;
-      position: relative; z-index: 2;
+      max-width: 560px; margin: 0 auto 40px; position: relative; z-index: 2;
     }
 
     .video-wrap {
       max-width: 720px; margin: 0 auto 40px;
       border-radius: 16px; overflow: hidden;
       box-shadow: 0 20px 80px rgba(45,27,19,0.22), 0 0 0 1px rgba(232,100,90,0.10);
-      background: #000; aspect-ratio: 16/9;
-      position: relative; z-index: 2;
+      background: #000; aspect-ratio: 16/9; position: relative; z-index: 2;
     }
 
     .video-wrap iframe { width: 100%; height: 100%; display: block; }
 
     .payment-icons {
       display: flex; align-items: center; justify-content: center;
-      gap: 16px; margin-top: 20px; flex-wrap: wrap;
-      position: relative; z-index: 2;
+      gap: 16px; margin-top: 20px; flex-wrap: wrap; position: relative; z-index: 2;
     }
 
     .payment-icons span { font-size: 13px; color: var(--text-light); font-weight: 500; }
 
     .payment-badge {
-      background: var(--white); border: 1px solid #E8DDD6;
-      border-radius: 8px; padding: 6px 14px;
-      font-size: 13px; font-weight: 600; color: var(--text-mid);
+      background: var(--white); border: 1px solid #E8DDD6; border-radius: 8px;
+      padding: 6px 14px; font-size: 13px; font-weight: 600; color: var(--text-mid);
     }
 
-    /* ── CARROSSEL DE DEPOIMENTOS ── */
+    /* ── CARROSSEL GRANDE (depoimentos principais) ── */
     #depoimentos-rapidos {
-      background: var(--white);
-      padding: 64px 0;
-      overflow: hidden;
+      background: var(--white); padding: 64px 0; overflow: hidden;
     }
 
     #depoimentos-rapidos .dep-header {
-      text-align: center;
-      padding: 0 24px;
-      margin-bottom: 44px;
+      text-align: center; padding: 0 24px; margin-bottom: 44px;
     }
 
     .carousel-outer {
@@ -227,9 +202,7 @@
     }
 
     .carousel-track {
-      display: flex;
-      gap: 20px;
-      width: max-content;
+      display: flex; gap: 20px; width: max-content;
       animation: carousel-scroll 35s linear infinite;
     }
 
@@ -240,21 +213,49 @@
       100% { transform: translateX(-50%); }
     }
 
+    /* Cards sem moldura */
     .dep-slide {
-      width: 280px;
-      flex-shrink: 0;
-      border-radius: 16px;
+      width: 280px; flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .dep-slide:hover { transform: translateY(-4px) scale(1.01); }
+    .dep-slide img { width: 100%; height: auto; display: block; border-radius: 12px; }
+
+    /* ── CARROSSEL PEQUENO (depoimentos secundários) ── */
+    #depoimentos-secundarios {
+      background: var(--cream-dark); padding: 56px 0; overflow: hidden;
+    }
+
+    #depoimentos-secundarios .dep-header {
+      text-align: center; padding: 0 24px; margin-bottom: 36px;
+    }
+
+    .carousel2-outer {
       overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
     }
 
-    .dep-slide:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 16px 48px rgba(45,27,19,0.18);
+    .carousel2-track {
+      display: flex; gap: 24px; width: max-content;
+      animation: carousel-scroll-2 22s linear infinite;
     }
 
-    .dep-slide img { width: 100%; height: auto; display: block; }
+    .carousel2-track:hover { animation-play-state: paused; }
+
+    @keyframes carousel-scroll-2 {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .dep-slide-sm {
+      width: 380px; flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .dep-slide-sm:hover { transform: translateY(-4px) scale(1.01); }
+    .dep-slide-sm img { width: 100%; height: auto; display: block; border-radius: 12px; }
 
     /* ── DOR ── */
     #dor { background: var(--cream-dark); }
@@ -264,8 +265,7 @@
     .dor-list li {
       display: flex; align-items: flex-start; gap: 14px;
       background: var(--white); border-radius: 14px; padding: 18px 22px;
-      font-size: 16px; color: var(--text-mid);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      font-size: 16px; color: var(--text-mid); box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
@@ -280,24 +280,12 @@
     }
 
     #virada::before {
-      content: '';
-      position: absolute;
-      width: 700px; height: 700px;
+      content: ''; position: absolute; width: 700px; height: 700px;
       background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
-      top: -200px; left: 50%; transform: translateX(-50%);
-      pointer-events: none;
+      top: -200px; left: 50%; transform: translateX(-50%); pointer-events: none;
     }
 
-    #virada::after {
-      content: '';
-      position: absolute;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(245,166,35,0.2) 0%, transparent 65%);
-      bottom: -80px; right: 5%;
-      pointer-events: none;
-    }
-
-    #virada .section-title  { color: var(--white); max-width: 680px; margin: 0 auto 20px; position: relative; z-index: 2; }
+    #virada .section-title   { color: var(--white); max-width: 680px; margin: 0 auto 20px; position: relative; z-index: 2; }
     #virada .section-subtitle{ color: rgba(255,255,255,0.88); margin-bottom: 0; position: relative; z-index: 2; }
     #virada .section-tag     { background: rgba(255,255,255,0.2); color: #fff; position: relative; z-index: 2; }
 
@@ -309,9 +297,8 @@
     .stat-item { text-align: center; }
 
     .stat-item .num {
-      font-family: 'Playfair Display', serif;
-      font-size: 52px; font-weight: 700; color: var(--white); line-height: 1;
-      text-shadow: 0 0 40px rgba(255,255,255,0.4);
+      font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700;
+      color: var(--white); line-height: 1; text-shadow: 0 0 40px rgba(255,255,255,0.4);
     }
 
     .stat-item .label { font-size: 15px; color: rgba(255,255,255,0.80); margin-top: 8px; }
@@ -320,8 +307,7 @@
     #temperamentos { background: var(--cream); }
 
     .temp-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
       gap: 24px; margin-top: 48px;
     }
 
@@ -347,15 +333,10 @@
     .temp-card:nth-child(3):hover { box-shadow: 0 16px 48px rgba(74,144,217,0.25); transform: translateY(-8px); }
     .temp-card:nth-child(4):hover { box-shadow: 0 16px 48px rgba(123,104,238,0.25); transform: translateY(-8px); }
 
-    .temp-card .emoji { font-size: 48px; margin-bottom: 16px; }
-    .temp-card h3     { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text); margin-bottom: 6px; }
-
-    .temp-card .subtitle {
-      font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--text-light); margin-bottom: 14px;
-    }
-
-    .temp-card p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+    .temp-card .emoji   { font-size: 48px; margin-bottom: 16px; }
+    .temp-card h3       { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text); margin-bottom: 6px; }
+    .temp-card .subtitle{ font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); margin-bottom: 14px; }
+    .temp-card p        { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
 
     /* ── COMO FUNCIONA ── */
     #como-funciona { background: var(--white); }
@@ -429,71 +410,96 @@
     }
 
     .incluso-card .img-wrap img { max-height: 140px; margin: 0 auto; object-fit: contain; }
-
-    .incluso-card .card-body { padding: 20px 20px 0; }
-    .incluso-card h3 { font-size: 18px; color: var(--text); margin-bottom: 8px; }
-    .incluso-card p  { font-size: 14px; color: var(--text-mid); }
+    .incluso-card .card-body    { padding: 20px 20px 0; }
+    .incluso-card h3            { font-size: 18px; color: var(--text); margin-bottom: 8px; }
+    .incluso-card p             { font-size: 14px; color: var(--text-mid); }
 
     .incluso-card .badge {
-      display: inline-block; background: var(--orange); color: var(--white);
+      display: inline-block; color: var(--white);
       font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
       padding: 4px 12px; border-radius: 100px; margin-bottom: 12px;
     }
 
-    .combo-wrap {
-      margin-top: 56px;
-      background: linear-gradient(135deg, #FFF5F4 0%, var(--cream-dark) 100%);
-      border: 2px solid var(--coral-light); border-radius: 24px; padding: 40px; text-align: center;
-    }
-
-    .combo-wrap h3  { font-size: 26px; color: var(--text); margin-bottom: 12px; }
-    .combo-wrap p   { color: var(--text-mid); font-size: 16px; margin-bottom: 32px; }
-    .combo-wrap img { max-width: 540px; margin: 0 auto; }
-
     /* ── OFERTA ── */
     #oferta {
       position: relative;
-      background: linear-gradient(180deg, #1C1008 0%, #2D1B13 100%);
-      text-align: center; color: var(--white); overflow: hidden;
+      background: linear-gradient(160deg, var(--coral-light) 0%, var(--coral) 40%, var(--coral-dark) 100%);
+      padding: 64px 24px 80px; text-align: center; overflow: hidden;
     }
 
     #oferta::before {
-      content: '';
-      position: absolute;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(232,100,90,0.15) 0%, transparent 65%);
-      top: -100px; left: 50%; transform: translateX(-50%);
-      pointer-events: none;
+      content: ''; position: absolute; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
+      top: -150px; left: 50%; transform: translateX(-50%); pointer-events: none;
     }
 
-    #oferta .section-title { color: var(--white); max-width: 640px; margin: 0 auto 16px; position: relative; z-index: 2; }
-
-    .price-box {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 24px; padding: 48px 40px; max-width: 520px;
-      margin: 40px auto 0; position: relative; z-index: 2;
-      box-shadow: 0 0 80px rgba(232,100,90,0.12);
+    #oferta::after {
+      content: ''; position: absolute; width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(245,166,35,0.22) 0%, transparent 65%);
+      bottom: -60px; right: 5%; pointer-events: none;
     }
 
-    .price-old { font-size: 18px; color: rgba(255,255,255,0.45); text-decoration: line-through; margin-bottom: 8px; }
-
-    .price-new {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(52px,8vw,80px); font-weight: 700; color: var(--white); line-height: 1;
-      text-shadow: 0 0 60px rgba(255,255,255,0.2);
+    .oferta-titulo {
+      font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+      font-size: clamp(28px,5vw,48px); color: var(--white);
+      text-decoration: underline; text-underline-offset: 6px;
+      margin-bottom: 32px; position: relative; z-index: 2;
     }
 
-    .price-new .prefix { font-size: 28px; vertical-align: super; }
-    .price-parcelas { font-size: 14px; color: rgba(255,255,255,0.55); margin-top: 10px; }
+    .oferta-combo-img {
+      max-width: 440px; margin: 0 auto 32px;
+      filter: drop-shadow(0 12px 32px rgba(0,0,0,0.22));
+      position: relative; z-index: 2;
+    }
 
-    .price-box .btn-cta { margin-top: 32px; width: 100%; max-width: 400px; font-size: 17px; display: block; }
+    .oferta-card {
+      background: var(--white); border-radius: 24px; padding: 36px 32px;
+      max-width: 560px; margin: 0 auto;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.18);
+      position: relative; z-index: 2;
+    }
 
-    .payment-row { display: flex; justify-content: center; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+    .oferta-items {
+      display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 28px; text-align: left;
+    }
 
-    .payment-row .pill {
-      background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.80); border-radius: 100px;
-      padding: 6px 18px; font-size: 13px; font-weight: 500;
+    .oferta-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 15px; font-weight: 600; color: var(--text);
+    }
+
+    .oferta-item .item-price {
+      color: var(--coral); font-weight: 700;
+      margin-left: auto; padding-left: 12px; white-space: nowrap;
+    }
+
+    .oferta-divisor {
+      border: none; border-top: 1px solid var(--cream-dark); margin: 20px 0;
+    }
+
+    .oferta-de {
+      font-size: 17px; color: var(--text-mid); margin-bottom: 4px;
+    }
+
+    .oferta-de s { text-decoration-color: var(--coral); }
+
+    .oferta-preco {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(52px,10vw,72px); color: var(--coral); line-height: 1;
+      margin-bottom: 28px;
+    }
+
+    .oferta-preco .rs { font-size: 28px; vertical-align: super; margin-right: 4px; }
+
+    .oferta-card .btn-cta {
+      display: block; width: 100%; font-size: 18px;
+      padding: 20px 32px;
+    }
+
+    .oferta-seguro {
+      font-size: 13px; color: var(--text-light); margin-top: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
     }
 
     /* ── GARANTIA ── */
@@ -501,9 +507,8 @@
 
     .garantia-box {
       background: var(--white); border-radius: 24px; padding: 48px 40px;
-      text-align: center; box-shadow: var(--shadow); max-width: 680px; margin: 0 auto;
-      border: 2px solid var(--green);
-      box-shadow: 0 8px 40px rgba(39,174,96,0.15);
+      text-align: center; max-width: 680px; margin: 0 auto;
+      border: 2px solid var(--green); box-shadow: 0 8px 40px rgba(39,174,96,0.15);
     }
 
     .garantia-box .shield { font-size: 64px; margin-bottom: 20px; }
@@ -522,18 +527,14 @@
     .sobre-foto img { width: 100%; object-fit: cover; }
 
     .sobre-text .section-tag { margin-bottom: 16px; }
-    .sobre-text h2 { font-size: 32px; color: var(--text); margin-bottom: 18px; }
-
-    .sobre-text p {
-      font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-bottom: 20px;
-    }
+    .sobre-text h2  { font-size: 32px; color: var(--text); margin-bottom: 18px; }
+    .sobre-text p   { font-size: 16px; color: var(--text-mid); line-height: 1.75; margin-bottom: 20px; }
 
     .sobre-stats { display: flex; gap: 32px; flex-wrap: wrap; }
 
     .sobre-stat strong {
       display: block; font-family: 'Playfair Display', serif;
-      font-size: 32px; color: var(--coral);
-      text-shadow: 0 0 30px rgba(232,100,90,0.25);
+      font-size: 32px; color: var(--coral); text-shadow: 0 0 30px rgba(232,100,90,0.25);
     }
 
     .sobre-stat span { font-size: 13px; color: var(--text-light); }
@@ -571,21 +572,9 @@
     }
 
     #cta-final::before {
-      content: '';
-      position: absolute;
-      width: 600px; height: 600px;
+      content: ''; position: absolute; width: 600px; height: 600px;
       background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 60%);
-      top: -150px; left: 50%; transform: translateX(-50%);
-      pointer-events: none;
-    }
-
-    #cta-final::after {
-      content: '';
-      position: absolute;
-      width: 250px; height: 250px;
-      background: radial-gradient(circle, rgba(245,166,35,0.20) 0%, transparent 65%);
-      bottom: -60px; right: 8%;
-      pointer-events: none;
+      top: -150px; left: 50%; transform: translateX(-50%); pointer-events: none;
     }
 
     #cta-final h2 {
@@ -611,41 +600,21 @@
       text-align: center; padding: 32px 24px; font-size: 13px;
     }
 
-    /* ── SHIMMER LINE ── */
-    .shimmer-divider {
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--coral-light), var(--orange), var(--coral-light), transparent);
-      background-size: 200% 100%;
-      animation: shimmer 3s linear infinite;
-    }
-
-    @keyframes shimmer {
-      0%   { background-position: -200% 0; }
-      100% { background-position:  200% 0; }
-    }
-
     /* ── REVEAL ── */
-    .reveal {
-      opacity: 0; transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       section { padding: 52px 20px; }
-
       .sobre-inner { grid-template-columns: 1fr; gap: 32px; }
       .sobre-foto  { max-width: 300px; margin: 0 auto; }
-
-      .step   { flex-direction: column; padding: 22px; }
-      .combo-wrap { padding: 28px 20px; }
-      .price-box  { padding: 36px 24px; }
-      .stat-row   { gap: 28px; }
-
-      .hero-logo-inner img { height: 90px; }
-      .dep-slide { width: 240px; }
+      .step        { flex-direction: column; padding: 22px; }
+      .stat-row    { gap: 28px; }
+      .hero-logo img { height: 100px; }
+      .dep-slide   { width: 240px; }
+      .dep-slide-sm{ width: 300px; }
+      .oferta-card { padding: 28px 20px; }
     }
 
     @media (max-width: 480px) {
@@ -659,12 +628,9 @@
   <!-- HERO -->
   <section id="hero">
     <div class="container">
-
-      <!-- Logo com backdrop -->
+      <!-- Logo sem moldura -->
       <div class="hero-logo">
-        <div class="hero-logo-inner">
-          <img src="assets/img/logo.png" alt="O Guia Definitivo dos 4 Temperamentos — Lourdes Corsi" />
-        </div>
+        <img src="assets/img/logo.png" alt="O Guia Definitivo dos 4 Temperamentos — Lourdes Corsi" />
       </div>
 
       <p class="eyebrow">Para mães que querem entender seus filhos de verdade</p>
@@ -677,8 +643,7 @@
           src="https://player-vz-96c7254b-0dc.tv.pandavideo.com.br/embed/?v=96b1e6b3-3367-4b50-a5c0-16435c1763c3"
           style="border:none;"
           allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
-          allowfullscreen="true"
-          fetchpriority="high">
+          allowfullscreen="true" fetchpriority="high">
         </iframe>
       </div>
 
@@ -700,7 +665,7 @@
 
   <div class="shimmer-divider"></div>
 
-  <!-- CARROSSEL DE DEPOIMENTOS -->
+  <!-- CARROSSEL GRANDE — depoimentos longos -->
   <section id="depoimentos-rapidos">
     <div class="dep-header">
       <span class="section-tag">Resultados reais</span>
@@ -709,26 +674,17 @@
 
     <div class="carousel-outer">
       <div class="carousel-track">
-        <!-- Conjunto original -->
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-jessica.png"      alt="Depoimento Jéssica Mendes" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-vanessa.png"      alt="Depoimento Vanessa" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-anaclara.png"     alt="Depoimento Ana Clara" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-catia.png"        alt="Depoimento Cátia Beatris" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-thassia.png"      alt="Depoimento Thássia Goto" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-anonima.png"      alt="Depoimento" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-mariafernanda.jpg" alt="Depoimento @mariafernandaruas" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-sempre-grata.jpg" alt="Depoimento" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-fleuma.jpg"       alt="Depoimento" /></div>
-        <!-- Duplicata para loop infinito -->
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-jessica.png"      alt="Depoimento Jéssica Mendes" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-vanessa.png"      alt="Depoimento Vanessa" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-anaclara.png"     alt="Depoimento Ana Clara" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-catia.png"        alt="Depoimento Cátia Beatris" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-thassia.png"      alt="Depoimento Thássia Goto" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-anonima.png"      alt="Depoimento" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-mariafernanda.jpg" alt="Depoimento @mariafernandaruas" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-sempre-grata.jpg" alt="Depoimento" /></div>
-        <div class="dep-slide"><img src="assets/img/depoimentos/dep-fleuma.jpg"       alt="Depoimento" /></div>
+        <div class="dep-slide"><img src="assets/img/depoimentos/dep-jessica.png"  alt="Depoimento Jéssica Mendes" /></div>
+        <div class="dep-slide"><img src="assets/img/depoimentos/dep-vanessa.png"  alt="Depoimento Vanessa" /></div>
+        <div class="dep-slide"><img src="assets/img/depoimentos/dep-anaclara.png" alt="Depoimento Ana Clara" /></div>
+        <div class="dep-slide"><img src="assets/img/depoimentos/dep-catia.png"    alt="Depoimento Cátia Beatris" /></div>
+        <div class="dep-slide"><img src="assets/img/depoimentos/dep-thassia.png"  alt="Depoimento Thássia Goto" /></div>
+        <!-- duplicata para loop -->
+        <div class="dep-slide"><img src="assets/img/depoimentos/dep-jessica.png"  alt="Depoimento Jéssica Mendes" /></div>
+        <div class="dep-slide"><img src="assets/img/depoimentos/dep-vanessa.png"  alt="Depoimento Vanessa" /></div>
+        <div class="dep-slide"><img src="assets/img/depoimentos/dep-anaclara.png" alt="Depoimento Ana Clara" /></div>
+        <div class="dep-slide"><img src="assets/img/depoimentos/dep-catia.png"    alt="Depoimento Cátia Beatris" /></div>
+        <div class="dep-slide"><img src="assets/img/depoimentos/dep-thassia.png"  alt="Depoimento Thássia Goto" /></div>
       </div>
     </div>
   </section>
@@ -743,7 +699,6 @@
         <h2 class="section-title">Você ama seu filho, mas às vezes não entende ele</h2>
         <p class="section-subtitle">Se você já se sentiu assim, saiba que não é falta de amor — é falta de informação sobre como seu filho funciona.</p>
       </div>
-
       <ul class="dor-list">
         <li class="reveal"><span class="icon">❌</span><span>Seu filho faz birra e você não entende de onde vem tanto conflito</span></li>
         <li class="reveal"><span class="icon">❌</span><span>Você compara seu filho com os filhos de outras mães e sente que está errando</span></li>
@@ -760,7 +715,6 @@
       <span class="section-tag">A solução</span>
       <h2 class="section-title">A descoberta que mudou tudo para mais de 8.000 mães</h2>
       <p class="section-subtitle">O comportamento do seu filho não é "birra" nem "manha". É o temperamento dele se expressando — e quando você entende isso, tudo muda.</p>
-
       <div class="stat-row">
         <div class="stat-item reveal"><div class="num">8.000+</div><div class="label">famílias transformadas</div></div>
         <div class="stat-item reveal"><div class="num">8+</div><div class="label">anos de experiência</div></div>
@@ -777,29 +731,24 @@
         <h2 class="section-title">Qual é o temperamento do seu filho?</h2>
         <p class="section-subtitle">Cada criança tem uma forma única de ser. Conheça os 4 tipos e descubra qual deles está presente no seu filho.</p>
       </div>
-
       <div class="temp-grid">
         <div class="temp-card reveal">
-          <div class="emoji">🔥</div>
-          <h3>O Determinado</h3>
+          <div class="emoji">🔥</div><h3>O Determinado</h3>
           <div class="subtitle">Colérico</div>
           <p>Líder natural, intenso e cheio de energia. Busca controle, testa limites e precisa de desafios para se desenvolver.</p>
         </div>
         <div class="temp-card reveal">
-          <div class="emoji">🌊</div>
-          <h3>O Comunicativo</h3>
+          <div class="emoji">🌊</div><h3>O Comunicativo</h3>
           <div class="subtitle">Sanguíneo</div>
           <p>Falante, agitado e muito sociável. Ama estar com pessoas, se distrai com facilidade e vive o momento presente.</p>
         </div>
         <div class="temp-card reveal">
-          <div class="emoji">🌿</div>
-          <h3>O Tranquilo</h3>
+          <div class="emoji">🌿</div><h3>O Tranquilo</h3>
           <div class="subtitle">Fleumático</div>
           <p>Calmo, observador e estável. Precisa de mais tempo para reagir e prospera em ambientes previsíveis e acolhedores.</p>
         </div>
         <div class="temp-card reveal">
-          <div class="emoji">✨</div>
-          <h3>O Sensível</h3>
+          <div class="emoji">✨</div><h3>O Sensível</h3>
           <div class="subtitle">Melancólico</div>
           <p>Detalhista, profundo e perfeccionista. Muito sensível a críticas, precisa de segurança emocional para se abrir.</p>
         </div>
@@ -817,35 +766,22 @@
         <h2 class="section-title">Como funciona o método</h2>
         <p class="section-subtitle">Simples, direto e pensado para mães com rotina cheia.</p>
       </div>
-
       <div class="steps">
         <div class="step reveal">
           <div class="step-num">1</div>
-          <div class="step-content">
-            <h3>Faça o Teste em 5 minutos</h3>
-            <p>Responda perguntas práticas sobre o comportamento do seu filho e descubra qual dos 4 temperamentos predomina nele.</p>
-          </div>
+          <div class="step-content"><h3>Faça o Teste em 5 minutos</h3><p>Responda perguntas práticas sobre o comportamento do seu filho e descubra qual dos 4 temperamentos predomina nele.</p></div>
         </div>
         <div class="step reveal">
           <div class="step-num">2</div>
-          <div class="step-content">
-            <h3>Entenda os padrões de comportamento</h3>
-            <p>Leia o e-book completo e compreenda por que seu filho age do jeito que age — o que parece birra tem uma explicação.</p>
-          </div>
+          <div class="step-content"><h3>Entenda os padrões de comportamento</h3><p>Leia o e-book completo e compreenda por que seu filho age do jeito que age — o que parece birra tem uma explicação.</p></div>
         </div>
         <div class="step reveal">
           <div class="step-num">3</div>
-          <div class="step-content">
-            <h3>Aplique as 48 estratégias prontas</h3>
-            <p>Acesse o guia de estratégias práticas específicas para o temperamento do seu filho e comece a aplicar hoje mesmo.</p>
-          </div>
+          <div class="step-content"><h3>Aplique as 48 estratégias prontas</h3><p>Acesse o guia de estratégias práticas específicas para o temperamento do seu filho e comece a aplicar hoje mesmo.</p></div>
         </div>
         <div class="step reveal">
           <div class="step-num">4</div>
-          <div class="step-content">
-            <h3>Assista ao Aulão completo</h3>
-            <p>Aprofunde o aprendizado com a masterclass em vídeo, onde Lourdes explica cada temperamento com exemplos reais.</p>
-          </div>
+          <div class="step-content"><h3>Assista ao Aulão completo</h3><p>Aprofunde o aprendizado com a masterclass em vídeo, onde Lourdes explica cada temperamento com exemplos reais.</p></div>
         </div>
       </div>
     </div>
@@ -859,21 +795,17 @@
         <h2 class="section-title">Sua transformação começa imediatamente</h2>
         <p class="section-subtitle">Veja o que mães que aplicaram o método relatam em cada fase.</p>
       </div>
-
       <div class="timeline">
         <div class="timeline-item reveal">
-          <div class="period">Primeiros dias</div>
-          <h3>Clareza e menos culpa</h3>
+          <div class="period">Primeiros dias</div><h3>Clareza e menos culpa</h3>
           <p>Você começa a entender os comportamentos do seu filho e para de se sentir culpada por não saber lidar.</p>
         </div>
         <div class="timeline-item reveal">
-          <div class="period">Primeiras semanas</div>
-          <h3>Menos crises em casa</h3>
+          <div class="period">Primeiras semanas</div><h3>Menos crises em casa</h3>
           <p>Com estratégias específicas, as situações de conflito diminuem e você passa a agir com mais calma e intenção.</p>
         </div>
         <div class="timeline-item reveal">
-          <div class="period">Com consistência</div>
-          <h3>Conexão de verdade</h3>
+          <div class="period">Com consistência</div><h3>Conexão de verdade</h3>
           <p>A relação entre mãe e filho se transforma. Você confia em si mesma e seu filho sente isso.</p>
         </div>
       </div>
@@ -888,12 +820,11 @@
         <h2 class="section-title">Um kit completo para entender seu filho</h2>
         <p class="section-subtitle">Muito mais do que um e-book — é um sistema completo de orientação parental.</p>
       </div>
-
       <div class="incluso-grid">
         <div class="incluso-card reveal">
           <div class="img-wrap"><img src="assets/img/mockups/mockup-guia.png" alt="E-book Guia dos 4 Temperamentos" /></div>
           <div class="card-body">
-            <span class="badge">Principal</span>
+            <span class="badge" style="background:var(--orange);">Principal</span>
             <h3>E-book Guia dos 4 Temperamentos</h3>
             <p>O guia completo sobre os temperamentos infantis, escrito de forma simples e com exemplos reais do dia a dia.</p>
           </div>
@@ -901,7 +832,7 @@
         <div class="incluso-card reveal">
           <div class="img-wrap"><img src="assets/img/mockups/teste4t.png" alt="Teste dos 4 Temperamentos" /></div>
           <div class="card-body">
-            <span class="badge" style="background:#E8645A;">Bônus</span>
+            <span class="badge" style="background:var(--coral);">Bônus</span>
             <h3>Teste dos 4 Temperamentos</h3>
             <p>Quiz interativo para identificar com precisão qual o temperamento predominante do seu filho em poucos minutos.</p>
           </div>
@@ -909,7 +840,7 @@
         <div class="incluso-card reveal">
           <div class="img-wrap"><img src="assets/img/mockups/estrategias.png" alt="48 Estratégias" /></div>
           <div class="card-body">
-            <span class="badge" style="background:#E8645A;">Bônus</span>
+            <span class="badge" style="background:var(--coral);">Bônus</span>
             <h3>48 Estratégias Práticas</h3>
             <p>Guia com 48 estratégias prontas para lidar com o temperamento do seu filho no dia a dia, na escola e nos conflitos.</p>
           </div>
@@ -917,46 +848,63 @@
         <div class="incluso-card reveal">
           <div class="img-wrap"><img src="assets/img/mockups/aulao.png" alt="Aulão dos Temperamentos" /></div>
           <div class="card-body">
-            <span class="badge" style="background:#E8645A;">Bônus</span>
+            <span class="badge" style="background:var(--coral);">Bônus</span>
             <h3>Aulão dos Temperamentos</h3>
             <p>Masterclass em vídeo com Lourdes Corsi aprofundando cada temperamento com exemplos práticos e situações reais.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="combo-wrap reveal">
-        <h3>Tudo isso junto por apenas R$ 37,90</h3>
-        <p>E-book + Teste + 48 Estratégias + Aulão completo. Acesso imediato após o pagamento.</p>
-        <img src="assets/img/mockups/combo.png" alt="Kit completo — Guia dos 4 Temperamentos" />
-        <div class="btn-cta-wrap">
-          <a href="https://pay.hotmart.com/Q93152358C?checkoutMode=10" class="btn-cta" target="_blank" rel="noopener">
-            ✅ QUERO O KIT COMPLETO AGORA
-          </a>
-        </div>
+  <div class="shimmer-divider"></div>
+
+  <!-- CARROSSEL PEQUENO — depoimentos curtos (antes da oferta) -->
+  <section id="depoimentos-secundarios">
+    <div class="dep-header">
+      <span class="section-tag">Quem comprou o Guia diz que</span>
+      <h2 class="section-title">Mais mães que amaram</h2>
+    </div>
+
+    <div class="carousel2-outer">
+      <div class="carousel2-track">
+        <div class="dep-slide-sm"><img src="assets/img/depoimentos/dep-anonima.png"       alt="Depoimento" /></div>
+        <div class="dep-slide-sm"><img src="assets/img/depoimentos/dep-mariafernanda.jpg" alt="Depoimento @mariafernandaruas" /></div>
+        <div class="dep-slide-sm"><img src="assets/img/depoimentos/dep-sempre-grata.jpg"  alt="Depoimento" /></div>
+        <div class="dep-slide-sm"><img src="assets/img/depoimentos/dep-fleuma.jpg"        alt="Depoimento" /></div>
+        <!-- duplicata para loop -->
+        <div class="dep-slide-sm"><img src="assets/img/depoimentos/dep-anonima.png"       alt="Depoimento" /></div>
+        <div class="dep-slide-sm"><img src="assets/img/depoimentos/dep-mariafernanda.jpg" alt="Depoimento @mariafernandaruas" /></div>
+        <div class="dep-slide-sm"><img src="assets/img/depoimentos/dep-sempre-grata.jpg"  alt="Depoimento" /></div>
+        <div class="dep-slide-sm"><img src="assets/img/depoimentos/dep-fleuma.jpg"        alt="Depoimento" /></div>
       </div>
     </div>
   </section>
 
   <!-- OFERTA -->
   <section id="oferta">
-    <div class="container" style="position:relative;z-index:2;">
-      <span class="section-tag" style="background:rgba(255,255,255,0.15);color:#fff;">Oferta especial</span>
-      <h2 class="section-title">Invista no que realmente importa</h2>
-      <p style="color:rgba(255,255,255,0.7);max-width:500px;margin:12px auto 0;font-size:16px;">Sem mensalidade. Sem renovação. Acesso imediato e vitalício.</p>
+    <h2 class="oferta-titulo">Oferta por tempo limitado!</h2>
 
-      <div class="price-box">
-        <p class="price-old">De R$ 358,00</p>
-        <div class="price-new"><span class="prefix">R$</span> 37<span style="font-size:40px">,90</span></div>
-        <p class="price-parcelas">ou em até 12x no cartão</p>
-        <a href="https://pay.hotmart.com/Q93152358C?checkoutMode=10" class="btn-cta" target="_blank" rel="noopener">
-          ✅ COMPRAR AGORA
-        </a>
-        <div class="payment-row">
-          <span class="pill">💳 Cartão</span>
-          <span class="pill">⚡ Pix</span>
-          <span class="pill">📄 Boleto</span>
-        </div>
+    <img src="assets/img/mockups/combo.png" class="oferta-combo-img" alt="Kit completo Guia dos 4 Temperamentos" />
+
+    <div class="oferta-card">
+      <div class="oferta-items">
+        <div class="oferta-item">✅ <span>Guia dos 4 Temperamentos (Ebook)</span><span class="item-price">R$77</span></div>
+        <div class="oferta-item">✅ <span>Teste de temperamento interativo</span><span class="item-price">R$67</span></div>
+        <div class="oferta-item">✅ <span>48 Estratégias para lidar com o temperamento do seu filho</span><span class="item-price">R$57</span></div>
+        <div class="oferta-item">✅ <span>MasterClass 4 Temperamentos na Infância</span><span class="item-price">R$147</span></div>
       </div>
+
+      <hr class="oferta-divisor" />
+
+      <p class="oferta-de">De R$ <s>358,00</s> por</p>
+      <p class="oferta-preco"><span class="rs">R$</span>37,90</p>
+
+      <a href="https://pay.hotmart.com/Q93152358C?checkoutMode=10" class="btn-cta" target="_blank" rel="noopener">
+        COMPRAR AGORA
+      </a>
+
+      <p class="oferta-seguro">🔒 Pagamento 100% seguro · Pix, Cartão ou Boleto</p>
     </div>
   </section>
 
@@ -999,7 +947,6 @@
         <span class="section-tag">Dúvidas frequentes</span>
         <h2 class="section-title">Perguntas e respostas</h2>
       </div>
-
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">Em quanto tempo começo a ver resultados?<span class="chevron">▾</span></button>
@@ -1063,17 +1010,15 @@
         const item   = btn.closest('.faq-item');
         const answer = item.querySelector('.faq-answer');
         const isOpen = item.classList.contains('open');
-
         document.querySelectorAll('.faq-item').forEach(el => {
           el.classList.remove('open');
           el.querySelector('.faq-answer').style.maxHeight = '0';
-          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          el.querySelector('.faq-question').setAttribute('aria-expanded','false');
         });
-
         if (!isOpen) {
           item.classList.add('open');
           answer.style.maxHeight = answer.scrollHeight + 'px';
-          btn.setAttribute('aria-expanded', 'true');
+          btn.setAttribute('aria-expanded','true');
         }
       });
     });
