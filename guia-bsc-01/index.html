@@ -424,89 +424,103 @@
     #oferta {
       position: relative;
       background: linear-gradient(160deg, var(--coral-light) 0%, var(--coral) 40%, var(--coral-dark) 100%);
-      padding: 52px 24px 72px; text-align: center;
+      padding: 56px 24px 72px; text-align: center; overflow: hidden;
     }
 
     #oferta::before {
-      content: ''; position: absolute; width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
-      top: -150px; left: 50%; transform: translateX(-50%); pointer-events: none; z-index: 0;
+      content: ''; position: absolute; width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 60%);
+      top: -200px; left: 50%; transform: translateX(-50%); pointer-events: none;
     }
 
-    .oferta-titulo {
-      font-family: 'Playfair Display', serif;
-      font-style: italic; font-weight: 700;
-      font-size: clamp(26px, 5vw, 44px);
+    /* Pill badge moderno com raio */
+    .oferta-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       color: var(--white);
-      text-decoration: underline;
-      text-underline-offset: 7px;
-      text-decoration-thickness: 2px;
-      margin-bottom: 24px; position: relative; z-index: 2;
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      padding: 10px 24px; border-radius: 100px;
+      margin-bottom: 28px; position: relative; z-index: 2;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.2);
     }
 
-    .oferta-wrapper {
-      max-width: 520px; margin: 0 auto;
+    /* Box horizontal: imagem esquerda, oferta direita */
+    .oferta-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      max-width: 860px; margin: 0 auto;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.20);
       position: relative; z-index: 2;
+      text-align: left;
     }
 
-    /* Imagem flutua, card sobe para cobrir a parte inferior da imagem */
-    .oferta-combo-img {
-      display: block;
-      max-width: 400px; width: 82%;
-      margin: 0 auto;
-      position: relative; z-index: 2;
-      filter: drop-shadow(0 12px 30px rgba(0,0,0,0.28));
+    .oferta-left {
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      padding: 32px 24px;
+      border-right: 1px solid var(--cream-dark);
     }
 
-    .oferta-card {
-      background: var(--white); border-radius: 24px;
-      margin-top: -110px;
-      padding: 126px 28px 36px;
-      box-shadow: 0 20px 80px rgba(0,0,0,0.18);
-      position: relative; z-index: 1;
+    .oferta-left img { width: 100%; max-width: 360px; }
+
+    .oferta-right {
+      padding: 36px 32px;
+      display: flex; flex-direction: column; justify-content: center;
     }
 
     .oferta-items {
-      display: flex; flex-direction: column; gap: 12px;
-      margin-bottom: 28px; text-align: left;
+      display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;
     }
 
     .oferta-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 15px; font-weight: 600; color: var(--text);
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 14px; font-weight: 600; color: var(--text);
     }
 
     .oferta-item .item-price {
       color: var(--coral); font-weight: 700;
-      margin-left: auto; padding-left: 12px; white-space: nowrap;
+      margin-left: auto; padding-left: 10px; white-space: nowrap;
     }
 
     .oferta-divisor {
-      border: none; border-top: 1px solid var(--cream-dark); margin: 20px 0;
+      border: none; border-top: 1px solid var(--cream-dark); margin: 16px 0;
     }
 
     .oferta-de {
-      font-size: 17px; color: var(--text-mid); margin-bottom: 4px;
+      font-size: 15px; color: var(--text-mid); margin-bottom: 2px;
     }
 
     .oferta-de s { text-decoration-color: var(--coral); }
 
     .oferta-preco {
       font-family: 'Playfair Display', serif; font-weight: 700;
-      font-size: clamp(52px,10vw,72px); color: var(--coral); line-height: 1;
-      margin-bottom: 28px;
+      font-size: clamp(44px, 6vw, 64px); color: var(--coral); line-height: 1;
+      margin-bottom: 20px;
     }
 
-    .oferta-preco .rs { font-size: 28px; vertical-align: super; margin-right: 4px; }
+    .oferta-preco .rs { font-size: 24px; vertical-align: super; margin-right: 2px; }
 
-    .oferta-card .btn-cta {
-      display: block; width: 100%; font-size: 18px;
-      padding: 20px 32px;
+    .oferta-right .btn-cta {
+      display: block; width: 100%; font-size: 16px;
+      padding: 18px 24px;
     }
 
     .oferta-seguro {
-      font-size: 13px; color: var(--text-light); margin-top: 16px;
-      display: flex; align-items: center; justify-content: center; gap: 6px;
+      font-size: 12px; color: var(--text-light); margin-top: 12px;
+      display: flex; align-items: center; gap: 5px;
+    }
+
+    @media (max-width: 640px) {
+      .oferta-box { grid-template-columns: 1fr; }
+      .oferta-left { border-right: none; border-bottom: 1px solid var(--cream-dark); padding: 24px; }
+      .oferta-right { padding: 28px 24px; }
     }
 
     /* ── GARANTIA ── */
@@ -890,30 +904,35 @@
 
   <!-- OFERTA -->
   <section id="oferta">
-    <h2 class="oferta-titulo">Oferta por tempo limitado!</h2>
+    <div class="oferta-pill">⚡ Oferta por tempo limitado ⚡</div>
 
-    <div class="oferta-wrapper">
-      <img src="assets/img/mockups/combo.png" class="oferta-combo-img" alt="Kit completo Guia dos 4 Temperamentos" />
-      <div class="oferta-card">
-      <div class="oferta-items">
-        <div class="oferta-item">✅ <span>Guia dos 4 Temperamentos (Ebook)</span><span class="item-price">R$77</span></div>
-        <div class="oferta-item">✅ <span>Teste de temperamento interativo</span><span class="item-price">R$67</span></div>
-        <div class="oferta-item">✅ <span>48 Estratégias para lidar com o temperamento do seu filho</span><span class="item-price">R$57</span></div>
-        <div class="oferta-item">✅ <span>MasterClass 4 Temperamentos na Infância</span><span class="item-price">R$147</span></div>
+    <div class="oferta-box">
+      <!-- Lado esquerdo: mockup -->
+      <div class="oferta-left">
+        <img src="assets/img/mockups/combo.png" alt="Kit completo Guia dos 4 Temperamentos" />
       </div>
 
-      <hr class="oferta-divisor" />
+      <!-- Lado direito: oferta -->
+      <div class="oferta-right">
+        <div class="oferta-items">
+          <div class="oferta-item">✅ <span>Guia dos 4 Temperamentos (Ebook)</span><span class="item-price">R$77</span></div>
+          <div class="oferta-item">✅ <span>Teste de temperamento interativo</span><span class="item-price">R$67</span></div>
+          <div class="oferta-item">✅ <span>48 Estratégias para lidar com o temperamento do seu filho</span><span class="item-price">R$57</span></div>
+          <div class="oferta-item">✅ <span>MasterClass 4 Temperamentos na Infância</span><span class="item-price">R$147</span></div>
+        </div>
 
-      <p class="oferta-de">De R$ <s>358,00</s> por</p>
-      <p class="oferta-preco"><span class="rs">R$</span>37,90</p>
+        <hr class="oferta-divisor" />
 
-      <a href="https://pay.hotmart.com/Q93152358C?checkoutMode=10" class="btn-cta" target="_blank" rel="noopener">
-        COMPRAR AGORA
-      </a>
+        <p class="oferta-de">De R$ <s>358,00</s> por</p>
+        <p class="oferta-preco"><span class="rs">R$</span>37,90</p>
 
-      <p class="oferta-seguro">🔒 Pagamento 100% seguro · Pix, Cartão ou Boleto</p>
-    </div><!-- oferta-card -->
-    </div><!-- oferta-wrapper -->
+        <a href="https://pay.hotmart.com/Q93152358C?checkoutMode=10" class="btn-cta" target="_blank" rel="noopener">
+          COMPRAR AGORA
+        </a>
+
+        <p class="oferta-seguro">🔒 Pagamento 100% seguro · Pix, Cartão ou Boleto</p>
+      </div>
+    </div>
   </section>
 
   <!-- GARANTIA -->
