@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compra confirmada! — Guia dos 4 Temperamentos</title>
+
+  <!-- Meta Pixel — PageView -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '962917475474073');
+    fbq('track', 'PageView');
+    fbq('track', 'Purchase', {
+      value: 37.90,
+      currency: 'BRL',
+      content_name: 'Guia dos 4 Temperamentos',
+      content_type: 'product'
+    });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=962917475474073&ev=Purchase&noscript=1"/></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --coral: #E8645A;
+      --coral-dark: #C94E44;
+      --cream: #FDF8F5;
+      --cream-dark: #F5EDE6;
+      --text: #2D1B13;
+      --text-mid: #5C3D2E;
+      --text-light: #9B7B6B;
+      --white: #FFFFFF;
+      --green: #27AE60;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* HEADER */
+    .site-header {
+      background: var(--white);
+      padding: 16px 24px;
+      text-align: center;
+      border-bottom: 2px solid var(--cream-dark);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .site-header img {
+      height: 52px;
+      margin: 0 auto;
+    }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* CHECKMARK ANIMATION */
+    .check-circle {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, var(--green) 0%, #1e9651 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      box-shadow: 0 8px 32px rgba(39,174,96,0.30);
+      animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .check-circle svg {
+      width: 44px;
+      height: 44px;
+      stroke: #fff;
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+      animation: draw 0.4s 0.4s ease forwards;
+    }
+
+    @keyframes draw {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 44px);
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-mid);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    /* CARD */
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 24px rgba(45,27,19,0.10);
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .card h2 {
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .steps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .steps-list li .num {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      background: var(--coral);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* SHARE */
+    .share-card {
+      background: linear-gradient(135deg, #FFF5F4 0%, var(--cream-dark) 100%);
+      border: 2px solid #F5877F;
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .share-card h3 {
+      font-size: 20px;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .share-card p {
+      font-size: 14px;
+      color: var(--text-mid);
+      margin-bottom: 20px;
+    }
+
+    .share-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 100px;
+      box-shadow: 0 6px 20px rgba(232,100,90,0.30);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(232,100,90,0.40);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 24px 20px; }
+      main { padding: 44px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <img src="../guia-bsc-01/assets/img/logo.png" alt="Guia dos 4 Temperamentos — Lourdes Corsi" />
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="check-circle">
+        <svg viewBox="0 0 52 52">
+          <polyline points="14,27 22,35 38,17" />
+        </svg>
+      </div>
+
+      <span class="tag">Compra confirmada!</span>
+      <h1>Parabéns! Você deu o primeiro passo para entender seu filho de verdade 🎉</h1>
+      <p class="subtitle">Seu acesso ao Guia dos 4 Temperamentos está sendo processado. Em instantes você receberá um e-mail com todas as instruções de acesso.</p>
+
+      <div class="card">
+        <h2>📧 Próximos passos</h2>
+        <ul class="steps-list">
+          <li>
+            <span class="num">1</span>
+            <span>Verifique sua caixa de entrada — o e-mail com o link de acesso chega em instantes. Caso não apareça, confira a pasta de <strong>Spam</strong> ou <strong>Promoções</strong>.</span>
+          </li>
+          <li>
+            <span class="num">2</span>
+            <span>Clique no link do e-mail para criar seu login na Hotmart e acessar todos os materiais: e-book, teste, estratégias e aulão.</span>
+          </li>
+          <li>
+            <span class="num">3</span>
+            <span>Comece pelo <strong>Teste dos 4 Temperamentos</strong> — ele leva menos de 5 minutos e já vai te dar a resposta que você estava buscando.</span>
+          </li>
+          <li>
+            <span class="num">4</span>
+            <span>Aplique as estratégias do guia e observe as mudanças. As mães que mais evoluem são as que começam logo no primeiro dia!</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="share-card">
+        <h3>Conhece outra mãe que precisa disso? 💛</h3>
+        <p>Compartilha com ela — às vezes uma indicação muda tudo.</p>
+        <a href="https://pay.hotmart.com/Q93152358C?checkoutMode=10" class="share-btn" target="_blank" rel="noopener">
+          Compartilhar o Guia
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Lourdes Corsi · Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
