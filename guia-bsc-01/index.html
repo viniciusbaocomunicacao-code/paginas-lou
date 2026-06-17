@@ -625,22 +625,178 @@
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── RESPONSIVE ── */
+    /* ── PERFORMANCE: desativa animações pesadas em mobile ── */
     @media (max-width: 768px) {
-      section { padding: 52px 20px; }
-      .sobre-inner { grid-template-columns: 1fr; gap: 32px; }
-      .sobre-foto  { max-width: 300px; margin: 0 auto; }
-      .step        { flex-direction: column; padding: 22px; }
-      .stat-row    { gap: 28px; }
-      .hero-logo img { height: 100px; }
-      .dep-slide   { width: 240px; }
-      .dep-slide-sm{ width: 300px; }
-      .oferta-card { padding: 28px 20px; }
+      #hero::before, #hero::after,
+      #virada::before, #cta-final::before { display: none; }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* ── TABLET (≤ 768px) ── */
+    @media (max-width: 768px) {
+      section { padding: 48px 20px; }
+      .section-subtitle { font-size: 16px; margin-bottom: 28px; }
+
+      /* Hero */
+      #hero { padding: 36px 20px 52px; }
+      .hero-logo { margin-bottom: 24px; }
+      .hero-logo img { height: 88px; }
+      #hero .eyebrow { font-size: 11px; margin-bottom: 12px; }
+      #hero h1 { font-size: clamp(24px, 6.5vw, 38px); margin-bottom: 14px; }
+      #hero .hero-sub { font-size: 16px; margin-bottom: 24px; }
+      .video-wrap { border-radius: 12px; margin-bottom: 24px; }
+      .btn-cta { font-size: 15px; padding: 17px 24px; }
+      .btn-cta-wrap { margin-top: 20px; }
+      .payment-icons { gap: 8px; margin-top: 14px; }
+      .payment-badge { font-size: 12px; padding: 5px 12px; }
+
+      /* Carrosséis */
+      #depoimentos-rapidos    { padding: 44px 0; }
+      #depoimentos-secundarios{ padding: 44px 0; }
+      .dep-slide    { width: 220px; }
+      .dep-slide-sm { width: 270px; }
+      .carousel-track  { gap: 14px; }
+      .carousel2-track { gap: 14px; }
+
+      /* Dor */
+      .dor-list li { font-size: 15px; padding: 14px 18px; }
+
+      /* Virada */
+      .stat-row { gap: 32px; }
+      .stat-item .num { font-size: 46px; }
+      .stat-item .label { font-size: 13px; }
+
+      /* Temperamentos */
+      .temp-grid { grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; }
+      .temp-card { padding: 24px 16px; border-radius: 16px; }
+      .temp-card .emoji { font-size: 40px; margin-bottom: 12px; }
+      .temp-card h3 { font-size: 17px; }
+
+      /* Como funciona */
+      .steps { margin-top: 32px; gap: 14px; }
+      .step { flex-direction: column; padding: 20px; gap: 14px; border-radius: 14px; }
+      .step-num { width: 44px; height: 44px; min-width: 44px; font-size: 20px; }
+      .step-content h3 { font-size: 17px; }
+      .step-content p  { font-size: 14px; }
+
+      /* Resultados */
+      .timeline { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
+      .timeline-item { padding: 24px 20px; }
+
+      /* Incluso */
+      .incluso-grid { grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+      .incluso-card .img-wrap { min-height: 130px; padding: 16px; }
+      .incluso-card .img-wrap img { max-height: 100px; }
+      .incluso-card h3 { font-size: 15px; }
+      .incluso-card p  { font-size: 13px; }
+      .incluso-card .card-body { padding: 14px 14px 0; }
+
+      /* Oferta */
+      #oferta { padding: 44px 20px 56px; }
+      .oferta-pill { font-size: 10px; letter-spacing: 1.5px; padding: 8px 18px; margin-bottom: 20px; }
+      .oferta-right { padding: 28px 24px; }
+      .oferta-item  { font-size: 14px; }
+      .oferta-preco { font-size: 52px; margin-bottom: 16px; }
+      .oferta-right .btn-cta { font-size: 16px; padding: 18px 24px; }
+
+      /* Garantia */
+      .garantia-box { padding: 36px 24px; border-radius: 20px; }
+      .garantia-box .shield { font-size: 52px; }
+      .garantia-box h2 { font-size: 22px; }
+      .garantia-box p  { font-size: 15px; }
+
+      /* Sobre */
+      .sobre-inner { grid-template-columns: 1fr; gap: 28px; }
+      .sobre-foto  { max-width: 240px; margin: 0 auto; border-radius: 20px; }
+      .sobre-text h2 { font-size: 26px; }
+      .sobre-text p  { font-size: 15px; }
+      .sobre-stat strong { font-size: 28px; }
+      .sobre-stats { gap: 24px; }
+
+      /* FAQ */
+      .faq-list { margin-top: 32px; gap: 10px; }
+      .faq-question { font-size: 15px; padding: 18px 20px; }
+      .faq-answer-inner { font-size: 14px; padding: 0 20px 18px; }
+
+      /* CTA Final */
+      #cta-final { padding: 56px 20px; }
+      #cta-final h2 { font-size: clamp(24px, 6vw, 38px); margin-bottom: 12px; }
+      #cta-final p  { font-size: 15px; margin-bottom: 28px; }
+      #cta-final .price-highlight { font-size: 18px; }
+    }
+
+    /* ── SMALL MOBILE (≤ 480px) ── */
     @media (max-width: 480px) {
-      .temp-grid    { grid-template-columns: 1fr 1fr; }
+      section { padding: 40px 16px; }
+      .section-subtitle { font-size: 15px; margin-bottom: 24px; }
+
+      /* Hero */
+      #hero { padding: 28px 16px 44px; }
+      .hero-logo img { height: 76px; }
+      #hero h1 { font-size: 23px; line-height: 1.35; }
+      #hero .hero-sub { font-size: 15px; }
+      .btn-cta { font-size: 13px; padding: 16px 18px; letter-spacing: 0.5px; display: block; width: 100%; text-align: center; }
+      .btn-cta-wrap { text-align: center; }
+
+      /* Carrosséis */
+      .dep-slide    { width: 195px; }
+      .dep-slide-sm { width: 245px; }
+
+      /* Virada */
+      .stat-row { gap: 20px; }
+      .stat-item .num { font-size: 42px; }
+
+      /* Temperamentos — 1 coluna em telas muito pequenas */
+      .temp-grid { grid-template-columns: 1fr; gap: 12px; }
+      .temp-card {
+        padding: 18px 20px;
+        display: flex; align-items: center; gap: 16px;
+        text-align: left;
+      }
+      .temp-card .emoji { font-size: 34px; margin-bottom: 0; flex-shrink: 0; }
+      .temp-card h3 { font-size: 15px; margin-bottom: 4px; }
+      .temp-card p  { font-size: 13px; }
+
+      /* Incluso — 1 coluna */
       .incluso-grid { grid-template-columns: 1fr; }
+
+      /* Oferta */
+      #oferta { padding: 36px 16px 48px; }
+      .oferta-pill { font-size: 9px; padding: 7px 14px; }
+      .oferta-left  { padding: 20px 16px; }
+      .oferta-right { padding: 24px 18px; }
+      .oferta-preco { font-size: 44px; margin-bottom: 16px; }
+      .oferta-item  { font-size: 13px; gap: 6px; }
+      .oferta-item .item-price { font-size: 13px; }
+
+      /* Garantia */
+      .garantia-box { padding: 24px 16px; border-radius: 16px; }
+      .garantia-box h2 { font-size: 20px; }
+
+      /* Sobre */
+      .sobre-foto { max-width: 200px; }
+      .sobre-text h2 { font-size: 22px; }
+      .sobre-stat strong { font-size: 26px; }
+      .sobre-stats { gap: 20px; }
+
+      /* FAQ */
+      .faq-question { font-size: 14px; padding: 16px; }
+      .faq-answer-inner { padding: 0 16px 16px; font-size: 14px; }
+
+      /* CTA Final */
+      #cta-final { padding: 44px 16px; }
+      #cta-final .price-highlight { font-size: 16px; }
+
+      /* Seções específicas com padding menor */
+      #virada   { padding: 52px 16px; }
+      #dor      { padding: 40px 16px; }
+      #incluso  { padding: 40px 16px; }
+      #sobre    { padding: 40px 16px; }
+      #garantia { padding: 40px 16px; }
+      #faq      { padding: 40px 16px; }
     }
   </style>
 </head>
