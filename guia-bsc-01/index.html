@@ -802,6 +802,74 @@
       #garantia { padding: 40px 16px; }
       #faq      { padding: 40px 16px; }
     }
+
+    /* ── MOBILE STICKY BAR ── */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      background: #fff; border-top: 2px solid var(--cream-dark);
+      padding: 12px 16px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      box-shadow: 0 -4px 24px rgba(45,27,19,0.12);
+      transform: translateY(100%); transition: transform 0.35s ease;
+    }
+    .sticky-bar.is-visible  { transform: translateY(0); }
+    .sticky-bar__text { font-size: 12px; color: var(--text-mid); line-height: 1.3; }
+    .sticky-bar__text strong { display: block; font-size: 15px; color: var(--text); }
+    .sticky-bar__btn {
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #2ecc71 0%, #1a9e55 100%);
+      color: var(--white); font-size: 13px; font-weight: 700;
+      padding: 12px 18px; border-radius: 100px; white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(39,174,96,0.4);
+      animation: pulse-glow 2.5s ease-in-out infinite;
+      text-decoration: none;
+    }
+    @media (min-width: 769px) { .sticky-bar { display: none; } }
+
+    /* ── COUNTDOWN ── */
+    .countdown-wrap {
+      position: relative; z-index: 2;
+      margin-bottom: 24px; text-align: center;
+    }
+    .countdown-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 10px;
+    }
+    .countdown-timer {
+      display: inline-flex; gap: 8px; align-items: center;
+    }
+    .countdown-block {
+      background: rgba(0,0,0,0.22); border-radius: 10px;
+      padding: 10px 14px; min-width: 60px; text-align: center;
+    }
+    .countdown-block .cd-num {
+      font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700;
+      color: var(--white); line-height: 1; display: block;
+    }
+    .countdown-block .cd-lbl {
+      font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.60); margin-top: 3px; display: block;
+    }
+    .countdown-sep { font-size: 22px; font-weight: 700; color: rgba(255,255,255,0.5); }
+
+    /* ── INTERMEDIATE CTA ── */
+    .mid-cta {
+      background: linear-gradient(135deg, #FFF0EE 0%, var(--cream-dark) 100%);
+      padding: 56px 24px; text-align: center; border-top: 1px solid rgba(232,100,90,0.15);
+    }
+    .mid-cta h2 {
+      font-family: 'Playfair Display', serif; line-height: 1.25;
+      font-size: clamp(22px, 3.5vw, 32px); color: var(--text);
+      max-width: 580px; margin: 0 auto 12px;
+    }
+    .mid-cta p { font-size: 16px; color: var(--text-mid); margin-bottom: 28px; }
+
+    @media (max-width: 480px) {
+      .mid-cta { padding: 40px 16px; }
+      .countdown-block { min-width: 50px; padding: 8px 10px; }
+      .countdown-block .cd-num { font-size: 24px; }
+      .sticky-bar__text strong { font-size: 14px; }
+    }
   </style>
 </head>
 <body>
@@ -817,6 +885,13 @@
       <p class="eyebrow">Para mães que querem entender seus filhos de verdade</p>
       <h1>Descubra o temperamento do seu filho e <span>transforme brigas em cooperação</span> em até 7 dias</h1>
       <p class="hero-sub">Um método simples e comprovado que já ajudou mais de 8.000 mães a criarem filhos com menos conflito e mais conexão.</p>
+
+      <div class="btn-cta-wrap" style="margin-top:28px;margin-bottom:32px;">
+        <a href="https://pay.hotmart.com/Q93152358C?checkoutMode=10" class="btn-cta" target="_blank" rel="noopener">
+          ✅ QUERO DESCOBRIR O TEMPERAMENTO DO MEU FILHO
+        </a>
+        <p class="cta-sub">🔒 Só R$ 37,90 · Acesso imediato · Garantia de 7 dias</p>
+      </div>
 
       <div class="video-wrap">
         <iframe
@@ -936,6 +1011,16 @@
       </div>
     </div>
   </section>
+
+  <!-- CTA INTERMEDIÁRIO -->
+  <div class="mid-cta">
+    <h2>Você acabou de descobrir qual temperamento descreve seu filho?</h2>
+    <p>O Guia completo te mostra exatamente o que fazer com essa informação.</p>
+    <a href="https://pay.hotmart.com/Q93152358C?checkoutMode=10" class="btn-cta" target="_blank" rel="noopener">
+      ✅ QUERO O GUIA COMPLETO — R$ 37,90
+    </a>
+    <p class="cta-sub" style="justify-content:center;margin-top:12px;">🔒 Pagamento 100% seguro &nbsp;·&nbsp; Garantia de 7 dias</p>
+  </div>
 
   <div class="shimmer-divider"></div>
 
@@ -1064,6 +1149,17 @@
 
   <!-- OFERTA -->
   <section id="oferta">
+    <div class="countdown-wrap">
+      <p class="countdown-label">⏳ Essa oferta encerra em</p>
+      <div class="countdown-timer">
+        <div class="countdown-block"><span class="cd-num" id="cd-h">23</span><span class="cd-lbl">horas</span></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-block"><span class="cd-num" id="cd-m">59</span><span class="cd-lbl">min</span></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-block"><span class="cd-num" id="cd-s">59</span><span class="cd-lbl">seg</span></div>
+      </div>
+    </div>
+
     <div class="oferta-pill">⚡ Oferta por tempo limitado ⚡</div>
 
     <div class="oferta-box">
@@ -1087,7 +1183,7 @@
         <p class="oferta-preco"><span class="rs">R$</span>37,90</p>
 
         <a href="https://pay.hotmart.com/Q93152358C?checkoutMode=10" class="btn-cta" target="_blank" rel="noopener">
-          COMPRAR AGORA
+          ✅ QUERO ENTENDER MEU FILHO AGORA
         </a>
 
         <p class="oferta-seguro">🔒 Pagamento 100% seguro · Pix, Cartão ou Boleto</p>
@@ -1184,6 +1280,17 @@
     </div>
   </section>
 
+  <!-- MOBILE STICKY BAR -->
+  <div class="sticky-bar" id="sticky-bar" aria-hidden="true">
+    <div class="sticky-bar__text">
+      <strong>Guia dos 4 Temperamentos</strong>
+      R$ 37,90 · Acesso imediato
+    </div>
+    <a href="https://pay.hotmart.com/Q93152358C?checkoutMode=10" class="sticky-bar__btn" target="_blank" rel="noopener">
+      COMPRAR AGORA
+    </a>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <p>© 2026 Lourdes Corsi · Todos os direitos reservados</p>
@@ -1221,6 +1328,46 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Countdown (24h from first visit, persisted in localStorage)
+    (function() {
+      const KEY = 'guia4t-dl';
+      let dl = Number(localStorage.getItem(KEY));
+      if (!dl || dl < Date.now()) {
+        dl = Date.now() + 24 * 60 * 60 * 1000;
+        localStorage.setItem(KEY, dl);
+      }
+      const hEl = document.getElementById('cd-h');
+      const mEl = document.getElementById('cd-m');
+      const sEl = document.getElementById('cd-s');
+      function pad(n) { return String(n).padStart(2,'0'); }
+      function tick() {
+        const diff = dl - Date.now();
+        if (diff <= 0) { hEl.textContent = mEl.textContent = sEl.textContent = '00'; return; }
+        hEl.textContent = pad(Math.floor(diff / 3600000));
+        mEl.textContent = pad(Math.floor((diff % 3600000) / 60000));
+        sEl.textContent = pad(Math.floor((diff % 60000) / 1000));
+        setTimeout(tick, 1000);
+      }
+      tick();
+    })();
+
+    // Mobile sticky bar — show after 400px scroll, hide when offer section is in view
+    (function() {
+      const bar    = document.getElementById('sticky-bar');
+      const oferta = document.getElementById('oferta');
+      if (!bar) return;
+      window.addEventListener('scroll', function() {
+        if (window.scrollY < 400) { bar.classList.remove('is-visible'); return; }
+        if (oferta) {
+          const r = oferta.getBoundingClientRect();
+          if (r.top < window.innerHeight && r.bottom > 0) {
+            bar.classList.remove('is-visible'); return;
+          }
+        }
+        bar.classList.add('is-visible');
+      }, { passive: true });
+    })();
   </script>
 
 </body>
