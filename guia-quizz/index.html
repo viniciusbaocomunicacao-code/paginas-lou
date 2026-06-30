@@ -224,12 +224,14 @@
 
     .incluso-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
     .incluso-item {
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex; justify-content: space-between; align-items: flex-start;
       background: var(--white); border: 1.5px solid var(--border);
-      border-radius: 12px; padding: 14px 18px;
-      font-size: 14px; font-weight: 500; color: var(--text); gap: 10px;
+      border-radius: 14px; padding: 16px 18px; gap: 12px;
     }
-    .item-price { color: var(--text-lt); font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+    .incluso-left { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .incluso-name { font-size: 14px; font-weight: 600; color: var(--text); }
+    .incluso-desc { font-size: 13px; color: var(--text-lt); line-height: 1.5; }
+    .item-price { color: var(--text-lt); font-size: 13px; white-space: nowrap; flex-shrink: 0; padding-top: 2px; }
 
     .timer-box {
       background: var(--dark); border-radius: 16px;
@@ -563,10 +565,34 @@
           <p class="sales-sub">Mais de 8.000 mães já descobriram o temperamento do filho e transformaram a forma de criar.</p>
 
           <div class="incluso-list">
-            <div class="incluso-item"><span>✅ Guia dos 4 Temperamentos (Ebook)</span><span class="item-price">R$77</span></div>
-            <div class="incluso-item"><span>✅ Teste de temperamento interativo</span><span class="item-price">R$67</span></div>
-            <div class="incluso-item"><span>✅ 48 Estratégias para lidar com o temperamento do seu filho</span><span class="item-price">R$57</span></div>
-            <div class="incluso-item"><span>✅ MasterClass 4 Temperamentos na Infância</span><span class="item-price">R$147</span></div>
+            <div class="incluso-item">
+              <div class="incluso-left">
+                <span class="incluso-name">✅ Guia dos 4 Temperamentos (Ebook)</span>
+                <span class="incluso-desc">Entenda o que move o seu filho por dentro e por que ele reage como reage</span>
+              </div>
+              <span class="item-price">R$77</span>
+            </div>
+            <div class="incluso-item">
+              <div class="incluso-left">
+                <span class="incluso-name">✅ Teste de temperamento interativo</span>
+                <span class="incluso-desc">Descubra em minutos qual é o temperamento dominante do seu filho</span>
+              </div>
+              <span class="item-price">R$67</span>
+            </div>
+            <div class="incluso-item">
+              <div class="incluso-left">
+                <span class="incluso-name">✅ 48 Estratégias para lidar com o temperamento do seu filho</span>
+                <span class="incluso-desc">Saiba exatamente o que fazer em cada situação com base no jeito que o seu filho é</span>
+              </div>
+              <span class="item-price">R$57</span>
+            </div>
+            <div class="incluso-item">
+              <div class="incluso-left">
+                <span class="incluso-name">✅ MasterClass 4 Temperamentos na Infância</span>
+                <span class="incluso-desc">Aula completa em vídeo para você aplicar tudo na prática desde o primeiro dia</span>
+              </div>
+              <span class="item-price">R$147</span>
+            </div>
           </div>
 
           <div class="timer-box">
