@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sessão de Clareza — Lourdes Corsi</title>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '962917475474073');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=962917475474073&ev=PageView&noscript=1"/></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:     #E07260;
+      --rose-dk:  #C25A49;
+      --rose-lt:  #F5E8E5;
+      --cream:    #FDF9F4;
+      --text:     #2D1B13;
+      --text-mid: #5C3D2E;
+      --text-lt:  #9B7B6B;
+      --white:    #FFFFFF;
+      --border:   #EAD9D0;
+      --green:    #3A7A58;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-wrap {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px 10px;
+    }
+    .progress-top {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 8px;
+    }
+    .progress-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px; color: var(--rose); font-weight: 700;
+    }
+    .progress-count { font-size: 12px; color: var(--text-lt); font-weight: 500; }
+    .progress-bar-bg {
+      height: 4px; background: var(--rose-lt); border-radius: 100px; overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%; background: var(--rose); border-radius: 100px;
+      transition: width 0.4s ease;
+    }
+
+    /* ── SCREEN ── */
+    .screen {
+      min-height: 100dvh;
+      display: flex; flex-direction: column;
+      padding: 100px 24px 40px;
+      max-width: 620px; margin: 0 auto;
+      opacity: 0; transform: translateX(40px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none; position: absolute; top: 0; left: 0; right: 0;
+    }
+    .screen.active {
+      opacity: 1; transform: translateX(0);
+      pointer-events: all; position: relative;
+    }
+    .screen.exit {
+      opacity: 0; transform: translateX(-40px);
+      pointer-events: none; position: absolute; top: 0; left: 0; right: 0;
+    }
+
+    .step-num {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--rose);
+      margin-bottom: 14px;
+    }
+    .step-question {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 5vw, 28px);
+      color: var(--text); line-height: 1.3;
+      margin-bottom: 32px;
+    }
+    .step-question em { font-style: italic; color: var(--rose); }
+
+    /* ── TEXT INPUT ── */
+    .field-wrap { display: flex; flex-direction: column; gap: 16px; }
+    .field-input {
+      width: 100%; padding: 16px 18px;
+      font-family: 'Inter', sans-serif; font-size: 16px;
+      color: var(--text); background: var(--white);
+      border: 2px solid var(--border); border-radius: 14px;
+      outline: none; transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .field-input:focus { border-color: var(--rose); }
+    .field-input::placeholder { color: var(--text-lt); }
+    textarea.field-input { resize: none; min-height: 120px; line-height: 1.6; }
+
+    /* ── BTN CONTINUAR ── */
+    .btn-continuar {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dk) 100%);
+      color: var(--white); font-family: 'Inter', sans-serif;
+      font-size: 16px; font-weight: 700;
+      padding: 17px 32px; border-radius: 100px;
+      border: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(224,114,96,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      align-self: flex-start; margin-top: 4px;
+    }
+    .btn-continuar:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(224,114,96,0.45); }
+    .btn-continuar:active { transform: translateY(0); }
+    .btn-continuar .arrow { font-size: 18px; }
+
+    /* ── OPTIONS ── */
+    .options-list { display: flex; flex-direction: column; gap: 10px; }
+    .option-card {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--white); border: 2px solid var(--border);
+      border-radius: 14px; padding: 16px 18px;
+      cursor: pointer; transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      font-size: 15px; font-weight: 500; color: var(--text);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .option-card:active { transform: scale(0.98); }
+    .option-card.selected {
+      border-color: var(--rose);
+      background: var(--rose-lt);
+    }
+    .option-letter {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--rose-lt); color: var(--rose);
+      font-size: 12px; font-weight: 700; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .option-card.selected .option-letter {
+      background: var(--rose); color: var(--white);
+    }
+
+    /* ── INTRO SCREEN ── */
+    #screen-intro {
+      justify-content: center; text-align: center;
+      background: linear-gradient(160deg, #FFF5F2 0%, var(--cream) 100%);
+    }
+    .intro-tag {
+      display: inline-block;
+      background: rgba(224,114,96,0.12); color: var(--rose);
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 7px 18px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .intro-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 6vw, 40px); color: var(--text);
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .intro-title em { font-style: italic; color: var(--rose); }
+    .intro-sub {
+      font-size: 16px; color: var(--text-mid);
+      line-height: 1.7; max-width: 480px; margin: 0 auto 36px;
+    }
+    .intro-info {
+      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 36px; font-size: 13px; color: var(--text-lt);
+    }
+    .intro-info span { display: flex; align-items: center; gap: 5px; }
+    .btn-start {
+      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-dk) 100%);
+      color: var(--white); font-family: 'Inter', sans-serif;
+      font-size: 17px; font-weight: 700;
+      padding: 18px 40px; border-radius: 100px; border: none;
+      cursor: pointer; box-shadow: 0 8px 28px rgba(224,114,96,0.40);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-start:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(224,114,96,0.50); }
+
+    /* ── THANK YOU ── */
+    #screen-thanks {
+      justify-content: center; text-align: center;
+    }
+    .thanks-icon { font-size: 72px; margin-bottom: 24px; }
+    .thanks-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 5vw, 34px); color: var(--text);
+      margin-bottom: 16px; line-height: 1.3;
+    }
+    .thanks-sub {
+      font-size: 16px; color: var(--text-mid);
+      line-height: 1.75; max-width: 460px; margin: 0 auto 32px;
+    }
+    .thanks-box {
+      background: var(--white); border: 2px solid var(--border);
+      border-radius: 20px; padding: 24px 28px;
+      font-size: 15px; color: var(--text-mid); line-height: 1.7;
+      max-width: 460px; margin: 0 auto 28px; text-align: left;
+    }
+    .thanks-box strong { color: var(--text); }
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: var(--white);
+      font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700;
+      padding: 16px 32px; border-radius: 100px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(37,211,102,0.45); }
+
+    /* ── BACK BTN ── */
+    .btn-back {
+      display: flex; align-items: center; gap: 6px;
+      background: none; border: none; cursor: pointer;
+      font-size: 14px; color: var(--text-lt); font-family: 'Inter', sans-serif;
+      padding: 8px 0; margin-top: auto; padding-top: 24px;
+      transition: color 0.2s;
+    }
+    .btn-back:hover { color: var(--text-mid); }
+
+    /* Loading */
+    .sending-wrap {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 16px; min-height: 200px;
+    }
+    .spinner {
+      width: 40px; height: 40px; border: 3px solid var(--rose-lt);
+      border-top-color: var(--rose); border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 480px) {
+      .screen { padding: 90px 20px 32px; }
+      .step-question { font-size: 20px; }
+      .option-card { padding: 14px 16px; font-size: 14px; }
+      .btn-continuar { width: 100%; align-self: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-wrap" id="progress-wrap" style="display:none">
+    <div class="progress-top">
+      <div class="progress-brand">Lourdes Corsi</div>
+      <div class="progress-count" id="progress-count">1 de 25</div>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progress-bar" style="width:4%"></div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="screen active" id="screen-intro" style="position:relative">
+    <div>
+      <p class="intro-tag">Sessão de Clareza</p>
+      <h1 class="intro-title">Vamos entender juntas o que <em>sua família precisa</em> agora</h1>
+      <p class="intro-sub">Responda com calma e honestidade. Não existe resposta certa ou errada — quanto mais verdadeira for sua resposta, mais valiosa será a nossa sessão.</p>
+      <div class="intro-info">
+        <span>⏱ Cerca de 5 min</span>
+        <span>🔒 Suas respostas são confidenciais</span>
+        <span>💬 25 perguntas</span>
+      </div>
+      <button class="btn-start" onclick="startForm()">Começar →</button>
+    </div>
+  </div>
+
+  <!-- STEPS CONTAINER -->
+  <div id="steps-container"></div>
+
+  <!-- THANK YOU -->
+  <div class="screen" id="screen-thanks">
+    <div class="thanks-icon">🎉</div>
+    <h2 class="thanks-title">Formulário enviado com sucesso!</h2>
+    <p class="thanks-sub">Nossa equipe irá analisar suas respostas com carinho. Caso seu perfil esteja alinhado com a proposta da sessão diagnóstica, entraremos em contato por WhatsApp em até 48h para o agendamento.</p>
+    <div class="thanks-box">
+      <strong>Quer pular a fila?</strong><br />
+      Você pode falar com nosso time agora mesmo pelo WhatsApp antes do agendamento formal.
+    </div>
+    <a href="https://wa.me/5500000000000" class="btn-whatsapp" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Pular a fila — Falar agora
+    </a>
+  </div>
+
+  <script>
+    const WEB3FORMS_KEY = 'ae2e5019-aecd-4ff8-83d6-3236f309fe83';
+    const TOTAL = 25;
+
+    const QUESTIONS = [
+      { id: 'nome',           type: 'text',     label: 'Qual seu nome?',                                       placeholder: 'Seu primeiro nome...' },
+      { id: 'idade',          type: 'text',     label: 'Qual sua idade?',                                      placeholder: 'Ex: 32 anos' },
+      { id: 'cidade',         type: 'text',     label: 'Em qual cidade mora?',                                 placeholder: 'Cidade e estado...' },
+      { id: 'estado_civil',   type: 'choice',   label: 'Qual seu estado civil?',
+        options: ['Solteira', 'Casada', 'Divorciada', 'Viúva'] },
+      { id: 'whatsapp',       type: 'tel',      label: 'Deixe seu WhatsApp com DDD:',                          placeholder: '(00) 00000-0000' },
+      { id: 'email',          type: 'email',    label: 'Qual seu melhor e-mail de contato?',                   placeholder: 'exemplo@email.com' },
+      { id: 'filhos_idades',  type: 'textarea', label: 'Quantos filhos você tem e qual a idade deles?',        placeholder: 'Ex: 2 filhos — Pedro (4 anos) e Ana (7 anos)' },
+      { id: 'maior_desafio',  type: 'textarea', label: 'Qual é o maior desafio que você está enfrentando hoje com seu(sua) filho(a)?', placeholder: 'Conte com suas palavras...' },
+      { id: 'ajuda_buscada',  type: 'textarea', label: 'Você já buscou alguma ajuda ou recurso (terapia, livros, cursos, especialistas)? O que funcionou ou não funcionou?', placeholder: 'Sua experiência até agora...' },
+      { id: 'mais_importante',type: 'textarea', label: 'O que você acredita ser mais importante na criação de um filho?', placeholder: 'Pode ser livre e sincera...' },
+      { id: 'clareza_fases',  type: 'choice',   label: 'Você sente que tem clareza sobre o que esperar do seu filho em cada fase?',
+        options: ['Sim, com certeza', 'Em partes, às vezes fico em dúvida', 'Não, me sinto perdida muitas vezes'] },
+      { id: 'combinados',     type: 'choice',   label: 'E quanto aos combinados e limites em casa?',
+        options: ['Temos regras claras e todos seguem', 'Temos regras, mas nem sempre são aplicadas com firmeza', 'Não temos regras definidas', 'Tentamos impor regras, mas meu filho não respeita'] },
+      { id: 'parceiro_visao', type: 'choice',   label: 'Seu parceiro(a) ou outros cuidadores compartilham da mesma visão de criação que você?',
+        options: ['Sim, estamos alinhados', 'Não completamente, mas conversamos sobre isso', 'Não, temos visões bem diferentes e isso gera conflitos', 'Crio sozinha'] },
+      { id: 'transformar',    type: 'choice',   label: 'Se você pudesse transformar uma única coisa na sua maternidade hoje, o que seria?',
+        options: ['Ter mais paciência e controle emocional', 'Conseguir que meu filho me ouvisse com mais facilidade', 'Saber como agir nas birras ou comportamentos difíceis', 'Ter uma rotina mais leve e organizada', 'Me sentir mais segura nas decisões como mãe'] },
+      { id: 'escala_mudanca', type: 'choice',   label: 'Em uma escala de 0 a 10, quanto você está disposta a testar uma nova abordagem para lidar com sua rotina e os desafios da maternidade?',
+        options: ['0 — Não estou pronta para mudar', '1 a 3 — Ainda estou muito insegura', '4 a 6 — Tenho interesse, mas preciso entender mais', '7 a 8 — Estou motivada e aberta a novas formas', '9 a 10 — Estou pronta para aplicar uma nova abordagem agora'] },
+      { id: 'investimento',   type: 'choice',   label: 'Você estaria disposta a investir seu tempo, energia e — se fizer sentido — recursos financeiros nessa mudança?',
+        options: ['Sim, estou em busca de soluções reais', 'Depende do quanto isso vai me ajudar de verdade', 'Tenho receio de investir e não conseguir aplicar', 'No momento, só consigo acessar conteúdos gratuitos'] },
+      { id: 'o_que_impede',   type: 'choice',   label: 'O que mais te impede hoje de buscar ajuda especializada?',
+        options: ['Falta de tempo', 'Questões financeiras', 'Medo de errar mesmo tentando', 'Já tentei outras coisas e não funcionaram', 'Nada me impede, estou em busca ativa de ajuda'] },
+      { id: 'profissao',      type: 'text',     label: 'Qual sua profissão?',                                  placeholder: 'Ex: Professora, enfermeira, empreendedora...' },
+      { id: 'situacao_atual', type: 'choice',   label: 'Você está atualmente:',
+        options: ['Trabalhando fora', 'Trabalhando em casa', 'Afastada ou desempregada', 'Empreendendo'] },
+      { id: 'renda_familiar', type: 'choice',   label: 'Renda média familiar (mensal):',
+        options: ['Abaixo de R$5.000', 'Entre R$5.000 e R$10.000', 'Entre R$10.000 e R$15.000', 'Acima de R$15.000'] },
+      { id: 'rede_apoio',     type: 'choice',   label: 'Como é sua rede de apoio atualmente?',
+        options: ['Tenho babá/cuidadora em período integral', 'Tenho babá/cuidadora em meio período', 'Conto com ajuda de familiares próximos', 'Não tenho rede de apoio'] },
+      { id: 'autocuidado',    type: 'choice',   label: 'Como costuma ser sua rotina de autocuidado e desenvolvimento pessoal?',
+        options: ['Faço terapia, cursos ou busco me desenvolver com frequência', 'Tento manter alguma constância, mesmo com a rotina puxada', 'Costumo priorizar a família, quase não olho para mim'] },
+      { id: 'investimento_12m', type: 'choice', label: 'Você já investiu em cursos, terapias, mentorias ou algo voltado ao seu crescimento nos últimos 12 meses?',
+        options: ['Sim, mais de uma vez', 'Sim, uma vez', 'Ainda não'] },
+      { id: 'viagens',        type: 'choice',   label: 'Sua família viaja ou sai da rotina com frequência?',
+        options: ['Com frequência (várias vezes ao ano)', 'Ocasionalmente (uma ou duas vezes no ano)', 'Raramente (menos de uma vez por ano)'] },
+      { id: 'periodo',        type: 'choice',   label: 'Qual o melhor período para agendarmos essa sessão?',
+        options: ['Manhã', 'Tarde', 'Noite'] },
+    ];
+
+    const LETTERS = 'ABCDE';
+    let currentStep = -1;
+    let answers = {};
+    let nome = '';
+
+    function startForm() {
+      document.getElementById('screen-intro').classList.remove('active');
+      document.getElementById('progress-wrap').style.display = 'block';
+      goToStep(0);
+    }
+
+    function buildSteps() {
+      const container = document.getElementById('steps-container');
+      QUESTIONS.forEach((q, i) => {
+        const div = document.createElement('div');
+        div.className = 'screen';
+        div.id = `screen-${i}`;
+        div.innerHTML = `
+          <p class="step-num">Pergunta ${i + 1} de ${TOTAL}</p>
+          <h2 class="step-question">${q.label}</h2>
+          ${buildInput(q, i)}
+          <button class="btn-back" onclick="goToStep(${i - 1})" ${i === 0 ? 'style="visibility:hidden"' : ''}>← Voltar</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function buildInput(q, i) {
+      if (q.type === 'choice') {
+        return `<div class="options-list">${q.options.map((opt, j) => `
+          <div class="option-card" id="opt-${i}-${j}" onclick="selectOption(${i}, ${j}, '${opt.replace(/'/g,"\\'")}')">
+            <div class="option-letter">${LETTERS[j]}</div>
+            <span>${opt}</span>
+          </div>`).join('')}
+        </div>`;
+      }
+      const tag = q.type === 'textarea' ? 'textarea' : 'input';
+      const extra = q.type === 'textarea' ? '' : `type="${q.type}"`;
+      const closing = q.type === 'textarea' ? '></textarea>' : ' />';
+      return `
+        <div class="field-wrap">
+          <${tag} class="field-input" id="input-${i}" ${extra} placeholder="${q.placeholder || ''}" rows="4"
+            onkeydown="handleKey(event, ${i})"${closing}
+          <button class="btn-continuar" onclick="advanceText(${i})">
+            Continuar <span class="arrow">→</span>
+          </button>
+        </div>`;
+    }
+
+    function selectOption(stepIdx, optIdx, value) {
+      // Clear previous selection
+      const q = QUESTIONS[stepIdx];
+      q.options.forEach((_, j) => {
+        document.getElementById(`opt-${stepIdx}-${j}`)?.classList.remove('selected');
+      });
+      document.getElementById(`opt-${stepIdx}-${optIdx}`).classList.add('selected');
+      answers[q.id] = value;
+      if (q.id === 'nome') nome = value;
+
+      // Auto-advance after short delay
+      setTimeout(() => {
+        if (stepIdx < QUESTIONS.length - 1) {
+          goToStep(stepIdx + 1);
+        } else {
+          submitForm();
+        }
+      }, 320);
+    }
+
+    function advanceText(stepIdx) {
+      const input = document.getElementById(`input-${stepIdx}`);
+      const value = input.value.trim();
+      if (!value) { input.focus(); input.style.borderColor = 'var(--rose)'; return; }
+      const q = QUESTIONS[stepIdx];
+      answers[q.id] = value;
+      if (q.id === 'nome') nome = value;
+      if (stepIdx < QUESTIONS.length - 1) {
+        goToStep(stepIdx + 1);
+      } else {
+        submitForm();
+      }
+    }
+
+    function handleKey(e, stepIdx) {
+      if (e.key === 'Enter' && QUESTIONS[stepIdx].type !== 'textarea') {
+        e.preventDefault();
+        advanceText(stepIdx);
+      }
+    }
+
+    function goToStep(idx) {
+      if (idx < 0) {
+        // Go back to intro
+        const current = document.getElementById(`screen-${currentStep}`);
+        if (current) { current.classList.add('exit'); setTimeout(() => { current.classList.remove('active','exit'); }, 350); }
+        document.getElementById('progress-wrap').style.display = 'none';
+        document.getElementById('screen-intro').classList.add('active');
+        currentStep = -1;
+        return;
+      }
+
+      // Exit current
+      if (currentStep >= 0) {
+        const prev = document.getElementById(`screen-${currentStep}`);
+        if (prev) { prev.classList.add('exit'); setTimeout(() => prev.classList.remove('active','exit'), 350); }
+      }
+
+      currentStep = idx;
+
+      // Enter next
+      const next = document.getElementById(`screen-${idx}`);
+      if (!next) return;
+      next.classList.add('active');
+
+      // Restore saved answer
+      const q = QUESTIONS[idx];
+      if (q.type !== 'choice') {
+        const input = document.getElementById(`input-${idx}`);
+        if (input && answers[q.id]) input.value = answers[q.id];
+        setTimeout(() => input?.focus(), 380);
+      } else if (answers[q.id]) {
+        const optIdx = q.options.indexOf(answers[q.id]);
+        if (optIdx >= 0) document.getElementById(`opt-${idx}-${optIdx}`)?.classList.add('selected');
+      }
+
+      // Personalize with name
+      if (nome && idx > 0) {
+        const qEl = next.querySelector('.step-question');
+        if (qEl && idx === 6) qEl.innerHTML = `${q.label} <em style="font-size:0.85em; color:var(--text-lt)">(pode usar nomes)</em>`;
+      }
+
+      // Update progress
+      const pct = Math.round(((idx + 1) / TOTAL) * 100);
+      document.getElementById('progress-bar').style.width = pct + '%';
+      document.getElementById('progress-count').textContent = `${idx + 1} de ${TOTAL}`;
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    async function submitForm() {
+      // Show loading on last step
+      const lastScreen = document.getElementById(`screen-${QUESTIONS.length - 1}`);
+      if (lastScreen) {
+        lastScreen.innerHTML = `<div class="sending-wrap"><div class="spinner"></div><p style="color:var(--text-mid);font-size:15px">Enviando suas respostas...</p></div>`;
+      }
+
+      const payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: `Nova inscrição para Sessão de Clareza — ${answers.nome || ''}`,
+        from_name: 'Formulário Sessão de Clareza',
+        ...answers
+      };
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (data.success) {
+          fbq('track', 'Lead');
+          showThanks();
+        } else {
+          throw new Error(data.message);
+        }
+      } catch (e) {
+        showThanks(); // Show thanks anyway to not lose the UX
+      }
+    }
+
+    function showThanks() {
+      document.getElementById('progress-wrap').style.display = 'none';
+      const last = document.getElementById(`screen-${QUESTIONS.length - 1}`);
+      if (last) { last.classList.add('exit'); setTimeout(() => last.classList.remove('active','exit'), 350); }
+      const thanks = document.getElementById('screen-thanks');
+      thanks.classList.add('active');
+
+      // Personalize thank you
+      if (nome) {
+        thanks.querySelector('.thanks-title').textContent = `Obrigada, ${nome.split(' ')[0]}! 🎉`;
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Init
+    buildSteps();
+  </script>
+
+</body>
+</html>
