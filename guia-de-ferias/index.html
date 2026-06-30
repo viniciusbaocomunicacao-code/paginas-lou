@@ -224,6 +224,71 @@
     .solucao-card h3 { font-size: 18px; color: var(--white); margin-bottom: 10px; }
     .solucao-card p  { font-size: 14px; color: rgba(255,255,255,0.66); line-height: 1.7; }
 
+    /* Phone mockup */
+    .phone-mockup-wrap {
+      display: flex; justify-content: center;
+      margin: 40px auto 48px;
+    }
+    .phone-mockup {
+      width: 240px;
+      background: #0A1628;
+      border-radius: 36px;
+      padding: 14px 10px;
+      box-shadow:
+        0 0 0 2px rgba(255,255,255,0.12),
+        0 0 0 6px rgba(255,255,255,0.04),
+        0 32px 64px rgba(0,0,0,0.50);
+      position: relative;
+    }
+    .phone-mockup::before {
+      content: '';
+      display: block;
+      width: 60px; height: 6px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 100px;
+      margin: 0 auto 12px;
+    }
+    .phone-screen {
+      background: linear-gradient(160deg, #1A3060 0%, #0F1A38 100%);
+      border-radius: 24px;
+      height: 420px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px;
+      border: 1px dashed rgba(74,144,217,0.35);
+      position: relative; overflow: hidden;
+    }
+    .phone-screen::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 28px,
+          rgba(74,144,217,0.06) 28px,
+          rgba(74,144,217,0.06) 29px
+        );
+    }
+    .phone-screen .mock-label {
+      position: relative; z-index: 1;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(74,144,217,0.70);
+    }
+    .phone-screen .mock-icon { font-size: 40px; position: relative; z-index: 1; }
+    .phone-screen .mock-text {
+      font-size: 12px; color: rgba(255,255,255,0.35);
+      position: relative; z-index: 1; line-height: 1.5; text-align: center; padding: 0 20px;
+    }
+    .phone-mockup::after {
+      content: '';
+      display: block;
+      width: 40px; height: 4px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 100px;
+      margin: 12px auto 0;
+    }
+
     /* ── MID CTA ── */
     .mid-cta {
       background: linear-gradient(135deg, var(--cream-dark) 0%, #d0e3f7 100%);
@@ -577,6 +642,16 @@
       <span class="section-tag blue">A solução</span>
       <h2 class="section-title">Não é mais um e-book para ler e esquecer</h2>
       <p class="section-subtitle">O Guia de Férias é um aplicativo que fica no celular — você abre, usa no momento certo, e as férias fluem com muito mais intenção.</p>
+
+      <div class="phone-mockup-wrap">
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <span class="mock-icon">📱</span>
+            <span class="mock-label">Screenshot do app</span>
+            <span class="mock-text">Imagem do app<br>em breve</span>
+          </div>
+        </div>
+      </div>
 
       <div class="solucao-grid">
         <div class="solucao-card reveal">
