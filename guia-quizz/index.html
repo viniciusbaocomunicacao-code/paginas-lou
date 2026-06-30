@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Por que o que funciona com o filho da sua amiga não funciona com o seu? — Lourdes Corsi</title>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '962917475474073');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=962917475474073&ev=PageView&noscript=1"/></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --coral:    #E8645A;
+      --coral-dk: #C94A3F;
+      --coral-lt: #FDF0EE;
+      --cream:    #FDF8F4;
+      --text:     #2D1B13;
+      --text-mid: #5C3D2E;
+      --text-lt:  #9B7B6B;
+      --white:    #FFFFFF;
+      --border:   #EAD9D0;
+      --dark:     #1C0F0A;
+    }
+
+    html, body {
+      min-height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ── PROGRESS BAR ── */
+    #progress-wrap {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 12px 20px 10px;
+    }
+    .progress-top {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 8px;
+    }
+    .progress-brand { font-family: 'Playfair Display', serif; font-size: 13px; color: var(--coral); font-weight: 700; }
+    #progress-count { font-size: 12px; color: var(--text-lt); font-weight: 500; }
+    .progress-bg { height: 4px; background: var(--coral-lt); border-radius: 100px; overflow: hidden; }
+    #progress-fill { height: 100%; background: var(--coral); border-radius: 100px; transition: width 0.4s ease; }
+
+    /* ── TRANSITIONS ── */
+    .stage-inner { animation: stIn 0.28s ease forwards; }
+    .stage-inner.out { animation: stOut 0.22s ease forwards; }
+    @keyframes stIn  { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes stOut { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(-30px); } }
+
+    /* ── SHARED ── */
+    .s-wrap { max-width: 600px; margin: 0 auto; padding: 32px 24px 48px; }
+    .s-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--coral); margin-bottom: 14px;
+    }
+    .s-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(21px, 5vw, 30px); color: var(--text);
+      line-height: 1.3; margin-bottom: 20px;
+    }
+    .s-body { font-size: 16px; color: var(--text-mid); line-height: 1.8; margin-bottom: 24px; }
+
+    .btn-primary {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dk) 100%);
+      color: var(--white); font-family: 'Inter', sans-serif;
+      font-size: 16px; font-weight: 700; padding: 17px 32px;
+      border-radius: 100px; border: none; cursor: pointer; width: 100%;
+      box-shadow: 0 6px 24px rgba(232,100,90,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,100,90,0.45); }
+    .btn-primary:active { transform: scale(0.97); }
+
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: none; border: none; cursor: pointer;
+      font-size: 14px; color: var(--text-lt); font-family: 'Inter', sans-serif;
+      margin-top: 20px; transition: color 0.2s;
+    }
+    .btn-back:hover { color: var(--text-mid); }
+
+    /* ── COVER ── */
+    .cover-wrap {
+      min-height: 100dvh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      padding: 60px 24px;
+      background: linear-gradient(155deg, #FFF3F0 0%, var(--cream) 65%);
+    }
+    .cover-tag {
+      display: inline-block;
+      background: rgba(232,100,90,0.12); color: var(--coral);
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 7px 18px; border-radius: 100px; margin-bottom: 28px;
+    }
+    .cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 6.5vw, 44px); color: var(--text);
+      line-height: 1.2; margin-bottom: 20px; max-width: 560px;
+    }
+    .cover-title em { font-style: italic; color: var(--coral); }
+    .cover-sub {
+      font-size: 17px; color: var(--text-mid); line-height: 1.7;
+      max-width: 440px; margin: 0 auto 36px;
+    }
+    .cover-badges {
+      display: flex; gap: 16px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 36px;
+      font-size: 13px; color: var(--text-lt);
+    }
+
+    /* ── QUESTIONS ── */
+    .q-wrap { padding-top: 78px; min-height: 100dvh; }
+    .options-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+    .option-card {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--white); border: 2px solid var(--border);
+      border-radius: 14px; padding: 16px 18px; cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, transform 0.12s;
+      font-size: 15px; font-weight: 500; color: var(--text);
+      user-select: none;
+    }
+    .option-card:active { transform: scale(0.98); }
+    .option-card.selected { border-color: var(--coral); background: var(--coral-lt); }
+    .option-letter {
+      width: 30px; height: 30px; min-width: 30px; border-radius: 50%;
+      background: var(--coral-lt); color: var(--coral);
+      font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, color 0.15s;
+    }
+    .option-card.selected .option-letter { background: var(--coral); color: var(--white); }
+
+    /* ── CAPTURE ── */
+    .cap-wrap {
+      min-height: 100dvh; display: flex; flex-direction: column;
+      justify-content: center; max-width: 600px; margin: 0 auto; padding: 60px 24px;
+    }
+    .field-wrap { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+    .field-input {
+      width: 100%; padding: 16px 18px;
+      font-family: 'Inter', sans-serif; font-size: 16px;
+      color: var(--text); background: var(--white);
+      border: 2px solid var(--border); border-radius: 14px;
+      outline: none; transition: border-color 0.2s; -webkit-appearance: none;
+    }
+    .field-input:focus { border-color: var(--coral); }
+    .field-input::placeholder { color: var(--text-lt); }
+
+    /* ── LOADING ── */
+    .loading-wrap {
+      min-height: 100dvh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 28px;
+      background: var(--dark); text-align: center; padding: 48px 24px;
+    }
+    .loading-icon { font-size: 60px; }
+    .loading-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 5vw, 30px); color: var(--white); line-height: 1.3;
+      max-width: 380px;
+    }
+    .loading-bar-bg {
+      width: min(320px, 80vw); height: 6px;
+      background: rgba(255,255,255,0.12); border-radius: 100px; overflow: hidden;
+    }
+    .loading-bar-fill {
+      height: 100%; background: var(--coral); border-radius: 100px;
+      width: 0%; transition: width 3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .loading-sub { font-size: 14px; color: rgba(255,255,255,0.4); }
+
+    /* ── REVEAL SCREENS ── */
+    .reveal-wrap {
+      min-height: 100dvh; display: flex; flex-direction: column;
+      justify-content: center; text-align: center;
+      max-width: 600px; margin: 0 auto; padding: 60px 24px;
+    }
+    .reveal-icon { font-size: 56px; margin-bottom: 24px; }
+
+    /* ── RESULT ── */
+    .result-wrap {
+      min-height: 100dvh; display: flex; flex-direction: column;
+      justify-content: center; max-width: 600px; margin: 0 auto; padding: 60px 24px;
+    }
+    .result-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(232,100,90,0.12); color: var(--coral);
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 8px 18px; border-radius: 100px; margin-bottom: 24px; align-self: flex-start;
+    }
+    .result-highlight {
+      font-size: 16px; color: var(--coral); font-weight: 600; line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    /* ── SALES ── */
+    .sales-wrap { max-width: 600px; margin: 0 auto; padding: 48px 24px 130px; }
+    .sales-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 5.5vw, 34px); color: var(--text);
+      line-height: 1.3; margin-bottom: 12px;
+    }
+    .sales-sub { font-size: 16px; color: var(--text-mid); line-height: 1.7; margin-bottom: 36px; }
+
+    .incluso-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+    .incluso-item {
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: 12px; padding: 14px 18px;
+      font-size: 14px; font-weight: 500; color: var(--text); gap: 10px;
+    }
+    .item-price { color: var(--text-lt); font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+
+    .timer-box {
+      background: var(--dark); border-radius: 16px;
+      padding: 18px 20px; text-align: center; margin-bottom: 24px;
+    }
+    .timer-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+    .timer-digits { font-size: 40px; font-weight: 700; letter-spacing: 4px; color: var(--white); font-variant-numeric: tabular-nums; }
+
+    .price-box {
+      background: var(--coral-lt); border: 2px solid rgba(232,100,90,0.3);
+      border-radius: 20px; padding: 28px 24px; text-align: center; margin-bottom: 28px;
+    }
+    .price-de { font-size: 14px; color: var(--text-lt); margin-bottom: 6px; }
+    .price-de s { color: var(--coral); }
+    .price-value { font-family: 'Playfair Display', serif; font-size: 64px; color: var(--coral); line-height: 1; margin-bottom: 10px; }
+    .price-value sup { font-size: 26px; vertical-align: super; margin-right: 2px; }
+    .price-info { font-size: 13px; color: var(--text-mid); }
+
+    .dep-section { margin-bottom: 32px; }
+    .dep-section h3 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px; text-align: center; }
+    .dep-strip { display: flex; gap: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; scroll-snap-type: x mandatory; }
+    .dep-strip::-webkit-scrollbar { display: none; }
+    .dep-strip img { height: 200px; width: auto; border-radius: 12px; flex-shrink: 0; scroll-snap-align: start; }
+
+    .guarantee-box {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: var(--white); border: 2px solid var(--border);
+      border-radius: 16px; padding: 20px; margin-bottom: 32px;
+    }
+    .guarantee-icon { font-size: 36px; flex-shrink: 0; }
+    .guarantee-text h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .guarantee-text p { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+
+    /* ── STICKY CTA ── */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--white); border-top: 1px solid var(--border);
+      padding: 12px 20px; z-index: 50;
+    }
+    .sticky-cta a {
+      display: block; width: 100%; text-align: center;
+      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dk) 100%);
+      color: var(--white); font-family: 'Inter', sans-serif;
+      font-size: 16px; font-weight: 700; padding: 16px;
+      border-radius: 100px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(232,100,90,0.40);
+    }
+    .sticky-sub { text-align: center; font-size: 12px; color: var(--text-lt); margin-top: 6px; }
+
+    @media (max-width: 480px) {
+      .s-wrap { padding: 24px 20px 40px; }
+      .s-title { font-size: 19px; }
+      .option-card { padding: 13px 15px; font-size: 14px; }
+      .cover-title { font-size: 25px; }
+      .price-value { font-size: 54px; }
+      .timer-digits { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PROGRESS BAR -->
+  <div id="progress-wrap" style="display:none">
+    <div class="progress-top">
+      <span class="progress-brand">Lourdes Corsi</span>
+      <span id="progress-count">Pergunta 1 de 5</span>
+    </div>
+    <div class="progress-bg">
+      <div id="progress-fill" style="width:20%"></div>
+    </div>
+  </div>
+
+  <!-- APP -->
+  <div id="app"></div>
+
+  <script>
+    const HOTMART = 'https://pay.hotmart.com/Q93152358C?checkoutMode=10';
+    const WEB3KEY = 'ae2e5019-aecd-4ff8-83d6-3236f309fe83';
+    const LETTERS = 'ABCD';
+
+    const st = { stage: 0, score: 0, nome: '', email: '', busy: false };
+
+    const QUESTIONS = [
+      {
+        q: 'Quando você tenta uma estratégia nova com seu filho, uma que outra mãe jurou que funciona, o que normalmente acontece?',
+        opts: [
+          'Funciona muito bem',
+          'Às vezes funciona, às vezes não',
+          'Raramente funciona',
+          'Parece que ele é do avesso de tudo'
+        ]
+      },
+      {
+        q: 'Quando seu filho tem uma birra ou comportamento difícil, como você costuma se sentir?',
+        opts: [
+          'Tranquila, já sei como lidar',
+          'Um pouco insegura, mas vou levando',
+          'Frustrada, nada funciona por muito tempo',
+          'Completamente perdida, cada dia é uma surpresa'
+        ]
+      },
+      {
+        q: 'Você já se pegou pensando "por que meu filho age assim?" sem conseguir encontrar uma resposta?',
+        opts: [
+          'Não, geralmente entendo o comportamento dele',
+          'Às vezes, mas são situações pontuais',
+          'Sim, com frequência',
+          'Sim, quase todos os dias'
+        ]
+      },
+      {
+        q: 'Você já tentou um limite ou combinado em casa que funcionou por um tempo e depois simplesmente parou de funcionar?',
+        opts: [
+          'Não, nossos combinados são consistentes',
+          'Uma ou duas vezes',
+          'Sim, acontece bastante',
+          'Sim, parece que preciso reinventar tudo o tempo todo'
+        ]
+      },
+      {
+        q: 'Como você descreveria sua relação com a criação do seu filho hoje?',
+        opts: [
+          'Tranquila, me sinto segura e no caminho certo',
+          'Estou aprendendo, mas sinto que vou chegando lá',
+          'É um desafio constante, mas vou tentando',
+          'Me sinto perdida e cansada de tentar coisas que não funcionam'
+        ]
+      }
+    ];
+
+    // ── NAVIGATION ──
+    function goTo(idx) {
+      if (st.busy) return;
+      st.busy = true;
+      const inner = document.getElementById('si');
+      if (inner) {
+        inner.classList.add('out');
+        setTimeout(() => { st.busy = false; st.stage = idx; render(idx); }, 220);
+      } else {
+        st.busy = false; st.stage = idx; render(idx);
+      }
+    }
+
+    function render(idx) {
+      const pw = document.getElementById('progress-wrap');
+      const isQ = idx >= 1 && idx <= 5;
+      pw.style.display = isQ ? 'block' : 'none';
+      if (isQ) {
+        document.getElementById('progress-fill').style.width = (idx / 5 * 100) + '%';
+        document.getElementById('progress-count').textContent = `Pergunta ${idx} de 5`;
+      }
+
+      let html = '';
+      if      (idx === 0)            html = renderCover();
+      else if (idx >= 1 && idx <= 5) html = renderQuestion(idx - 1);
+      else if (idx === 6)            html = renderCapture();
+      else if (idx === 7)            html = renderLoading();
+      else if (idx === 8)            html = renderReveal1();
+      else if (idx === 9)            html = renderReveal2();
+      else if (idx === 10)           html = renderReveal3();
+      else if (idx === 11)           html = renderResult();
+      else if (idx === 12)           html = renderSales();
+
+      document.getElementById('app').innerHTML = `<div id="si" class="stage-inner">${html}</div>`;
+      window.scrollTo(0, 0);
+
+      if (idx === 7)  startLoading();
+      if (idx === 12) { fbq('track', 'ViewContent'); initTimer(); }
+    }
+
+    function firstName() { return st.nome.split(' ')[0] || 'Mamãe'; }
+
+    // ── COVER ──
+    function renderCover() {
+      return `<div class="cover-wrap">
+        <span class="cover-tag">Quiz Gratuito</span>
+        <h1 class="cover-title">Por que o que funciona com o filho da sua amiga <em>não funciona com o seu?</em></h1>
+        <p class="cover-sub">Responda 5 perguntas e descubra o que está travando a sua maternidade</p>
+        <div class="cover-badges">
+          <span>⏱ 2 minutos</span>
+          <span>💬 5 perguntas</span>
+          <span>🎁 Resultado gratuito</span>
+        </div>
+        <button class="btn-primary" style="max-width:300px;margin:0 auto" onclick="goTo(1)">Quero descobrir →</button>
+      </div>`;
+    }
+
+    // ── QUESTIONS ──
+    function renderQuestion(qIdx) {
+      const q = QUESTIONS[qIdx];
+      const stageIdx = qIdx + 1;
+      return `<div class="q-wrap">
+        <div class="s-wrap">
+          <p class="s-label">Pergunta ${stageIdx} de 5</p>
+          <h2 class="s-title">${q.q}</h2>
+          <div class="options-list">
+            ${q.opts.map((opt, j) => `
+              <div class="option-card" onclick="pickOpt(${qIdx},${j})">
+                <div class="option-letter">${LETTERS[j]}</div>
+                <span>${opt}</span>
+              </div>`).join('')}
+          </div>
+          ${stageIdx > 1 ? `<button class="btn-back" onclick="goTo(${stageIdx - 1})">← Voltar</button>` : ''}
+        </div>
+      </div>`;
+    }
+
+    function pickOpt(qIdx, optIdx) {
+      if (st.busy) return;
+      st.score += optIdx; // A=0, B=1, C=2, D=3
+      document.querySelectorAll('.option-card')[optIdx]?.classList.add('selected');
+      const stageIdx = qIdx + 1;
+      setTimeout(() => goTo(stageIdx < 5 ? stageIdx + 1 : 6), 310);
+    }
+
+    // ── CAPTURE ──
+    function renderCapture() {
+      return `<div class="cap-wrap">
+        <p class="s-label">Quase lá!</p>
+        <h2 class="s-title" style="margin-bottom:12px">Antes de revelar o resultado...</h2>
+        <p class="s-body">Deixa seu e-mail para eu te enviar um material extra gratuito junto com o seu resultado.</p>
+        <div class="field-wrap">
+          <input class="field-input" id="cap-nome" type="text" placeholder="Seu nome" autocomplete="given-name" />
+          <input class="field-input" id="cap-email" type="email" placeholder="Seu melhor e-mail" autocomplete="email" />
+        </div>
+        <button class="btn-primary" onclick="submitCapture()">Ver meu resultado →</button>
+        <p style="font-size:12px;color:var(--text-lt);text-align:center;margin-top:14px">🔒 Seus dados estão seguros e não serão compartilhados.</p>
+      </div>`;
+    }
+
+    function submitCapture() {
+      const nome  = document.getElementById('cap-nome').value.trim();
+      const email = document.getElementById('cap-email').value.trim();
+      if (!nome)  { document.getElementById('cap-nome').style.borderColor  = 'var(--coral)'; document.getElementById('cap-nome').focus();  return; }
+      if (!email) { document.getElementById('cap-email').style.borderColor = 'var(--coral)'; document.getElementById('cap-email').focus(); return; }
+      st.nome  = nome;
+      st.email = email;
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3KEY,
+          subject: `Novo lead Quiz — ${nome}`,
+          from_name: 'Quiz Lourdes Corsi',
+          nome, email, score: st.score,
+          perfil: st.score <= 6 ? 'Score baixo' : 'Score alto'
+        })
+      }).then(() => fbq('track', 'Lead')).catch(() => {});
+
+      goTo(7);
+    }
+
+    // ── LOADING ──
+    function renderLoading() {
+      return `<div class="loading-wrap">
+        <div class="loading-icon">🔍</div>
+        <h2 class="loading-title">Analisando o perfil do seu filho...</h2>
+        <div class="loading-bar-bg">
+          <div class="loading-bar-fill" id="lbar"></div>
+        </div>
+        <p class="loading-sub">Isso vai levar alguns segundos</p>
+      </div>`;
+    }
+
+    function startLoading() {
+      setTimeout(() => { const b = document.getElementById('lbar'); if (b) b.style.width = '100%'; }, 60);
+      setTimeout(() => goTo(8), 3300);
+    }
+
+    // ── REVEAL 1 ──
+    function renderReveal1() {
+      return `<div class="reveal-wrap">
+        <div class="reveal-icon">💡</div>
+        <p class="s-label">Descobrimos algo importante</p>
+        <h2 class="s-title">${firstName()}, as suas respostas revelaram um padrão que a maioria das mães nunca percebe</h2>
+        <p class="s-body">E é esse padrão que explica por que nada parece funcionar do jeito que deveria.</p>
+        <button class="btn-primary" onclick="goTo(9)">Quero entender →</button>
+      </div>`;
+    }
+
+    // ── REVEAL 2 — 4 TEMPERAMENTOS ──
+    function renderReveal2() {
+      return `<div class="reveal-wrap" style="text-align:left">
+        <div style="text-align:center"><div class="reveal-icon">🧬</div></div>
+        <p class="s-label" style="text-align:center">A raiz do problema</p>
+        <h2 class="s-title" style="text-align:center">Cada criança nasce com um temperamento. E isso muda tudo.</h2>
+        <p class="s-body">Desde a Grécia Antiga, estudiosos identificaram que as pessoas têm 4 tipos de temperamento: o Sanguíneo, o Colérico, o Melancólico e o Fleumático. Cada um tem uma forma única de reagir ao mundo, processar emoções e responder a limites.</p>
+        <p class="s-body">Quando você não conhece o temperamento do seu filho, você aplica estratégias certas para o filho da outra mãe. É como tentar abrir uma porta com a chave errada. A chave não tem defeito. A porta não tem defeito. Só não são feitas uma para a outra.</p>
+        <button class="btn-primary" onclick="goTo(10)">E o meu filho? →</button>
+      </div>`;
+    }
+
+    // ── REVEAL 3 — CONEXÃO COM A DOR ──
+    function renderReveal3() {
+      return `<div class="reveal-wrap">
+        <div class="reveal-icon">🫶</div>
+        <p class="s-label">Agora faz sentido</p>
+        <h2 class="s-title">É por isso que o conselho da sua amiga não funcionou.</h2>
+        <p class="s-body">A estratégia que ela usou foi perfeita para o temperamento do filho dela. O seu filho tem uma forma diferente de sentir, reagir e aprender.</p>
+        <p class="s-body">Ele não é difícil. Ele não está te desafiando de propósito. Ele só ainda não foi compreendido no temperamento que ele é.</p>
+        <button class="btn-primary" onclick="goTo(11)">Ver meu resultado →</button>
+      </div>`;
+    }
+
+    // ── RESULT ──
+    function renderResult() {
+      const low = st.score <= 6;
+      const title = low
+        ? `${firstName()}, você já tem uma base sólida`
+        : `${firstName()}, você não está errando como mãe`;
+      const body = low
+        ? `Mas existe uma camada que a maioria das mães não conhece e que muda tudo: o temperamento do seu filho. Quando você entende como ele naturalmente processa o mundo, cada estratégia passa a fazer sentido de um jeito que nunca fez antes.`
+        : `O problema não é você. Cada criança tem um temperamento único, e o que funciona para o filho da sua amiga simplesmente não foi feito para o seu. Sem entender isso, você vai continuar tentando estratégias certas para a criança errada.`;
+
+      return `<div class="result-wrap">
+        <span class="result-badge">✨ Seu resultado</span>
+        <h2 class="s-title" style="font-size:clamp(23px,5.5vw,34px);margin-bottom:20px">${title}</h2>
+        <p class="s-body">${body}</p>
+        <p class="result-highlight">A boa notícia? Isso tem solução. E ela começa em entender o temperamento do seu filho.</p>
+        <button class="btn-primary" onclick="goTo(12)">Entender como resolver →</button>
+      </div>`;
+    }
+
+    // ── SALES ──
+    function renderSales() {
+      return `<div>
+        <div class="sales-wrap">
+          <p class="s-label">Agora você entende o problema</p>
+          <h2 class="sales-title">O Guia que vai te ensinar a ler o seu filho do jeito que só a natureza dele permite.</h2>
+          <p class="sales-sub">Mais de 8.000 mães já descobriram o temperamento do filho e transformaram a forma de criar.</p>
+
+          <div class="incluso-list">
+            <div class="incluso-item"><span>✅ Guia dos 4 Temperamentos (Ebook)</span><span class="item-price">R$77</span></div>
+            <div class="incluso-item"><span>✅ Teste de temperamento interativo</span><span class="item-price">R$67</span></div>
+            <div class="incluso-item"><span>✅ 48 Estratégias para lidar com o temperamento do seu filho</span><span class="item-price">R$57</span></div>
+            <div class="incluso-item"><span>✅ MasterClass 4 Temperamentos na Infância</span><span class="item-price">R$147</span></div>
+          </div>
+
+          <div class="timer-box">
+            <p class="timer-label">Oferta especial expira em</p>
+            <p class="timer-digits" id="timer">--:--:--</p>
+          </div>
+
+          <div class="price-box">
+            <p class="price-de">De R$ <s>358,00</s> por apenas</p>
+            <p class="price-value"><sup>R$</sup>37,90</p>
+            <p class="price-info">Acesso imediato · Pagamento único · 7 dias de garantia</p>
+          </div>
+
+          <div class="dep-section">
+            <h3>O que outras mães dizem</h3>
+            <div class="dep-strip">
+              <img src="../guia-bsc-01/assets/img/depoimentos/dep-jessica.png"  alt="Depoimento" loading="lazy" />
+              <img src="../guia-bsc-01/assets/img/depoimentos/dep-vanessa.png"  alt="Depoimento" loading="lazy" />
+              <img src="../guia-bsc-01/assets/img/depoimentos/dep-anaclara.png" alt="Depoimento" loading="lazy" />
+              <img src="../guia-bsc-01/assets/img/depoimentos/dep-catia.png"    alt="Depoimento" loading="lazy" />
+              <img src="../guia-bsc-01/assets/img/depoimentos/dep-thassia.png"  alt="Depoimento" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="guarantee-box">
+            <div class="guarantee-icon">🛡️</div>
+            <div class="guarantee-text">
+              <h4>Garantia de 7 dias</h4>
+              <p>Se em 7 dias você não sentir que valeu cada centavo, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sticky-cta">
+          <a href="${HOTMART}" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout')">
+            Quero entender meu filho agora →
+          </a>
+          <p class="sticky-sub">🔒 R$37,90 · Pagamento seguro · Acesso imediato</p>
+        </div>
+      </div>`;
+    }
+
+    function initTimer() {
+      const KEY = 'quizz-dl';
+      let dl = parseInt(localStorage.getItem(KEY) || '0');
+      if (!dl || dl < Date.now()) {
+        dl = Date.now() + 24 * 3600 * 1000;
+        localStorage.setItem(KEY, dl);
+      }
+      (function tick() {
+        const el = document.getElementById('timer');
+        if (!el) return;
+        const diff = Math.max(0, dl - Date.now());
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        el.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+        if (diff > 0) setTimeout(tick, 1000);
+      })();
+    }
+
+    // Init
+    render(0);
+  </script>
+
+</body>
+</html>
