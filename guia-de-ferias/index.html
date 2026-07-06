@@ -538,6 +538,53 @@
     }
     @media (min-width: 769px) { .sticky-bar { display: none; } }
 
+    /* ── DESENHOS ── */
+    #desenhos { background: var(--white); }
+
+    .desenhos-conceito {
+      background: linear-gradient(135deg, #E8F7F4 0%, #D0EFE9 100%);
+      border: 1.5px solid rgba(43,187,163,0.30);
+      border-radius: 16px; padding: 20px 28px;
+      max-width: 680px; margin: 0 auto 40px;
+      text-align: left; font-size: 15px; color: var(--text-mid); line-height: 1.7;
+    }
+    .conceito-titulo { font-weight: 700; color: var(--teal); }
+
+    .desenhos-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 16px; margin-bottom: 32px;
+    }
+    .desenho-card {
+      background: var(--cream); border-radius: 18px; padding: 24px 20px;
+      text-align: left; border: 1.5px solid var(--cream-dark);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .desenho-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(43,187,163,0.12);
+      border-color: rgba(43,187,163,0.35);
+    }
+    .desenho-emoji { font-size: 32px; margin-bottom: 12px; line-height: 1; }
+    .desenho-nome {
+      font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .desenho-meta {
+      font-size: 12px; color: var(--text-light);
+      margin-bottom: 10px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+    }
+    .desenho-age {
+      background: #D0EFE9; color: var(--teal); font-weight: 700;
+      font-size: 11px; padding: 2px 8px; border-radius: 100px;
+    }
+    .desenho-desc { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+
+    .desenhos-rodape {
+      font-size: 15px; font-weight: 600; color: var(--teal);
+      background: #E8F7F4; display: inline-block;
+      padding: 10px 24px; border-radius: 100px;
+    }
+
     /* ── PERFORMANCE ── */
     @media (max-width: 768px) {
       #hero::before, #hero::after, #cta-final::before { display: none; }
@@ -559,6 +606,7 @@
 
       .solucao-grid { grid-template-columns: 1fr; gap: 14px; }
       .incluso-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .desenhos-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
 
       .sobre-inner { grid-template-columns: 1fr; gap: 28px; }
       .sobre-foto  { max-width: 240px; margin: 0 auto; }
@@ -581,6 +629,8 @@
       .garantia-box h2 { font-size: 22px; }
       .sobre-text h2 { font-size: 24px; }
       .mid-cta { padding: 36px 16px; }
+      .desenhos-grid { grid-template-columns: 1fr; }
+      .desenhos-conceito { padding: 16px 18px; font-size: 14px; }
     }
   </style>
 </head>
@@ -670,6 +720,70 @@
           <p>Lanches e refeições pensados para crianças — rápidos de fazer, gostosos e que ajudam a manter a alimentação nos trilhos.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <div class="shimmer-divider"></div>
+
+  <!-- DESENHOS DE BAIXO ESTÍMULO -->
+  <section id="desenhos">
+    <div class="container text-center">
+      <span class="section-tag teal">Tela com intenção</span>
+      <h2 class="section-title">Quando a tela acontecer,<br>que seja com qualidade</h2>
+      <p class="section-subtitle">O Guia de Férias traz uma curadoria exclusiva com os melhores desenhos de baixo estímulo — para quando precisar de um momento de tela, você tenha sempre uma indicação boa na ponta da língua.</p>
+
+      <div class="desenhos-conceito reveal">
+        <p><span class="conceito-titulo">O que é baixo estímulo?</span> São desenhos com ritmo mais lento, sem flash rápido, sem personagens gritando, sem cliffhangers. A criança assiste com calma — e quando você desliga, não tem aquela crise de abstinência que todo mundo conhece.</p>
+      </div>
+
+      <div class="desenhos-grid">
+
+        <div class="desenho-card reveal">
+          <div class="desenho-emoji">🐕</div>
+          <div class="desenho-nome">Bluey</div>
+          <div class="desenho-meta"><span class="desenho-age">2+ anos</span> · Disney+</div>
+          <p class="desenho-desc">A queridinha das mães: ritmo calmo, sem violência, com valores lindos — e os adultos adoram assistir junto.</p>
+        </div>
+
+        <div class="desenho-card reveal">
+          <div class="desenho-emoji">🐯</div>
+          <div class="desenho-nome">Daniel Tigre</div>
+          <div class="desenho-meta"><span class="desenho-age">2–4 anos</span> · YouTube</div>
+          <p class="desenho-desc">Emoções, rotina e criatividade com músicas suaves. Ótimo para trabalhar sentimentos com a criança.</p>
+        </div>
+
+        <div class="desenho-card reveal">
+          <div class="desenho-emoji">🎈</div>
+          <div class="desenho-nome">Pocoyo</div>
+          <div class="desenho-meta"><span class="desenho-age">1–3 anos</span> · YouTube</div>
+          <p class="desenho-desc">Para os bem pequeninos: simples, colorido, narrado e sem pressa. Perfeito para quem ainda está começando.</p>
+        </div>
+
+        <div class="desenho-card reveal">
+          <div class="desenho-emoji">🐧</div>
+          <div class="desenho-nome">Puffin Rock</div>
+          <div class="desenho-meta"><span class="desenho-age">2+ anos</span> · Netflix</div>
+          <p class="desenho-desc">Sobre a natureza, narrado com voz suave. Episódios curtos e tranquilíssimos — um dos mais calmos que existem.</p>
+        </div>
+
+        <div class="desenho-card reveal">
+          <div class="desenho-emoji">🌿</div>
+          <div class="desenho-nome">Meu Vizinho Totoro</div>
+          <div class="desenho-meta"><span class="desenho-age">3+ anos</span> · Netflix</div>
+          <p class="desenho-desc">Filme Ghibli clássico: sem vilão, cheio de maravilha e natureza. Uma experiência de tela completamente diferente.</p>
+        </div>
+
+        <div class="desenho-card reveal">
+          <div class="desenho-emoji">🐑</div>
+          <div class="desenho-nome">Shaun, o Carneiro</div>
+          <div class="desenho-meta"><span class="desenho-age">4+ anos</span> · Netflix</div>
+          <p class="desenho-desc">Sem diálogos, só expressão e humor. Crianças e adultos riem juntos, sem barulho excessivo.</p>
+        </div>
+
+      </div>
+
+      <p class="desenhos-rodape reveal">+ mais de 50 títulos organizados por faixa etária dentro do app</p>
+
     </div>
   </section>
 
