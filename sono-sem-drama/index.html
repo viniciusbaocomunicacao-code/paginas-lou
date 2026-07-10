@@ -385,7 +385,15 @@ a:focus-visible, summary:focus-visible {
   font-size: 16.5px;
   color: var(--star);
 }
-.doubt__empathy strong { color: var(--star-strong); font-weight: 600; }
+.doubt__bridge {
+  max-width: 560px;
+  margin: 36px auto 0;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(19px, 2.6vw, 24px);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--star-strong);
+}
 
 /* ══════════════════════════════════════
    PARA VOCÊ QUE — identificação
@@ -496,6 +504,13 @@ a:focus-visible, summary:focus-visible {
 }
 
 .receive__cta { text-align: center; }
+.receive__cta-lead {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
 
 /* ══════════════════════════════════════
    LOURDES
@@ -706,8 +721,15 @@ a:focus-visible, summary:focus-visible {
 .dawn p {
   font-size: 18px;
   color: rgba(52,26,62,.8);
-  max-width: 520px;
-  margin: 0 auto 40px;
+  max-width: 560px;
+  margin: 0 auto 24px;
+}
+.dawn p.dawn__ask {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(24px, 3.4vw, 32px);
+  font-weight: 800;
+  color: #341A3E;
+  margin-bottom: 36px;
 }
 .dawn__btn {
   display: inline-block;
@@ -913,7 +935,8 @@ footer a:hover { color: var(--star-strong); }
     <div class="doubt__answer reveal">
       <p>Sim — acontece bem mais do que parece.</p>
       <p class="yes">E sim: dá pra mudar, com o conhecimento certo.</p>
-      <p class="doubt__empathy">Dormir junto pode ter sido necessário em algum momento. Mas agora você está exausta — e seu filho também está preso a uma rotina que já não funciona. <strong>Existem mães que dormem a noite inteira. E você vai ser a próxima.</strong></p>
+      <p class="doubt__empathy">Dormir junto pode ter sido necessário em algum momento. Mas agora você está exausta — e seu filho também está preso a uma rotina que já não funciona. Além disso, você também precisa descansar, não é?</p>
+      <p class="doubt__bridge">Saiba de uma coisa: existem diferentes estratégias para ensinar seu filho a dormir com autonomia — e eu vou te mostrar exatamente como, no Aulão Sono Sem Drama.</p>
     </div>
   </div>
 </section>
@@ -1007,6 +1030,7 @@ footer a:hover { color: var(--star-strong); }
     </div>
 
     <div class="receive__cta">
+      <p class="receive__cta-lead">Mude hoje o sono da sua família.</p>
       <a href="https://pay.hotmart.com/V99617626J?checkoutMode=10" class="lamp-btn">Quero participar do aulão</a>
     </div>
   </div>
@@ -1110,7 +1134,8 @@ footer a:hover { color: var(--star-strong); }
 <section class="dawn">
   <div class="dawn__inner">
     <h2>Você não precisa passar mais uma noite discutindo, negociando ou dormindo mal.</h2>
-    <p>Se você quer orientação prática, confiável e respeitosa para que seu filho durma com mais autonomia — dê o primeiro passo e faça a mudança acontecer.</p>
+    <p>Você não precisa deixar seu filho chorando sozinho. Não precisa de fórmulas mágicas nem de métodos rígidos. Só precisa de orientação segura, prática e acolhedora. Se o seu filho só dorme com você — e você não sabe mais o que tentar — o Sono Sem Drama foi feito para vocês.</p>
+    <p class="dawn__ask">Vamos juntas?</p>
     <a href="https://pay.hotmart.com/V99617626J?checkoutMode=10" class="dawn__btn">Quero acesso ao aulão</a>
     <p class="dawn__trust">Garantia de 7 dias · Acesso imediato · R$ 47,90</p>
   </div>
