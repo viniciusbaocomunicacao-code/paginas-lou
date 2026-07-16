@@ -436,17 +436,14 @@
       } catch (e) {}
     }
 
+    // Lead parcial (nome+whatsapp+email preenchidos, form ainda em andamento) vai só pro CRM.
+    // Não manda pro Web3Forms aqui — senão cada lead completo consome 2 submissions do plano
+    // (1 parcial + 1 final), estourando a cota do plano básico e derrubando leads reais.
     function maybeSendPartial() {
       if (partialSent || formCompleted) return;
       if (!answers.nome || !answers.whatsapp || !answers.email) return;
       partialSent = true;
-      postToWeb3Forms({
-        access_key: WEB3FORMS_KEY,
-        subject: `⏳ Lead parcial (em preenchimento) — ${answers.nome}`,
-        from_name: 'Formulário Sessão de Clareza',
-        aviso: 'Ela ainda está respondendo o formulário. Se concluir, você receberá outro e-mail com as respostas completas.',
-        ...answers
-      });
+      postToCRM(answers);
     }
 
     function startForm() {
