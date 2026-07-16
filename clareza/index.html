@@ -424,15 +424,15 @@
 
     // Envia o lead direto pro CRM da equipe (Jessica/Vanessa), em paralelo ao Web3Forms.
     // Não bloqueia nem afeta a tela de agradecimento — se falhar, a lead ainda chega por e-mail.
+    // IMPORTANTE: não usar navigator.sendBeacon() aqui — com Content-Type: application/json
+    // (tipo não-"simples" pro CORS) o preflight OPTIONS é enviado e aceito, mas vários
+    // navegadores não garantem o envio do beacon de verdade depois disso (falha silenciosa).
+    // fetch() trata o preflight corretamente; como a página não navega para outro lugar
+    // após o envio, não precisamos da garantia de "sobreviver à navegação" do sendBeacon.
     function postToCRM(dados) {
       try {
         const body = JSON.stringify({ secret: CRM_INTAKE_SECRET, ...dados });
-        if (navigator.sendBeacon) {
-          const blob = new Blob([body], { type: 'application/json' });
-          navigator.sendBeacon(CRM_INTAKE_URL, blob);
-        } else {
-          fetch(CRM_INTAKE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body, keepalive: true }).catch(() => {});
-        }
+        fetch(CRM_INTAKE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body, keepalive: true }).catch(() => {});
       } catch (e) {}
     }
 
