@@ -149,15 +149,24 @@
   .hero__bg img {
     position: absolute; top: 0; right: -6%; height: 100%; width: auto; min-width: 52%;
     object-fit: cover; object-position: top center;
-    filter: saturate(1.05) sepia(.05) contrast(1.02);
-    opacity: .85;
+    filter: saturate(1.05) sepia(.05) contrast(1.02) blur(1px);
+    opacity: .8;
   }
   .hero__bg::after {
     content: '';
     position: absolute; inset: 0;
     background:
-      linear-gradient(100deg, var(--cream) 0%, var(--cream) 32%, rgba(249,243,236,.86) 46%, rgba(249,243,236,.4) 60%, rgba(249,243,236,.08) 74%, transparent 86%),
-      linear-gradient(to bottom, rgba(249,243,236,.4) 0%, transparent 22%, transparent 72%, var(--cream) 100%);
+      linear-gradient(96deg,
+        var(--cream) 0%, var(--cream) 16%,
+        rgba(249,243,236,.96) 24%, rgba(249,243,236,.88) 30%,
+        rgba(249,243,236,.74) 37%, rgba(249,243,236,.56) 44%,
+        rgba(249,243,236,.38) 51%, rgba(249,243,236,.23) 58%,
+        rgba(249,243,236,.12) 66%, rgba(249,243,236,.05) 75%,
+        rgba(249,243,236,.01) 85%, transparent 96%),
+      linear-gradient(to bottom,
+        rgba(249,243,236,.5) 0%, rgba(249,243,236,.15) 14%,
+        transparent 26%, transparent 68%,
+        rgba(249,243,236,.22) 84%, var(--cream) 100%);
   }
   .hero__inner {
     position: relative; z-index: 1;
@@ -223,6 +232,7 @@
   }
   .depo-track {
     display: flex;
+    align-items: flex-start;
     gap: 18px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -988,11 +998,19 @@
     nav .nav-cta { font-size: 12px; padding: 9px 16px; }
 
     .hero__inner { padding: 44px 20px 52px; }
-    .hero__bg img { right: -32%; min-width: 78%; opacity: .5; }
+    .hero__bg img { right: -32%; min-width: 78%; opacity: .45; filter: saturate(1.05) sepia(.05) contrast(1.02) blur(1.5px); }
     .hero__bg::after {
       background:
-        linear-gradient(to bottom, var(--cream) 0%, rgba(249,243,236,.5) 30%, rgba(249,243,236,.25) 55%, rgba(249,243,236,.55) 78%, var(--cream) 100%),
-        linear-gradient(100deg, var(--cream) 0%, rgba(249,243,236,.5) 42%, transparent 78%);
+        linear-gradient(to bottom,
+          var(--cream) 0%, var(--cream) 8%,
+          rgba(249,243,236,.9) 16%, rgba(249,243,236,.68) 24%,
+          rgba(249,243,236,.48) 32%, rgba(249,243,236,.32) 40%,
+          rgba(249,243,236,.4) 55%, rgba(249,243,236,.55) 68%,
+          rgba(249,243,236,.78) 82%, var(--cream) 100%),
+        linear-gradient(96deg,
+          var(--cream) 0%, rgba(249,243,236,.9) 22%,
+          rgba(249,243,236,.62) 40%, rgba(249,243,236,.32) 58%,
+          rgba(249,243,236,.1) 76%, transparent 92%);
     }
     .hero h1 { font-size: 28px; }
     .hero__sub { font-size: 16px; }
