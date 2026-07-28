@@ -125,28 +125,75 @@
     font-weight: 300;
     line-height: 1.65;
   }
-  .hero__video {
-    margin: 48px auto 0;
-    max-width: 680px;
-    aspect-ratio: 16/9;
-    background: var(--deep);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .hero__photo-wrap {
     position: relative;
+    max-width: 300px;
+    margin: 64px auto 0;
+    animation: floatY 6s ease-in-out infinite;
+  }
+  .hero__photo-wrap::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -30px; left: 50%;
+    transform: translateX(-50%);
+    width: 150%; height: 130%;
+    background: radial-gradient(circle, rgba(224,130,107,.28), transparent 68%);
+    filter: blur(18px);
+  }
+  .hero__photo-wrap::before {
+    content: '';
+    position: absolute;
+    top: -16px; left: -16px; right: 16px; bottom: 16px;
+    border: 2px solid var(--terracotta);
+    border-radius: 140px 140px 20px 20px;
+    opacity: .4;
+    z-index: 0;
+  }
+  .hero__photo-frame {
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 3/4;
+    border-radius: 140px 140px 20px 20px;
     overflow: hidden;
-    box-shadow: 0 24px 64px rgba(28,20,16,.18);
+    box-shadow: 0 24px 64px rgba(28,20,16,.2);
   }
-  .hero__video-placeholder {
-    color: rgba(255,255,255,.5);
-    font-size: 14px;
-    text-align: center;
-  }
-  .hero__video-placeholder span {
+  .hero__photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
     display: block;
-    font-size: 48px;
-    margin-bottom: 12px;
+  }
+  .hero__badge {
+    position: absolute;
+    bottom: -16px; right: -22px;
+    z-index: 2;
+    display: flex; align-items: center; gap: 6px;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 10px 18px 10px 14px;
+    font-size: 13px; font-weight: 600; color: var(--deep);
+    box-shadow: 0 10px 28px rgba(28,20,16,.14);
+    white-space: nowrap;
+    animation: badgeGlow 3.2s ease-in-out infinite;
+  }
+  .hero__highlight {
+    background-image: linear-gradient(90deg, var(--terracotta), var(--gold));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 3px;
+    padding-bottom: 3px;
+  }
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes badgeGlow {
+    0%, 100% { box-shadow: 0 10px 28px rgba(28,20,16,.14); }
+    50% { box-shadow: 0 10px 30px rgba(224,114,96,.4); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__photo-wrap, .hero__badge { animation: none; }
   }
 
   /* ══ DEPOIMENTOS RÁPIDOS ══ */
@@ -665,6 +712,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 8px;
   }
   .authority__text h2 {
     font-size: clamp(26px, 3.5vw, 40px);
@@ -912,7 +960,8 @@
     .hero__inner { padding: 44px 20px 52px; }
     .hero h1 { font-size: 28px; }
     .hero__sub { font-size: 16px; }
-    .hero__video { margin: 32px auto 0; border-radius: 8px; }
+    .hero__photo-wrap { max-width: 220px; margin: 40px auto 0; }
+    .hero__badge { font-size: 12px; padding: 8px 14px 8px 11px; right: -10px; bottom: -14px; }
     .btn--large { font-size: 16px; padding: 18px 32px; width: 100%; text-align: center; display: block; }
 
     .depo-scroll { grid-template-columns: 1fr; }
@@ -938,7 +987,7 @@
     .inside-grid-2 { grid-template-columns: 1fr; max-width: 100%; }
 
     .authority__layout { grid-template-columns: 1fr; gap: 36px; }
-    .authority__photo { aspect-ratio: 3/2; }
+    .authority__photo { max-width: 280px; margin: 0 auto; }
 
     .bonus-grid { grid-template-columns: 1fr; }
 
@@ -970,16 +1019,15 @@
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero__inner">
-    <h1>A clareza que você precisa para educar seus filhos com autoridade, segurança e sem improviso.</h1>
+    <h1>A clareza que você precisa para educar seus filhos com <span class="hero__highlight">autoridade, segurança</span> e sem improviso.</h1>
     <p class="hero__sub">Nenhuma mãe nasce sabendo. Mas qualquer mãe pode aprender as raízes dos comportamentos e parar de agir no automático.</p>
     <a href="#preco" class="btn btn--large">Quero essa clareza</a>
 
-    <div class="hero__video">
-      <!-- SUBSTITUA: <iframe src="URL_DO_VIDEO" frameborder="0" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe> -->
-      <div class="hero__video-placeholder">
-        <span>▶</span>
-        Substitua pelo vídeo de vendas
+    <div class="hero__photo-wrap">
+      <div class="hero__photo-frame">
+        <img src="assets/img/lourdes-hero.jpg" alt="Lourdes Corsi, fundadora do Método LAR" loading="eager">
       </div>
+      <div class="hero__badge">🌿 Fundadora do Método LAR</div>
     </div>
   </div>
 </section>
@@ -1276,8 +1324,7 @@
   <div class="container--wide">
     <div class="authority__layout">
       <div class="authority__photo">
-        <!-- SUBSTITUA: <img src="assets/foto-lourdes.jpg" alt="Lourdes Corsi" /loading="lazy"> -->
-        <p style="font-size:13px; color:var(--light-mid);">Foto de Lourdes Corsi<br><small>Substitua pela imagem</small></p>
+        <img src="assets/img/lourdes.jpg" alt="Lourdes Corsi, educadora parental e fundadora do Método LAR" loading="lazy">
       </div>
       <div class="authority__text">
         <div class="tag">Por que confiar em mim</div>
