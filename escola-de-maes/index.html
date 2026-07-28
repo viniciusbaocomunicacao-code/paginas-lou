@@ -218,41 +218,32 @@
     margin-bottom: 48px;
     text-align: center;
   }
-  .depo-scroll {
+  .depo-carousel {
     position: relative; z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
   }
-  .depo-card {
-    background: var(--cream);
+  .depo-track {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 4px 4px 14px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .depo-track::-webkit-scrollbar { display: none; }
+  .depo-slide {
+    flex: 0 0 auto;
+    width: 240px;
+    scroll-snap-align: start;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 24px 44px -28px rgba(28,20,16,.28);
     border-top: 3px solid var(--terracotta);
-    border-radius: 12px;
-    padding: 28px 24px;
-    position: relative;
-    box-shadow: 0 24px 44px -32px rgba(28,20,16,.22);
+    background: var(--cream);
+    transition: transform .3s ease, box-shadow .3s;
   }
-  .depo-card::before {
-    content: '\201C';
-    position: absolute; top: 10px; left: 18px;
-    font-family: 'Fraunces', serif;
-    font-size: 56px; color: var(--terracotta); opacity: .15;
-    line-height: 1;
-  }
-  .depo-card p {
-    font-size: 14px;
-    color: var(--mid);
-    line-height: 1.65;
-    font-style: italic;
-    position: relative;
-    z-index: 1;
-    margin-bottom: 16px;
-  }
-  .depo-card__author {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--terracotta);
-  }
+  .depo-slide:hover { transform: translateY(-4px); box-shadow: 0 32px 56px -26px rgba(28,20,16,.34); }
+  .depo-slide img { width: 100%; height: auto; display: block; }
 
   /* ══ O QUE VOCÊ VAI APRENDER ══ */
   .learn { background: var(--cream); position: relative; overflow: hidden; }
@@ -424,8 +415,9 @@
   }
 
   /* ══ O CAMINHO (PILARES) — DARK ══ */
-  .path { background: var(--deep); color: rgba(255,255,255,.85); position: relative; overflow: hidden; }
+  .path { background: var(--deep) url('assets/img/bg-texture-dark.jpg') center / cover no-repeat; color: rgba(255,255,255,.85); position: relative; overflow: hidden; }
   .path .container { position: relative; z-index: 1; }
+  .path__mark { height: 52px; width: auto; margin-bottom: 24px; }
   .path .tag { border-color: rgba(217,130,107,.5); color: var(--terra-light); }
   .path h2 {
     color: #fff;
@@ -599,7 +591,7 @@
 
   /* ══ COMMUNITY BLOCK ══ */
   .community-block {
-    background: var(--deep);
+    background: var(--deep) url('assets/img/bg-texture-dark.jpg') center / cover no-repeat;
     color: white;
     position: relative;
     overflow: hidden;
@@ -852,7 +844,7 @@
   }
 
   /* ══ PREÇO ══ */
-  .pricing { background: var(--deep); color: white; text-align: center; position: relative; overflow: hidden; }
+  .pricing { background: var(--deep) url('assets/img/bg-texture-dark.jpg') center / cover no-repeat; color: white; text-align: center; position: relative; overflow: hidden; }
   .pricing .container { position: relative; z-index: 1; }
   .pricing h2 { color: white; font-size: clamp(26px, 3.5vw, 42px); margin-bottom: 40px; }
   .price-box {
@@ -1007,7 +999,7 @@
     .hero__stats { gap: 8px 10px; font-size: 12px; margin-top: 32px; }
     .btn--large { font-size: 16px; padding: 18px 32px; width: 100%; text-align: center; display: block; }
 
-    .depo-scroll { grid-template-columns: 1fr; }
+    .depo-slide { width: 210px; }
 
     .learn-item { padding: 20px 20px; flex-direction: column; gap: 12px; }
 
@@ -1094,22 +1086,15 @@
   <div class="glow" style="width:420px;height:420px;left:50%;top:-20%;transform:translateX(-50%);background:radial-gradient(circle,rgba(192,97,74,.18),transparent 70%);animation:drift 24s ease-in-out infinite"></div>
   <div class="container--wide">
     <h2 class="center">Confira o que dizem as alunas</h2>
-    <div class="depo-scroll">
-      <div class="depo-card animate tilt-card">
-        <p>"Tentei de tudo que estava na internet. Nada durava. Depois de entender as raízes emocionais do meu filho, tudo mudou de forma consistente e real."</p>
-        <div class="depo-card__author">Mariana, mãe de 4</div>
-      </div>
-      <div class="depo-card animate tilt-card">
-        <p>"O que mais me surpreendeu foi entender meus próprios padrões. Quando eu me autorregulo, meu filho automaticamente muda."</p>
-        <div class="depo-card__author">Fernanda</div>
-      </div>
-      <div class="depo-card animate tilt-card">
-        <p>"Não conseguíamos nos entender na educação dos filhos. Com a Escola de Mães, aprendemos a construir acordos e criar um lar onde cada criança se sente vista."</p>
-        <div class="depo-card__author">Letícia</div>
-      </div>
-      <div class="depo-card animate tilt-card">
-        <p>"Percebi que muito do comportamento da minha filha era reflexo do meu. O método me deu ferramentas para quebrar esse ciclo de verdade."</p>
-        <div class="depo-card__author">Carol e William</div>
+    <p class="center" style="color:var(--light-mid); font-size:14px; margin-top:-32px; margin-bottom:32px;">Conversas reais de acompanhamento — direto do grupo de mentoria.</p>
+    <div class="depo-carousel animate">
+      <div class="depo-track" id="depoTrack">
+        <div class="depo-slide"><img src="assets/img/depoimentos/dep-1.jpg" alt="Depoimento real de aluna sobre rotina de sono" loading="lazy"></div>
+        <div class="depo-slide"><img src="assets/img/depoimentos/dep-2.jpg" alt="Depoimento real sobre resultado de mentoria" loading="lazy"></div>
+        <div class="depo-slide"><img src="assets/img/depoimentos/dep-3.jpg" alt="Depoimento real sobre linguagem assertiva com os filhos" loading="lazy"></div>
+        <div class="depo-slide"><img src="assets/img/depoimentos/dep-4.jpg" alt="Depoimento real sobre progresso escolar do filho" loading="lazy"></div>
+        <div class="depo-slide"><img src="assets/img/depoimentos/dep-5.jpg" alt="Depoimento real sobre notas e boletim do filho" loading="lazy"></div>
+        <div class="depo-slide"><img src="assets/img/depoimentos/dep-6.jpg" alt="Depoimento real sobre feedback da mentoria" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -1238,6 +1223,7 @@
   <div class="glow" style="width:480px;height:480px;left:-8%;top:-10%;background:radial-gradient(circle,rgba(217,130,107,.3),transparent 70%);animation:drift 23s ease-in-out infinite"></div>
   <div class="glow" style="width:420px;height:420px;right:-8%;bottom:-12%;background:radial-gradient(circle,rgba(107,140,110,.28),transparent 70%);animation:driftRev 28s ease-in-out infinite"></div>
   <div class="container">
+    <img src="assets/img/logo-lar-mark.png" alt="Método LAR" class="path__mark">
     <div class="tag">O caminho para a transformação</div>
     <h2>Conheça os 3 pilares do Método LAR</h2>
     <p class="path__lead">Cada pilar trabalha em sinergia. Não são módulos separados — são as três dimensões do mesmo problema.</p>
@@ -1603,6 +1589,26 @@
       });
     });
   }
+
+  // AUTOPLAY DO CARROSSEL DE DEPOIMENTOS (pausa no hover/toque)
+  (function () {
+    const track = document.getElementById('depoTrack');
+    if (!track || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const slide = track.querySelector('.depo-slide');
+    if (!slide) return;
+    const gap = 18;
+    const step = () => {
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      track.scrollBy({ left: atEnd ? -track.scrollLeft : slide.offsetWidth + gap, behavior: 'smooth' });
+    };
+    let timer = setInterval(step, 3800);
+    const stop = () => clearInterval(timer);
+    const start = () => { stop(); timer = setInterval(step, 3800); };
+    track.addEventListener('mouseenter', stop);
+    track.addEventListener('mouseleave', start);
+    track.addEventListener('touchstart', stop, { passive: true });
+    track.addEventListener('touchend', () => setTimeout(start, 5000), { passive: true });
+  })();
 </script>
 </body>
 </html>
