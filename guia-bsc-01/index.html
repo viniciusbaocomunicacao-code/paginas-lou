@@ -172,7 +172,27 @@
       background: #000; aspect-ratio: 9/16; position: relative; z-index: 2;
     }
 
-    .video-wrap iframe { width: 100%; height: 100%; display: block; }
+    .video-wrap iframe,
+    .video-wrap video { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+    .video-toggle-btn {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      background: transparent; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 3; padding: 0;
+    }
+    .video-toggle-btn svg { filter: drop-shadow(0 2px 10px rgba(0,0,0,0.45)); opacity: 0; transition: opacity .2s; }
+    .video-toggle-btn:hover svg,
+    .video-toggle-btn:focus-visible svg,
+    .video-wrap.is-paused .video-toggle-btn svg { opacity: 1; }
+
+    .video-sound-hint {
+      position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+      background: rgba(0,0,0,0.6); color: #fff; font-size: 12px; font-weight: 600;
+      padding: 6px 12px; border-radius: 999px; z-index: 3;
+      pointer-events: none; transition: opacity .3s; white-space: nowrap;
+    }
+    .video-sound-hint.is-hidden { opacity: 0; }
 
     .payment-icons {
       display: flex; align-items: center; justify-content: center;
@@ -897,14 +917,21 @@
         <p class="cta-sub">🔒 Só R$ 37,90 · Acesso imediato · Garantia de 7 dias</p>
       </div>
 
-      <div class="video-wrap">
-        <iframe
-          id="panda-96b1e6b3-3367-4b50-a5c0-16435c1763c3"
-          src="https://player-vz-96c7254b-0dc.tv.pandavideo.com.br/embed/?v=96b1e6b3-3367-4b50-a5c0-16435c1763c3"
-          style="border:none;"
-          allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
-          allowfullscreen="true" loading="lazy">
-        </iframe>
+      <div class="video-wrap" id="video-wrap">
+        <video
+          id="hero-video"
+          src="assets/v2-crf28.mp4"
+          playsinline
+          webkit-playsinline
+          autoplay
+          muted
+          preload="auto">
+        </video>
+        <button type="button" id="video-toggle" class="video-toggle-btn" aria-label="Pausar vídeo">
+          <svg id="video-icon-pause" width="22" height="22" viewBox="0 0 24 24" fill="white"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>
+          <svg id="video-icon-play" width="22" height="22" viewBox="0 0 24 24" fill="white" style="display:none;"><path d="M7 4l14 8-14 8V4z"/></svg>
+        </button>
+        <div id="video-sound-hint" class="video-sound-hint">🔊 Toque para ativar o som</div>
       </div>
 
     </div>
@@ -1358,6 +1385,55 @@
         }
         bar.classList.add('is-visible');
       }, { passive: true });
+    })();
+
+    // Hero video — autoplay with sound (falls back to muted if the browser
+    // blocks it, then unmutes on the visitor's first interaction) + play/pause toggle
+    (function() {
+      const wrap      = document.getElementById('video-wrap');
+      const video     = document.getElementById('hero-video');
+      const toggleBtn = document.getElementById('video-toggle');
+      const iconPlay  = document.getElementById('video-icon-play');
+      const iconPause = document.getElementById('video-icon-pause');
+      const soundHint = document.getElementById('video-sound-hint');
+      if (!video) return;
+
+      function setPausedUI(isPaused) {
+        iconPlay.style.display  = isPaused ? 'block' : 'none';
+        iconPause.style.display = isPaused ? 'none'  : 'block';
+        wrap.classList.toggle('is-paused', isPaused);
+        toggleBtn.setAttribute('aria-label', isPaused ? 'Tocar vídeo' : 'Pausar vídeo');
+      }
+
+      function attemptUnmutedAutoplay() {
+        video.muted = false;
+        const playPromise = video.play();
+        if (playPromise && playPromise.catch) {
+          playPromise.catch(function() {
+            video.muted = true;
+            video.play().catch(function() {});
+            soundHint.classList.remove('is-hidden');
+          });
+        }
+      }
+      attemptUnmutedAutoplay();
+
+      function unmuteOnFirstInteraction() {
+        if (video.muted) {
+          video.muted = false;
+          video.play().catch(function() {});
+        }
+        soundHint.classList.add('is-hidden');
+      }
+      ['click', 'touchend', 'keydown'].forEach(function(evt) {
+        document.addEventListener(evt, unmuteOnFirstInteraction, { once: true, passive: true });
+      });
+
+      toggleBtn.addEventListener('click', function() {
+        if (video.paused) { video.play(); } else { video.pause(); }
+      });
+      video.addEventListener('play',  function() { setPausedUI(false); });
+      video.addEventListener('pause', function() { setPausedUI(true); });
     })();
   </script>
 
