@@ -75,12 +75,14 @@ body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
 .section-head.center{text-align:center;margin-left:auto;margin-right:auto}
 
 /* CASES */
-.cases{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.cases .case:nth-child(2){margin-top:2.4rem}
 .case{background:var(--ink-soft);padding:2.2rem;border-radius:3px;border-top:3px solid var(--latao)}
 .case p{color:rgba(244,239,230,.85);line-height:1.7;font-size:.98rem}
 
 /* JOURNEY / FASES */
-.fases{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem}
+.fases{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;align-items:start}
+.fases .fase:nth-child(2){margin-top:2.6rem}
 .fase{background:#fff;padding:2.4rem 2.2rem;border-radius:3px;box-shadow:0 24px 48px -32px rgba(42,38,34,.28);border-top:3px solid var(--accent,var(--terracota))}
 .fase .num{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;color:var(--accent,var(--terracota));display:block;margin-bottom:.9rem}
 .fase h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.28rem;margin-bottom:.4rem;color:var(--grafite)}
@@ -102,7 +104,9 @@ footer.site-footer .social a:hover{color:var(--latao)}
   .section{padding:5rem 6vw}
   .page-hero{padding:9rem 6vw 4rem}
   .cases{grid-template-columns:1fr}
+  .cases .case:nth-child(2){margin-top:0}
   .fases{grid-template-columns:1fr}
+  .fases .fase:nth-child(2){margin-top:0}
   footer.site-footer{flex-direction:column;text-align:center}
   footer.site-footer .social a{margin:0 .6rem}
 }

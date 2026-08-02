@@ -68,7 +68,9 @@ body.js-rv .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,
 body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
 
 /* PRODUCT GRID */
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;align-items:start}
+.pgrid a:nth-child(3n+2){margin-top:2.2rem}
+.pgrid a:nth-child(3n+3){margin-top:.9rem}
 .pcard{
   background:#fff;padding:2.1rem 1.8rem;border-radius:3px;position:relative;
   box-shadow:0 20px 44px -30px rgba(42,38,34,.26);
@@ -101,6 +103,7 @@ footer.site-footer .social a:hover{color:var(--latao)}
   .section{padding:5rem 6vw}
   .page-hero{padding:9rem 6vw 4rem}
   .pgrid{grid-template-columns:1fr 1fr}
+  .pgrid a{margin-top:0!important}
   footer.site-footer{flex-direction:column;text-align:center}
   footer.site-footer .social a{margin:0 .6rem}
 }

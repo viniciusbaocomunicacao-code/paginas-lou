@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Lourdes Corsi — Educadora Parental</title>
-<meta name="description" content="Lourdes Corsi, educadora parental e criadora do Método LAR. Mãe da Olivia, mais de 9 anos ajudando famílias a sair do automático." />
+<meta name="description" content="Lourdes Corsi, educadora parental e criadora do Método LAR. Formação em Letras, Pedagogia e psicanálise, ajudando mães a educar melhor há mais de 9 anos." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -152,21 +152,31 @@ nav.links a.current::after{
 body.js-rv .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;transition-delay:var(--stagger,0s)}
 body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
 
-/* STORY */
-.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4.5rem;align-items:center}
-.story-photos{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.story-photos img{border-radius:2px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
-.story-photos .p1{grid-column:1/2;transform:translateY(2.2rem)}
-.story-photos .p2{grid-column:2/3}
-.story-h{font-family:'Fraunces',serif;font-style:italic;font-weight:420;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--cream);margin:.6rem 0 1.6rem;line-height:1.3}
-.story p{color:rgba(244,239,230,.86);line-height:1.75;font-size:1.02rem;margin-bottom:1.15rem}
-.story p:last-child{margin-bottom:0}
+/* FORMAÇÃO (assimétrico, com tipografia-fantasma de fundo) */
+.formacao-section{overflow:hidden}
+.ghost-word{
+  position:absolute;top:50%;left:-3%;transform:translateY(-50%) rotate(-4deg);
+  font-family:'Fraunces',serif;font-style:italic;font-weight:340;
+  font-size:min(34vw,27rem);color:rgba(244,239,230,.045);
+  line-height:1;pointer-events:none;z-index:0;white-space:nowrap;
+}
+.formacao-grid{display:grid;grid-template-columns:5fr 7fr;gap:3rem;align-items:start}
+.formacao-creds{margin-top:4rem}
+.cred{display:flex;align-items:baseline;gap:1.2rem;padding:.95rem 0;border-bottom:1px solid var(--line-dark)}
+.cred:first-child{border-top:1px solid var(--line-dark)}
+.cred-inst{font-family:'Fraunces',serif;font-style:italic;color:var(--latao);font-size:1.2rem;min-width:100px;flex-shrink:0}
+.cred-role{color:rgba(244,239,230,.82);font-size:.98rem}
+.formacao-body{margin-top:2rem;color:rgba(244,239,230,.86);line-height:1.75;font-size:1.02rem;max-width:520px}
+.story-h{font-family:'Fraunces',serif;font-style:italic;font-weight:420;font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--cream);line-height:1.25}
 
 /* METHOD */
-.method-intro{text-align:center;max-width:640px;margin:0 auto 3.5rem}
+.method-intro{max-width:560px;margin:0 0 3.5rem}
 .method-intro h2{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(1.9rem,4vw,2.8rem);margin:.6rem 0 1rem;color:var(--grafite)}
 .method-intro p{color:var(--grafite-mid);font-size:1.05rem;line-height:1.6}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.sprig{margin:2.25rem 0}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:start}
+.pillars .pillar:nth-child(2){margin-top:3rem}
+.pillars .pillar:nth-child(3){margin-top:1rem}
 .pillar{
   background:#fff;padding:2.4rem 2rem 2.1rem;border-radius:3px;position:relative;
   box-shadow:0 24px 48px -32px rgba(42,38,34,.28);
@@ -181,28 +191,35 @@ body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
 .pillar.p-amadur{--accent:var(--latao)}
 .pillar.p-repert{--accent:var(--musgo)}
 
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
-.stat b{display:block;font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.1rem,4vw,3rem);color:var(--latao)}
-.stat span{font-size:.86rem;color:rgba(244,239,230,.72);letter-spacing:.02em}
+/* STATS (assimétrico: um número dominante + dois de apoio) */
+.stats-asym{display:grid;grid-template-columns:1.7fr 1fr;gap:3rem;align-items:center}
+.stat-hero b{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(3.2rem,8vw,6rem);color:var(--latao);line-height:1}
+.stat-hero span{font-size:.95rem;color:rgba(244,239,230,.72)}
+.stats-side{display:flex;flex-direction:column;gap:2.2rem;border-left:1px solid var(--line-dark);padding-left:2.2rem}
+.stat-mini b{display:block;font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.6rem,3vw,2.1rem);color:var(--cream)}
+.stat-mini span{font-size:.82rem;color:rgba(244,239,230,.65)}
 
 /* INSTAGRAM */
-.insta-head{text-align:center;max-width:600px;margin:0 auto 3rem}
+.insta-head{max-width:600px;margin:0 0 3rem}
 .insta-head h2{font-family:'Fraunces',serif;font-style:italic;font-weight:480;font-size:clamp(1.7rem,3.4vw,2.4rem);margin:.6rem 0 1rem;color:var(--grafite)}
 .insta-head p{color:var(--grafite-mid);font-size:1.02rem;line-height:1.6}
 .insta-embed{max-width:900px;margin:0 auto;border-radius:4px;overflow:hidden}
 .insta-follow{text-align:center;margin-top:2rem}
 
-/* NAV CARDS */
-.navcards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+/* NAV CARDS (assimétrico: índice tipo revista, não 4 caixas iguais) */
+.navcards{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1.5rem}
+.navcards a:nth-child(1){grid-row:1/3}
+.navcards a:nth-child(4){grid-column:2/4}
 .navcard{
   background:var(--ink-soft);padding:2rem 1.6rem;border-radius:3px;position:relative;overflow:hidden;
   border-top:3px solid var(--latao);transition:transform .3s ease,background .3s ease;
+  display:flex;flex-direction:column;justify-content:space-between;min-height:150px;
 }
 .navcard:hover{transform:translateY(-4px);background:#382F27}
 .navcard .tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--latao);font-weight:600;display:block;margin-bottom:.9rem}
 .navcard h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.15rem;color:var(--cream);margin-bottom:.6rem;line-height:1.3}
-.navcard .arrow{position:absolute;bottom:1.6rem;right:1.6rem;color:var(--latao);font-size:1.2rem;transition:transform .3s ease}
+.navcards a:nth-child(1) h3{font-size:1.5rem}
+.navcard .arrow{align-self:flex-end;color:var(--latao);font-size:1.2rem;transition:transform .3s ease}
 .navcard:hover .arrow{transform:translate(3px,-3px)}
 
 /* FOOTER CTA */
@@ -218,11 +235,17 @@ footer.site-footer .social a:hover{color:var(--latao)}
 
 @media (max-width:920px){
   .section{padding:5rem 6vw}
-  .story-grid{grid-template-columns:1fr;gap:2.5rem}
-  .story-photos{order:2}
+  .formacao-grid{grid-template-columns:1fr;gap:1.5rem}
+  .formacao-creds{margin-top:0}
+  .ghost-word{font-size:min(50vw,14rem);top:8%;transform:translateY(0) rotate(-4deg)}
   .pillars{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr;gap:1.8rem}
+  .pillars .pillar:nth-child(2),.pillars .pillar:nth-child(3){margin-top:0}
+  .stats-asym{grid-template-columns:1fr;gap:2rem}
+  .stats-side{border-left:none;padding-left:0;border-top:1px solid var(--line-dark);padding-top:1.8rem;flex-direction:row;flex-wrap:wrap;gap:2rem}
   .navcards{grid-template-columns:1fr 1fr;gap:1rem}
+  .navcards a:nth-child(1){grid-row:auto}
+  .navcards a:nth-child(4){grid-column:auto}
+  .navcards a:nth-child(1) h3{font-size:1.15rem}
   footer.site-footer{flex-direction:column;text-align:center}
   footer.site-footer .social a{margin:0 .6rem}
 }
@@ -260,7 +283,7 @@ footer.site-footer .social a:hover{color:var(--latao)}
   <div class="hero-content">
     <span class="eyebrow">Educadora Parental</span>
     <h1 id="heroTitle"></h1>
-    <p class="sub">Há quase uma década ajudando mães a sair do automático e criar filhos com limites, afeto e rotina, sem fórmula pronta.</p>
+    <p class="sub">Ajudo mães a educar melhor os filhos, a viver a maternidade com menos culpa e a construir uma relação mais leve em casa.</p>
     <div class="ctas">
       <a href="#metodo" class="btn btn-primary">Conheça o Método LAR</a>
       <a href="/clareza/" class="btn btn-ghost">Fale comigo</a>
@@ -268,20 +291,19 @@ footer.site-footer .social a:hover{color:var(--latao)}
   </div>
 </section>
 
-<section class="section section-dark">
-  <div class="glow" style="width:420px;height:420px;left:-8%;top:10%;background:radial-gradient(circle,rgba(178,80,45,.32),transparent 70%);animation:drift 24s ease-in-out infinite"></div>
-  <div class="glow" style="width:360px;height:360px;right:-6%;bottom:0;background:radial-gradient(circle,rgba(182,146,78,.22),transparent 70%);animation:drift 20s ease-in-out infinite reverse"></div>
-  <div class="wrap story-grid">
+<section class="section section-dark formacao-section">
+  <div class="ghost-word" aria-hidden="true">LAR</div>
+  <div class="wrap formacao-grid">
     <div class="rv">
-      <span class="eyebrow">Minha história</span>
-      <h2 class="story-h">Sou educadora.<br>Mas antes disso, fui mãe em crise.</h2>
-      <p>Quando a Olivia nasceu com APLV, eu já estudava comportamento infantil havia anos e atendia outras mães. Mesmo assim, entrei em depressão pós-parto e me cobrei por cada decisão que tomava.</p>
-      <p>Foi ali que entendi a diferença entre saber a teoria e conseguir aplicá-la no meio do próprio furacão.</p>
-      <p>O Método LAR nasceu dessa experiência. Não de um livro. De uma mãe que precisou desmontar os próprios padrões pra não repassá-los à filha.</p>
+      <span class="eyebrow">Formação</span>
+      <h2 class="story-h">Anos de estudo.<br>Anos de prática.</h2>
     </div>
-    <div class="story-photos rv" data-stagger="0.15">
-      <img class="p1" src="/assets/institucional/jornada-gravidez.jpg" alt="Lourdes Corsi grávida da Olivia" loading="lazy" />
-      <img class="p2" src="/assets/institucional/jornada-recem-nascida.jpg" alt="Lourdes Corsi com a Olivia recém-nascida" loading="lazy" />
+    <div class="formacao-creds rv" data-stagger="0.15">
+      <div class="cred"><span class="cred-inst">UNESP</span><span class="cred-role">Letras</span></div>
+      <div class="cred"><span class="cred-inst">UNIRP</span><span class="cred-role">Pedagogia</span></div>
+      <div class="cred"><span class="cred-inst">IBP</span><span class="cred-role">Psicanálise</span></div>
+      <div class="cred"><span class="cred-inst">PDA</span><span class="cred-role">Educadora parental, desde 2018</span></div>
+      <p class="formacao-body">Nesses anos, venho ajudando mães a entender o que está por trás do comportamento dos filhos, e a agir sobre a causa, não só sobre o sintoma. O Método LAR nasceu desse trabalho: uma forma estruturada de traduzir teoria em prática, sem fórmula genérica.</p>
     </div>
   </div>
 </section>
@@ -320,10 +342,12 @@ footer.site-footer .social a:hover{color:var(--latao)}
 
 <section class="section section-dark">
   <div class="wrap">
-    <div class="stats">
-      <div class="stat rv"><b>9+</b><span>anos de estrada</span></div>
-      <div class="stat rv" data-stagger="0.1"><b>70mil+</b><span>pessoas acompanham o trabalho</span></div>
-      <div class="stat rv" data-stagger="0.2"><b>7.800+</b><span>mães na Escola de Mães</span></div>
+    <div class="stats-asym">
+      <div class="stat-hero rv"><b>70mil+</b><span>pessoas acompanham o trabalho</span></div>
+      <div class="stats-side">
+        <div class="stat-mini rv" data-stagger="0.1"><b>9+</b><span>anos de estrada</span></div>
+        <div class="stat-mini rv" data-stagger="0.2"><b>7.800+</b><span>mães na Escola de Mães</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -333,7 +357,7 @@ footer.site-footer .social a:hover{color:var(--latao)}
     <div class="insta-head rv">
       <span class="eyebrow">No dia a dia</span>
       <h2>O que acontece entre um conteúdo e outro</h2>
-      <p>No Instagram eu registro a rotina real: bastidores, erros, acertos e o que estou aprendendo com a Olivia essa semana.</p>
+      <p>No Instagram eu registro a rotina real: bastidores, erros, acertos e o que venho estudando sobre comportamento infantil.</p>
     </div>
     <div class="insta-embed rv">
       <!-- Elfsight Instagram Feed | @lourdes.corsi -->
@@ -394,10 +418,9 @@ footer.site-footer .social a:hover{color:var(--latao)}
 // Word-by-word hero reveal
 (function(){
   var el = document.getElementById('heroTitle');
-  var text = "Mãe da Olivia. Guia de milhares de famílias.";
+  var text = "Sou educadora parental.";
   var words = text.split(' ');
   el.innerHTML = words.map(function(w,i){
-    var em = (w.indexOf('Olivia') > -1);
     return '<span class="reveal-word" style="--i:'+i+'">'+w+'</span>';
   }).join(' ');
 })();
