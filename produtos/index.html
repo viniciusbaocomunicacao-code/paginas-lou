@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Produtos — Lourdes Corsi</title>
+<meta name="description" content="Todos os produtos e programas de Lourdes Corsi em um só lugar." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,600;1,9..144,420;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --ink:#221E1B;--ink-soft:#2F2A25;--cream:#F4EFE6;--cream-soft:#EAE1D2;
+  --terracota:#B2502D;--terracota-dk:#8F3F23;--latao:#B6924E;
+  --grafite:#2A2622;--grafite-mid:#5B5349;--musgo:#6D7253;
+  --line:rgba(42,38,34,0.12);--line-dark:rgba(244,239,230,0.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Work Sans',sans-serif;background:var(--cream);color:var(--grafite);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Fraunces',serif}
+.eyebrow{font-family:'Work Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--latao)}
+.section{position:relative;padding:7rem 6vw;overflow:hidden}
+.section-dark{background:var(--ink);color:var(--cream)}
+.section-dark .eyebrow{color:var(--latao)}
+.wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3%,4%) scale(1.08)}}
+
+header.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 6vw;background:rgba(34,30,27,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line-dark)}
+.brand{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.25rem;color:var(--cream)}
+.brand span{color:var(--latao)}
+nav.links{display:flex;align-items:center;gap:1.9rem}
+nav.links a{font-size:.86rem;font-weight:500;color:rgba(244,239,230,.82);position:relative;padding:.3rem 0}
+nav.links a:hover{color:var(--cream)}
+nav.links a.current{color:var(--cream)}
+nav.links a.current::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--latao)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:2px;font-size:.86rem;font-weight:600;letter-spacing:.02em;border:1px solid transparent;cursor:pointer;transition:all .25s ease}
+.btn-primary{background:var(--terracota);color:#fff}
+.btn-primary:hover{background:var(--terracota-dk);transform:translateY(-1px)}
+.btn-ghost{border-color:rgba(244,239,230,.35);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--latao);color:var(--latao)}
+.nav-cta{display:inline-flex}
+.nav-cta-mobile{display:none}
+.menu-toggle{display:none}
+@media (max-width:920px){
+  nav.links{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);height:100vh;background:var(--ink);flex-direction:column;align-items:flex-start;padding:6.5rem 2rem 2rem;gap:1.6rem;transform:translateX(100%);transition:transform .35s ease;border-left:1px solid var(--line-dark)}
+  nav.links.open{transform:translateX(0)}
+  nav.links a{font-size:1.05rem}
+  .menu-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:101}
+  .menu-toggle span{width:22px;height:1.5px;background:var(--cream)}
+  .nav-cta-mobile{display:inline-flex;margin-top:.5rem}
+  .nav-cta{display:none}
+}
+
+.page-hero{position:relative;padding:11rem 6vw 5.5rem;background:var(--ink);color:var(--cream);overflow:hidden}
+.page-hero .wrap{max-width:760px}
+.page-hero h1{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;margin:1rem 0 1.3rem}
+.page-hero p.sub{font-size:1.06rem;line-height:1.65;color:rgba(244,239,230,.82);max-width:560px}
+.reveal-word{display:inline-block;opacity:0;filter:blur(6px);transform:translateY(14px);animation:wordIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 70ms)}
+@keyframes wordIn{to{opacity:1;filter:blur(0);transform:translateY(0)}}
+
+body.js-rv .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;transition-delay:var(--stagger,0s)}
+body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
+
+/* PRODUCT GRID */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.pcard{
+  background:#fff;padding:2.1rem 1.8rem;border-radius:3px;position:relative;
+  box-shadow:0 20px 44px -30px rgba(42,38,34,.26);
+  border-top:3px solid var(--accent,var(--terracota));
+  transition:transform .3s ease,box-shadow .3s ease;
+  display:flex;flex-direction:column;min-height:190px;
+}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 28px 54px -26px rgba(42,38,34,.32)}
+.pcard .tag{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent,var(--terracota));font-weight:600;margin-bottom:.9rem}
+.pcard h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;margin-bottom:.6rem;color:var(--grafite)}
+.pcard p{color:var(--grafite-mid);font-size:.92rem;line-height:1.55;flex:1}
+.pcard .arrow{align-self:flex-end;color:var(--accent,var(--terracota));font-size:1.1rem;margin-top:.8rem;transition:transform .3s ease}
+.pcard:hover .arrow{transform:translate(3px,-3px)}
+.pcard.c1{--accent:var(--terracota)}
+.pcard.c2{--accent:var(--latao)}
+.pcard.c3{--accent:var(--musgo)}
+.pcard.featured{background:var(--ink-soft);border-top-color:var(--latao)}
+.pcard.featured .tag{color:var(--latao)}
+.pcard.featured h3{color:var(--cream)}
+.pcard.featured p{color:rgba(244,239,230,.75)}
+.pcard.featured .arrow{color:var(--latao)}
+
+.footer-cta{text-align:center}
+.footer-cta h2{font-family:'Fraunces',serif;font-style:italic;font-weight:480;font-size:clamp(1.9rem,4.2vw,2.9rem);margin-bottom:1.8rem}
+footer.site-footer{background:var(--ink);color:rgba(244,239,230,.6);padding:3rem 6vw 2.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;border-top:1px solid var(--line-dark);font-size:.85rem}
+footer.site-footer .social a{margin-left:1.2rem;color:rgba(244,239,230,.6)}
+footer.site-footer .social a:hover{color:var(--latao)}
+
+@media (max-width:920px){
+  .section{padding:5rem 6vw}
+  .page-hero{padding:9rem 6vw 4rem}
+  .pgrid{grid-template-columns:1fr 1fr}
+  footer.site-footer{flex-direction:column;text-align:center}
+  footer.site-footer .social a{margin:0 .6rem}
+}
+@media (max-width:560px){
+  .pgrid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal-word{animation:none;opacity:1;filter:none;transform:none}
+  .rv{transition:none;opacity:1;transform:none}
+  .glow{animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <a href="/" class="brand">Lourdes <span>Corsi</span></a>
+  <nav class="links" id="navLinks">
+    <a href="/">Sobre</a>
+    <a href="/parcerias/">Parcerias</a>
+    <a href="/consultoria-mentoria/">Consultoria e Mentoria</a>
+    <a href="/produtos/" class="current">Produtos</a>
+    <a href="/eventos/">Eventos e Palestras</a>
+    <a href="/clareza/" class="btn btn-primary nav-cta-mobile">Fale comigo</a>
+  </nav>
+  <a href="/clareza/" class="btn btn-primary nav-cta">Fale comigo</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+</header>
+
+<section class="page-hero">
+  <div class="glow" style="width:420px;height:420px;left:-10%;top:0;background:radial-gradient(circle,rgba(178,80,45,.3),transparent 70%);animation:drift 24s ease-in-out infinite"></div>
+  <div class="wrap">
+    <span class="eyebrow">Tudo o que eu já criei</span>
+    <h1 id="heroTitle"></h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="pgrid">
+      <a href="/clareza/" class="pcard featured rv">
+        <span class="tag">Atendimento individual</span>
+        <h3>Sessão de Clareza</h3>
+        <p>Pra quem busca acompanhamento individualizado, olhando pro caso específico da sua família.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/guia-bsc-01/" class="pcard c1 rv" data-stagger="0.05">
+        <span class="tag">Guia</span>
+        <h3>Guia dos 4 Temperamentos</h3>
+        <p>Descubra e entenda o temperamento do seu filho.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/escola-de-maes/" class="pcard c2 rv" data-stagger="0.1">
+        <span class="tag">Comunidade</span>
+        <h3>Escola de Mães</h3>
+        <p>Comunidade, encontros mensais e o acervo completo de aulas.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/sos-birras/" class="pcard c3 rv" data-stagger="0.15">
+        <span class="tag">Curso</span>
+        <h3>SOS Birras</h3>
+        <p>Lide com as birras antes, durante e depois.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/rotina-visual/" class="pcard c1 rv" data-stagger="0.2">
+        <span class="tag">Ferramenta</span>
+        <h3>Rotina Visual</h3>
+        <p>Ferramentas visuais que simplificam o dia a dia e desenvolvem autonomia no seu filho.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/sem-telas/" class="pcard c2 rv" data-stagger="0.25">
+        <span class="tag">Curso</span>
+        <h3>Infância Sem Telas</h3>
+        <p>Reduza o tempo de tela sem culpa e crie filhos mais presentes.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/sono-sem-drama/" class="pcard c3 rv" data-stagger="0.3">
+        <span class="tag">Curso</span>
+        <h3>Sono Sem Drama</h3>
+        <p>Estratégias práticas e respeitosas pra noites de sono bem dormidas.</p>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/guia-de-ferias/" class="pcard c1 rv" data-stagger="0.35">
+        <span class="tag">Guia sazonal</span>
+        <h3>Guia de Férias</h3>
+        <p>Atividades, planner e rotina pras férias escolares.</p>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section footer-cta section-dark">
+  <div class="wrap rv">
+    <span class="eyebrow">Não sabe por onde começar?</span>
+    <h2 class="serif" style="font-style:italic;font-weight:420">Fale comigo antes de escolher.</h2>
+    <a href="/clareza/" class="btn btn-primary">Agendar uma conversa</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span>© 2026 Lourdes Corsi · Todos os direitos reservados</span>
+  <span class="social">
+    <a href="https://instagram.com/lourdes.corsi" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://youtube.com/@lourdescorsi" target="_blank" rel="noopener">YouTube</a>
+    <a href="mailto:contato@lourdescorsi.com.br">E-mail</a>
+  </span>
+</footer>
+
+<script>
+(function(){
+  var el = document.getElementById('heroTitle');
+  var text = "Cada fase tem um jeito certo de atravessar.";
+  var words = text.split(' ');
+  el.innerHTML = words.map(function(w,i){
+    return '<span class="reveal-word" style="--i:'+i+'">'+w+'</span>';
+  }).join(' ');
+})();
+
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  document.body.classList.add('js-rv');
+  var items = document.querySelectorAll('.rv');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var stag = e.target.getAttribute('data-stagger');
+        if(stag) e.target.style.setProperty('--stagger', stag+'s');
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  items.forEach(function(i){io.observe(i)});
+  setTimeout(function(){
+    document.querySelectorAll('.rv:not(.visible)').forEach(function(el){ el.classList.add('visible'); });
+  },2500);
+})();
+
+(function(){
+  var btn = document.getElementById('menuToggle');
+  var nav = document.getElementById('navLinks');
+  btn.addEventListener('click', function(){ nav.classList.toggle('open'); });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); });
+  });
+})();
+</script>
+</body>
+</html>

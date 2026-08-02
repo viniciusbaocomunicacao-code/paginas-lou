@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Parcerias — Lourdes Corsi</title>
+<meta name="description" content="Parcerias de marca com Lourdes Corsi: audiência, formatos e como o conteúdo é construído." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,600;1,9..144,420;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --ink:#221E1B;
+  --ink-soft:#2F2A25;
+  --cream:#F4EFE6;
+  --cream-soft:#EAE1D2;
+  --terracota:#B2502D;
+  --terracota-dk:#8F3F23;
+  --latao:#B6924E;
+  --grafite:#2A2622;
+  --grafite-mid:#5B5349;
+  --musgo:#6D7253;
+  --line:rgba(42,38,34,0.12);
+  --line-dark:rgba(244,239,230,0.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Work Sans',sans-serif;background:var(--cream);color:var(--grafite);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Fraunces',serif}
+.eyebrow{font-family:'Work Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--latao)}
+.section{position:relative;padding:7rem 6vw;overflow:hidden}
+.section-dark{background:var(--ink);color:var(--cream)}
+.section-dark .eyebrow{color:var(--latao)}
+.wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
+.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3%,4%) scale(1.08)}}
+.sprig{display:block;margin:2.25rem auto;opacity:.85}
+.sprig path{fill:none;stroke:var(--latao);stroke-width:1.3;stroke-linecap:round}
+
+header.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 6vw;background:rgba(34,30,27,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line-dark)}
+.brand{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.25rem;color:var(--cream)}
+.brand span{color:var(--latao)}
+nav.links{display:flex;align-items:center;gap:1.9rem}
+nav.links a{font-size:.86rem;font-weight:500;color:rgba(244,239,230,.82);position:relative;padding:.3rem 0}
+nav.links a:hover{color:var(--cream)}
+nav.links a.current{color:var(--cream)}
+nav.links a.current::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--latao)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:2px;font-size:.86rem;font-weight:600;letter-spacing:.02em;border:1px solid transparent;cursor:pointer;transition:all .25s ease}
+.btn-primary{background:var(--terracota);color:#fff}
+.btn-primary:hover{background:var(--terracota-dk);transform:translateY(-1px)}
+.btn-ghost{border-color:rgba(244,239,230,.35);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--latao);color:var(--latao)}
+.btn-dark{border-color:rgba(42,38,34,.3);color:var(--grafite)}
+.btn-dark:hover{border-color:var(--terracota);color:var(--terracota)}
+.nav-cta{display:inline-flex}
+.nav-cta-mobile{display:none}
+.menu-toggle{display:none}
+@media (max-width:920px){
+  nav.links{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);height:100vh;background:var(--ink);flex-direction:column;align-items:flex-start;padding:6.5rem 2rem 2rem;gap:1.6rem;transform:translateX(100%);transition:transform .35s ease;border-left:1px solid var(--line-dark)}
+  nav.links.open{transform:translateX(0)}
+  nav.links a{font-size:1.05rem}
+  .menu-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:101}
+  .menu-toggle span{width:22px;height:1.5px;background:var(--cream)}
+  .nav-cta-mobile{display:inline-flex;margin-top:.5rem}
+  .nav-cta{display:none}
+}
+
+/* PAGE HERO (no photo — secondary pages) */
+.page-hero{position:relative;padding:11rem 6vw 5.5rem;background:var(--ink);color:var(--cream);overflow:hidden}
+.page-hero .wrap{max-width:760px}
+.page-hero h1{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;margin:1rem 0 1.3rem}
+.page-hero p.sub{font-size:1.06rem;line-height:1.65;color:rgba(244,239,230,.82);max-width:560px;margin-bottom:0}
+.reveal-word{display:inline-block;opacity:0;filter:blur(6px);transform:translateY(14px);animation:wordIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 70ms)}
+@keyframes wordIn{to{opacity:1;filter:blur(0);transform:translateY(0)}}
+
+body.js-rv .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;transition-delay:var(--stagger,0s)}
+body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
+
+/* AUDIENCE STATS (light) */
+.stats-light{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
+.stats-light b{display:block;font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2rem,3.6vw,2.7rem);color:var(--terracota)}
+.stats-light span{font-size:.86rem;color:var(--grafite-mid)}
+.section-head{text-align:center;max-width:640px;margin:0 auto 3rem}
+.section-head h2{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(1.8rem,3.6vw,2.5rem);margin:.6rem 0 1rem;color:var(--grafite)}
+.section-head p{color:var(--grafite-mid);font-size:1.02rem;line-height:1.6}
+.section-head.on-dark h2{color:var(--cream)}
+.section-head.on-dark p{color:rgba(244,239,230,.78)}
+
+/* FORMATS */
+.tags{display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center}
+.tag-pill{border:1px solid var(--line);padding:.7rem 1.3rem;border-radius:40px;font-size:.92rem;color:var(--grafite-mid);background:#fff}
+
+/* VALUE CARDS (reuses pillar look) */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.pillar{background:#fff;padding:2.4rem 2rem 2.1rem;border-radius:3px;position:relative;box-shadow:0 24px 48px -32px rgba(42,38,34,.28);border-top:3px solid var(--accent,var(--terracota));transition:transform .35s ease, box-shadow .35s ease}
+.pillar:hover{box-shadow:0 32px 60px -28px rgba(42,38,34,.34)}
+.pillar h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.28rem;margin-bottom:.85rem;color:var(--grafite)}
+.pillar p{color:var(--grafite-mid);line-height:1.65;font-size:.96rem}
+.pillar.a1{--accent:var(--terracota)}
+.pillar.a2{--accent:var(--latao)}
+.pillar.a3{--accent:var(--musgo)}
+
+/* BRAND STRIP */
+.brand-strip{display:flex;flex-wrap:wrap;gap:2.2rem 3rem;justify-content:center;align-items:center}
+.brand-strip span{font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:rgba(244,239,230,.55)}
+
+.footer-cta{text-align:center}
+.footer-cta h2{font-family:'Fraunces',serif;font-style:italic;font-weight:480;font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:1.8rem}
+footer.site-footer{background:var(--ink);color:rgba(244,239,230,.6);padding:3rem 6vw 2.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;border-top:1px solid var(--line-dark);font-size:.85rem}
+footer.site-footer .social a{margin-left:1.2rem;color:rgba(244,239,230,.6)}
+footer.site-footer .social a:hover{color:var(--latao)}
+
+@media (max-width:920px){
+  .section{padding:5rem 6vw}
+  .page-hero{padding:9rem 6vw 4rem}
+  .pillars{grid-template-columns:1fr}
+  .stats-light{grid-template-columns:1fr;gap:1.8rem}
+  footer.site-footer{flex-direction:column;text-align:center}
+  footer.site-footer .social a{margin:0 .6rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal-word{animation:none;opacity:1;filter:none;transform:none}
+  .rv{transition:none;opacity:1;transform:none}
+  .glow{animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <a href="/" class="brand">Lourdes <span>Corsi</span></a>
+  <nav class="links" id="navLinks">
+    <a href="/">Sobre</a>
+    <a href="/parcerias/" class="current">Parcerias</a>
+    <a href="/consultoria-mentoria/">Consultoria e Mentoria</a>
+    <a href="/produtos/">Produtos</a>
+    <a href="/eventos/">Eventos e Palestras</a>
+    <a href="/clareza/" class="btn btn-primary nav-cta-mobile">Fale comigo</a>
+  </nav>
+  <a href="/clareza/" class="btn btn-primary nav-cta">Fale comigo</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+</header>
+
+<section class="page-hero">
+  <div class="glow" style="width:420px;height:420px;left:-10%;top:0;background:radial-gradient(circle,rgba(178,80,45,.3),transparent 70%);animation:drift 24s ease-in-out infinite"></div>
+  <div class="wrap">
+    <span class="eyebrow">Marcas e parcerias</span>
+    <h1 id="heroTitle"></h1>
+    <p class="sub">Mais de 70 mil pessoas acompanham o meu trabalho. Quando recomendo algo, existe confiança construída em quase 10 anos.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="eyebrow">Audiência</span>
+      <h2>Quem está do outro lado da tela</h2>
+    </div>
+    <div class="stats-light">
+      <div class="rv"><b>96,4%</b><span>são mulheres</span></div>
+      <div class="rv" data-stagger="0.1"><b>35–44</b><span>faixa etária de pico, 50,6% da audiência</span></div>
+      <div class="rv" data-stagger="0.2"><b>Brasil todo</b><span>São Paulo, Rio de Janeiro, Belo Horizonte, Fortaleza e outras cidades</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="glow" style="width:360px;height:360px;right:-8%;bottom:-10%;background:radial-gradient(circle,rgba(182,146,78,.24),transparent 70%);animation:drift 22s ease-in-out infinite reverse"></div>
+  <div class="wrap">
+    <div class="section-head on-dark rv">
+      <span class="eyebrow">Formatos de parceria</span>
+      <h2>Como a parceria pode acontecer</h2>
+    </div>
+    <div class="tags rv" data-stagger="0.1">
+      <span class="tag-pill">Vídeos UGC para redes sociais</span>
+      <span class="tag-pill">Conteúdo para mídia paga</span>
+      <span class="tag-pill">Demonstração de produto</span>
+      <span class="tag-pill">Lançamentos</span>
+      <span class="tag-pill">Embaixadora de marca</span>
+      <span class="tag-pill">Cobertura de eventos e experiências</span>
+      <span class="tag-pill">Unboxing</span>
+      <span class="tag-pill">Licenciamento de imagem</span>
+      <span class="tag-pill">Hotéis e viagens em família</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="eyebrow">Como eu trabalho o conteúdo</span>
+      <h2>Três princípios que não mudam</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar a1 rv">
+        <h3>Fortalecimento de marca</h3>
+        <p>Coloco à disposição o que tenho de mais valioso: a confiança que construí com quem me acompanha.</p>
+      </div>
+      <div class="pillar a2 rv" data-stagger="0.12">
+        <h3>Conteúdo contextualizado</h3>
+        <p>Narrativas pensadas pra cada campanha, não só pra estética.</p>
+      </div>
+      <div class="pillar a3 rv" data-stagger="0.24">
+        <h3>Linguagem UGC</h3>
+        <p>Nada de publi com cara de publi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap">
+    <div class="section-head on-dark rv">
+      <span class="eyebrow">Já caminharam comigo</span>
+    </div>
+    <div class="brand-strip rv" data-stagger="0.1">
+      <span>Editora Fundamento</span>
+      <span>Hoomy</span>
+      <span>Agora Sou Mãe</span>
+      <span>Vinagreen</span>
+      <span>Imanix</span>
+      <span>Tia Sônia</span>
+      <span>Citrino Kids</span>
+      <span>Daniela Muniz</span>
+    </div>
+  </div>
+</section>
+
+<section class="section footer-cta">
+  <div class="wrap rv">
+    <span class="eyebrow">Vamos nessa?</span>
+    <h2 class="serif" style="font-style:italic;font-weight:420">Quero ajudar sua marca a alcançar uma comunidade de mães altamente engajadas.</h2>
+    <a href="mailto:contato@lourdescorsi.com.br" class="btn btn-primary">contato@lourdescorsi.com.br</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span>© 2026 Lourdes Corsi · Todos os direitos reservados</span>
+  <span class="social">
+    <a href="https://instagram.com/lourdes.corsi" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://youtube.com/@lourdescorsi" target="_blank" rel="noopener">YouTube</a>
+    <a href="mailto:contato@lourdescorsi.com.br">E-mail</a>
+  </span>
+</footer>
+
+<script>
+(function(){
+  var el = document.getElementById('heroTitle');
+  var text = "Uma comunidade que confia e escuta.";
+  var words = text.split(' ');
+  el.innerHTML = words.map(function(w,i){
+    return '<span class="reveal-word" style="--i:'+i+'">'+w+'</span>';
+  }).join(' ');
+})();
+
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  document.body.classList.add('js-rv');
+  var items = document.querySelectorAll('.rv');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var stag = e.target.getAttribute('data-stagger');
+        if(stag) e.target.style.setProperty('--stagger', stag+'s');
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  items.forEach(function(i){io.observe(i)});
+  setTimeout(function(){
+    document.querySelectorAll('.rv:not(.visible)').forEach(function(el){ el.classList.add('visible'); });
+  },2500);
+})();
+
+(function(){
+  var btn = document.getElementById('menuToggle');
+  var nav = document.getElementById('navLinks');
+  btn.addEventListener('click', function(){ nav.classList.toggle('open'); });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); });
+  });
+})();
+</script>
+</body>
+</html>

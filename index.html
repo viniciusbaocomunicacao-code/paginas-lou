@@ -1,9 +1,440 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=/guia-bsc-01" />
-  <script>window.location.replace('/guia-bsc-01');</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lourdes Corsi — Educadora Parental</title>
+<meta name="description" content="Lourdes Corsi, educadora parental e criadora do Método LAR. Mãe da Olivia, mais de 9 anos ajudando famílias a sair do automático." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,600;1,9..144,420;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --ink:#221E1B;
+  --ink-soft:#2F2A25;
+  --cream:#F4EFE6;
+  --cream-soft:#EAE1D2;
+  --terracota:#B2502D;
+  --terracota-dk:#8F3F23;
+  --latao:#B6924E;
+  --grafite:#2A2622;
+  --grafite-mid:#5B5349;
+  --musgo:#6D7253;
+  --line:rgba(42,38,34,0.12);
+  --line-dark:rgba(244,239,230,0.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Work Sans',sans-serif;
+  background:var(--cream);
+  color:var(--grafite);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Fraunces',serif}
+.eyebrow{
+  font-family:'Work Sans',sans-serif;
+  font-size:.75rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--latao);
+}
+.section{position:relative;padding:7rem 6vw;overflow:hidden}
+.section-dark{background:var(--ink);color:var(--cream)}
+.section-dark .eyebrow{color:var(--latao)}
+.wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
+
+/* ambient glow */
+.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+@keyframes drift{
+  0%,100%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(-3%,4%) scale(1.08)}
+}
+
+/* botanical signature divider */
+.sprig{display:block;margin:2.25rem auto;opacity:.85}
+.sprig path{fill:none;stroke:var(--latao);stroke-width:1.3;stroke-linecap:round}
+
+/* NAV */
+header.site-nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 6vw;
+  background:rgba(34,30,27,.72);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--line-dark);
+  transition:padding .3s ease;
+}
+.brand{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.25rem;color:var(--cream)}
+.brand span{color:var(--latao)}
+nav.links{display:flex;align-items:center;gap:1.9rem}
+nav.links a{
+  font-size:.86rem;font-weight:500;color:rgba(244,239,230,.82);
+  position:relative;padding:.3rem 0;
+}
+nav.links a:hover{color:var(--cream)}
+nav.links a.current{color:var(--cream)}
+nav.links a.current::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--latao);
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.75rem 1.5rem;border-radius:2px;
+  font-size:.86rem;font-weight:600;letter-spacing:.02em;
+  border:1px solid transparent;cursor:pointer;transition:all .25s ease;
+}
+.btn-primary{background:var(--terracota);color:#fff}
+.btn-primary:hover{background:var(--terracota-dk);transform:translateY(-1px)}
+.btn-ghost{border-color:rgba(244,239,230,.35);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--latao);color:var(--latao)}
+.btn-dark{border-color:rgba(42,38,34,.3);color:var(--grafite)}
+.btn-dark:hover{border-color:var(--terracota);color:var(--terracota)}
+.nav-cta{display:inline-flex}
+.nav-cta-mobile{display:none}
+.menu-toggle{display:none}
+
+@media (max-width:920px){
+  nav.links{
+    position:fixed;inset:0 0 0 auto;width:min(78vw,320px);height:100vh;
+    background:var(--ink);flex-direction:column;align-items:flex-start;
+    padding:6.5rem 2rem 2rem;gap:1.6rem;
+    transform:translateX(100%);transition:transform .35s ease;
+    border-left:1px solid var(--line-dark);
+  }
+  nav.links.open{transform:translateX(0)}
+  nav.links a{font-size:1.05rem}
+  .menu-toggle{
+    display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:101;
+  }
+  .menu-toggle span{width:22px;height:1.5px;background:var(--cream)}
+  .nav-cta-mobile{display:inline-flex;margin-top:.5rem}
+  .nav-cta{display:none}
+}
+
+/* HERO */
+.hero{
+  position:relative;min-height:92vh;display:flex;align-items:flex-end;
+  padding:8rem 6vw 4.5rem;overflow:hidden;background:var(--ink);
+}
+.hero-photo{
+  position:absolute;inset:0;
+  background-image:url('/assets/institucional/lourdes-retrato.jpg');
+  background-size:cover;background-position:82% 22%;
+  filter:saturate(1.04) contrast(1.02);
+}
+.hero-veil{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg, var(--ink) 42%, rgba(34,30,27,.92) 54%, rgba(34,30,27,.55) 68%, rgba(34,30,27,.22) 100%),
+    linear-gradient(0deg, var(--ink) 0%, rgba(34,30,27,.1) 30%, rgba(34,30,27,0) 55%);
+}
+.hero-content{position:relative;z-index:2;max-width:640px}
+.hero .eyebrow{margin-bottom:1.1rem;display:block}
+.hero h1{
+  font-family:'Fraunces',serif;font-weight:480;font-size:clamp(2.4rem,5.4vw,4rem);
+  line-height:1.05;color:var(--cream);margin-bottom:1.5rem;
+}
+.hero h1 em{font-style:italic;font-weight:420;color:var(--latao)}
+.reveal-word{display:inline-block;opacity:0;filter:blur(6px);transform:translateY(14px);
+  animation:wordIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 70ms)}
+@keyframes wordIn{to{opacity:1;filter:blur(0);transform:translateY(0)}}
+.hero p.sub{font-size:1.05rem;line-height:1.6;color:rgba(244,239,230,.82);max-width:520px;margin-bottom:2.1rem}
+.hero .ctas{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* scroll reveal — content visible by default; JS opts elements into the hidden pre-state so a slow/failed observer never hides real content */
+body.js-rv .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;transition-delay:var(--stagger,0s)}
+body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
+
+/* STORY */
+.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4.5rem;align-items:center}
+.story-photos{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.story-photos img{border-radius:2px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.story-photos .p1{grid-column:1/2;transform:translateY(2.2rem)}
+.story-photos .p2{grid-column:2/3}
+.story-h{font-family:'Fraunces',serif;font-style:italic;font-weight:420;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--cream);margin:.6rem 0 1.6rem;line-height:1.3}
+.story p{color:rgba(244,239,230,.86);line-height:1.75;font-size:1.02rem;margin-bottom:1.15rem}
+.story p:last-child{margin-bottom:0}
+
+/* METHOD */
+.method-intro{text-align:center;max-width:640px;margin:0 auto 3.5rem}
+.method-intro h2{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(1.9rem,4vw,2.8rem);margin:.6rem 0 1rem;color:var(--grafite)}
+.method-intro p{color:var(--grafite-mid);font-size:1.05rem;line-height:1.6}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+.pillar{
+  background:#fff;padding:2.4rem 2rem 2.1rem;border-radius:3px;position:relative;
+  box-shadow:0 24px 48px -32px rgba(42,38,34,.28);
+  border-top:3px solid var(--accent,var(--terracota));
+  transform-style:preserve-3d;transition:transform .35s ease, box-shadow .35s ease;
+}
+.pillar:hover{box-shadow:0 32px 60px -28px rgba(42,38,34,.34)}
+.pillar .num{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;color:var(--accent,var(--terracota));display:block;margin-bottom:1rem}
+.pillar h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.32rem;margin-bottom:.85rem;color:var(--grafite)}
+.pillar p{color:var(--grafite-mid);line-height:1.65;font-size:.96rem}
+.pillar.p-legado{--accent:var(--terracota)}
+.pillar.p-amadur{--accent:var(--latao)}
+.pillar.p-repert{--accent:var(--musgo)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
+.stat b{display:block;font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.1rem,4vw,3rem);color:var(--latao)}
+.stat span{font-size:.86rem;color:rgba(244,239,230,.72);letter-spacing:.02em}
+
+/* INSTAGRAM */
+.insta-head{text-align:center;max-width:600px;margin:0 auto 3rem}
+.insta-head h2{font-family:'Fraunces',serif;font-style:italic;font-weight:480;font-size:clamp(1.7rem,3.4vw,2.4rem);margin:.6rem 0 1rem;color:var(--grafite)}
+.insta-head p{color:var(--grafite-mid);font-size:1.02rem;line-height:1.6}
+.insta-embed{max-width:900px;margin:0 auto;border-radius:4px;overflow:hidden}
+.insta-follow{text-align:center;margin-top:2rem}
+
+/* NAV CARDS */
+.navcards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.navcard{
+  background:var(--ink-soft);padding:2rem 1.6rem;border-radius:3px;position:relative;overflow:hidden;
+  border-top:3px solid var(--latao);transition:transform .3s ease,background .3s ease;
+}
+.navcard:hover{transform:translateY(-4px);background:#382F27}
+.navcard .tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--latao);font-weight:600;display:block;margin-bottom:.9rem}
+.navcard h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.15rem;color:var(--cream);margin-bottom:.6rem;line-height:1.3}
+.navcard .arrow{position:absolute;bottom:1.6rem;right:1.6rem;color:var(--latao);font-size:1.2rem;transition:transform .3s ease}
+.navcard:hover .arrow{transform:translate(3px,-3px)}
+
+/* FOOTER CTA */
+.footer-cta{text-align:center}
+.footer-cta h2{font-family:'Fraunces',serif;font-style:italic;font-weight:480;font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:1.8rem}
+footer.site-footer{
+  background:var(--ink);color:rgba(244,239,230,.6);padding:3rem 6vw 2.2rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;
+  border-top:1px solid var(--line-dark);font-size:.85rem;
+}
+footer.site-footer .social a{margin-left:1.2rem;color:rgba(244,239,230,.6)}
+footer.site-footer .social a:hover{color:var(--latao)}
+
+@media (max-width:920px){
+  .section{padding:5rem 6vw}
+  .story-grid{grid-template-columns:1fr;gap:2.5rem}
+  .story-photos{order:2}
+  .pillars{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr;gap:1.8rem}
+  .navcards{grid-template-columns:1fr 1fr;gap:1rem}
+  footer.site-footer{flex-direction:column;text-align:center}
+  footer.site-footer .social a{margin:0 .6rem}
+}
+@media (max-width:560px){
+  .navcards{grid-template-columns:1fr}
+  .hero{align-items:flex-end;padding:7rem 6vw 3.5rem}
+  .hero-photo{background-position:center 12%}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal-word{animation:none;opacity:1;filter:none;transform:none}
+  .rv{transition:none;opacity:1;transform:none}
+  .glow{animation:none!important}
+}
+</style>
 </head>
-<body></body>
+<body>
+
+<header class="site-nav">
+  <a href="/" class="brand">Lourdes <span>Corsi</span></a>
+  <nav class="links" id="navLinks">
+    <a href="/" class="current">Sobre</a>
+    <a href="/parcerias/">Parcerias</a>
+    <a href="/consultoria-mentoria/">Consultoria e Mentoria</a>
+    <a href="/produtos/">Produtos</a>
+    <a href="/eventos/">Eventos e Palestras</a>
+    <a href="/clareza/" class="btn btn-primary nav-cta-mobile">Fale comigo</a>
+  </nav>
+  <a href="/clareza/" class="btn btn-primary nav-cta">Fale comigo</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+</header>
+
+<section class="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-veil"></div>
+  <div class="hero-content">
+    <span class="eyebrow">Educadora Parental</span>
+    <h1 id="heroTitle"></h1>
+    <p class="sub">Há quase uma década ajudando mães a sair do automático e criar filhos com limites, afeto e rotina, sem fórmula pronta.</p>
+    <div class="ctas">
+      <a href="#metodo" class="btn btn-primary">Conheça o Método LAR</a>
+      <a href="/clareza/" class="btn btn-ghost">Fale comigo</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="glow" style="width:420px;height:420px;left:-8%;top:10%;background:radial-gradient(circle,rgba(178,80,45,.32),transparent 70%);animation:drift 24s ease-in-out infinite"></div>
+  <div class="glow" style="width:360px;height:360px;right:-6%;bottom:0;background:radial-gradient(circle,rgba(182,146,78,.22),transparent 70%);animation:drift 20s ease-in-out infinite reverse"></div>
+  <div class="wrap story-grid">
+    <div class="rv">
+      <span class="eyebrow">Minha história</span>
+      <h2 class="story-h">Sou educadora.<br>Mas antes disso, fui mãe em crise.</h2>
+      <p>Quando a Olivia nasceu com APLV, eu já estudava comportamento infantil havia anos e atendia outras mães. Mesmo assim, entrei em depressão pós-parto e me cobrei por cada decisão que tomava.</p>
+      <p>Foi ali que entendi a diferença entre saber a teoria e conseguir aplicá-la no meio do próprio furacão.</p>
+      <p>O Método LAR nasceu dessa experiência. Não de um livro. De uma mãe que precisou desmontar os próprios padrões pra não repassá-los à filha.</p>
+    </div>
+    <div class="story-photos rv" data-stagger="0.15">
+      <img class="p1" src="/assets/institucional/jornada-gravidez.jpg" alt="Lourdes Corsi grávida da Olivia" loading="lazy" />
+      <img class="p2" src="/assets/institucional/jornada-recem-nascida.jpg" alt="Lourdes Corsi com a Olivia recém-nascida" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="section" id="metodo">
+  <div class="wrap">
+    <div class="method-intro rv">
+      <span class="eyebrow">Como eu trabalho</span>
+      <h2>O Método LAR</h2>
+      <p>Três camadas que se sustentam juntas. Nenhuma funciona sozinha.</p>
+    </div>
+    <svg class="sprig" width="120" height="28" viewBox="0 0 120 28" aria-hidden="true">
+      <path d="M2 14 Q30 2 60 14 Q90 26 118 14" />
+      <path d="M60 14 Q58 7 52 4" /><path d="M60 14 Q62 7 68 4" />
+      <path d="M30 9 Q28 4 23 2" /><path d="M90 19 Q92 24 97 26" />
+    </svg>
+    <div class="pillars">
+      <div class="pillar p-legado rv">
+        <span class="num">I</span>
+        <h3>Legado Emocional</h3>
+        <p>Seus padrões vêm da sua própria infância. Enquanto você não entender de onde eles vêm, vai repeti-los e ensiná-los aos seus filhos sem perceber.</p>
+      </div>
+      <div class="pillar p-amadur rv" data-stagger="0.12">
+        <span class="num">II</span>
+        <h3>Amadurecimento Parental</h3>
+        <p>Saber a teoria não ajuda no meio de uma crise no supermercado. Aqui você desenvolve a firmeza e a calma que sustentam um limite de verdade.</p>
+      </div>
+      <div class="pillar p-repert rv" data-stagger="0.24">
+        <span class="num">III</span>
+        <h3>Repertório Educativo</h3>
+        <p>Estratégias validadas pro dia a dia. Sem tentativa e erro, sem fórmula genérica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat rv"><b>9+</b><span>anos de estrada</span></div>
+      <div class="stat rv" data-stagger="0.1"><b>70mil+</b><span>pessoas acompanham o trabalho</span></div>
+      <div class="stat rv" data-stagger="0.2"><b>7.800+</b><span>mães na Escola de Mães</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="instagram">
+  <div class="wrap">
+    <div class="insta-head rv">
+      <span class="eyebrow">No dia a dia</span>
+      <h2>O que acontece entre um conteúdo e outro</h2>
+      <p>No Instagram eu registro a rotina real: bastidores, erros, acertos e o que estou aprendendo com a Olivia essa semana.</p>
+    </div>
+    <div class="insta-embed rv">
+      <!-- Elfsight Instagram Feed | @lourdes.corsi -->
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-f0f392e4-21d8-49e2-98d4-5114578a22b0" data-elfsight-app-lazy style="width:100%"></div>
+    </div>
+    <div class="insta-follow rv">
+      <a href="https://instagram.com/lourdes.corsi" target="_blank" rel="noopener" class="btn btn-dark">Seguir @lourdes.corsi</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap">
+    <div class="navcards">
+      <a href="/parcerias/" class="navcard rv">
+        <span class="tag">Marcas</span>
+        <h3>Parcerias</h3>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/consultoria-mentoria/" class="navcard rv" data-stagger="0.08">
+        <span class="tag">Individual</span>
+        <h3>Consultoria e Mentoria</h3>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/produtos/" class="navcard rv" data-stagger="0.16">
+        <span class="tag">Acervo</span>
+        <h3>Produtos</h3>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/eventos/" class="navcard rv" data-stagger="0.24">
+        <span class="tag">Convite</span>
+        <h3>Eventos e Palestras</h3>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section footer-cta">
+  <div class="wrap rv">
+    <span class="eyebrow">Vamos conversar?</span>
+    <h2 class="serif" style="font-style:italic;font-weight:420">Toda mãe merece um lugar pra colocar as dúvidas de verdade.</h2>
+    <a href="/clareza/" class="btn btn-primary">Agendar uma conversa</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span>© 2026 Lourdes Corsi · Todos os direitos reservados</span>
+  <span class="social">
+    <a href="https://instagram.com/lourdes.corsi" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://youtube.com/@lourdescorsi" target="_blank" rel="noopener">YouTube</a>
+    <a href="mailto:contato@lourdescorsi.com.br">E-mail</a>
+  </span>
+</footer>
+
+<script>
+// Word-by-word hero reveal
+(function(){
+  var el = document.getElementById('heroTitle');
+  var text = "Mãe da Olivia. Guia de milhares de famílias.";
+  var words = text.split(' ');
+  el.innerHTML = words.map(function(w,i){
+    var em = (w.indexOf('Olivia') > -1);
+    return '<span class="reveal-word" style="--i:'+i+'">'+w+'</span>';
+  }).join(' ');
+})();
+
+// Scroll reveal (progressive enhancement — see .rv CSS comment for the fallback rationale)
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  document.body.classList.add('js-rv');
+  var items = document.querySelectorAll('.rv');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var stag = e.target.getAttribute('data-stagger');
+        if(stag) e.target.style.setProperty('--stagger', stag+'s');
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  items.forEach(function(i){io.observe(i)});
+  // safety net: force-reveal anything the observer hasn't caught after 2.5s
+  setTimeout(function(){
+    document.querySelectorAll('.rv:not(.visible)').forEach(function(el){ el.classList.add('visible'); });
+  },2500);
+})();
+
+// Mobile menu
+(function(){
+  var btn = document.getElementById('menuToggle');
+  var nav = document.getElementById('navLinks');
+  btn.addEventListener('click', function(){
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); });
+  });
+})();
+</script>
+</body>
 </html>
