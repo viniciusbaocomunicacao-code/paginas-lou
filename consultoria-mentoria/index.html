@@ -95,6 +95,19 @@ body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
 .fase.f1{--accent:var(--terracota)}
 .fase.f2{--accent:var(--musgo)}
 
+/* STEPS (como funciona) */
+.steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.6rem;align-items:start;margin-top:1rem}
+.steps .step:nth-child(2){margin-top:1.8rem}
+.steps .step:nth-child(3){margin-top:3.4rem}
+.step{background:#fff;padding:2.1rem 1.9rem;border-radius:3px;box-shadow:0 24px 48px -32px rgba(42,38,34,.28);border-top:3px solid var(--accent,var(--terracota))}
+.step .num{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;color:var(--accent,var(--terracota));display:block;margin-bottom:.9rem}
+.step h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;margin-bottom:.7rem;color:var(--grafite)}
+.step p{color:var(--grafite-mid);line-height:1.65;font-size:.94rem}
+.step .price-tag{display:inline-block;margin-top:.9rem;font-size:.82rem;font-weight:600;letter-spacing:.03em;color:var(--terracota-dk)}
+.step.s1{--accent:var(--terracota)}
+.step.s2{--accent:var(--latao)}
+.step.s3{--accent:var(--musgo)}
+
 .method-link{text-align:center;max-width:600px;margin:0 auto}
 .method-link p{color:rgba(244,239,230,.82);font-size:1rem;line-height:1.65;margin-bottom:1.2rem}
 
@@ -114,6 +127,9 @@ footer.site-footer .social a:hover{color:var(--latao)}
   .cases .case:nth-child(2){margin-top:0}
   .fases{grid-template-columns:1fr}
   .fases .fase:nth-child(2){margin-top:0}
+  .steps{grid-template-columns:1fr}
+  .steps .step:nth-child(2){margin-top:0}
+  .steps .step:nth-child(3){margin-top:0}
   footer.site-footer{flex-direction:column;text-align:center}
   footer.site-footer .social a{margin:0 .6rem}
 }
@@ -173,8 +189,36 @@ footer.site-footer .social a:hover{color:var(--latao)}
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head center rv">
+    <div class="section-head rv">
       <span class="eyebrow">Como funciona</span>
+      <h2>Antes da mentoria, um encontro pra entender o seu caso.</h2>
+      <p>O processo começa com uma escuta real da sua rotina, não com um pacote fechado, pra decidir junto qual caminho faz sentido pra sua família.</p>
+    </div>
+    <div class="steps">
+      <div class="step s1 rv">
+        <span class="num">01</span>
+        <h3>Sessão de Clareza</h3>
+        <p>Um encontro individual pra entender sua rotina, os desafios do momento e o que você já tentou antes.</p>
+        <span class="price-tag">Investimento: R$ 500</span>
+      </div>
+      <div class="step s2 rv" data-stagger="0.12">
+        <span class="num">02</span>
+        <h3>Direcionamento</h3>
+        <p>Você sai da sessão com clareza sobre os próximos passos. Em alguns casos, esse encontro sozinho já é suficiente.</p>
+      </div>
+      <div class="step s3 rv" data-stagger="0.24">
+        <span class="num">03</span>
+        <h3>Mentoria Materna</h3>
+        <p>Se ficar claro que o caso pede um acompanhamento mais longo, o valor pago na Sessão de Clareza é abatido do investimento da mentoria.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center rv">
+      <span class="eyebrow">Estrutura do acompanhamento</span>
       <h2>A jornada da Mentoria Materna</h2>
       <p>12 meses de acompanhamento estruturado e progressivo, em duas fases.</p>
     </div>
