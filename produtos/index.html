@@ -72,13 +72,16 @@ body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
 .pgrid a:nth-child(3n+2){margin-top:2.2rem}
 .pgrid a:nth-child(3n+3){margin-top:.9rem}
 .pcard{
-  background:#fff;padding:2.1rem 1.8rem;border-radius:3px;position:relative;
+  background:#fff;border-radius:3px;position:relative;overflow:hidden;
   box-shadow:0 20px 44px -30px rgba(42,38,34,.26);
   border-top:3px solid var(--accent,var(--terracota));
   transition:transform .3s ease,box-shadow .3s ease;
-  display:flex;flex-direction:column;min-height:190px;
+  display:flex;flex-direction:column;
 }
 .pcard:hover{transform:translateY(-4px);box-shadow:0 28px 54px -26px rgba(42,38,34,.32)}
+.pcard-img{height:150px;background:var(--cream-soft);display:flex;align-items:center;justify-content:center;padding:1.3rem}
+.pcard-img img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain}
+.pcard-body{padding:1.6rem 1.8rem 2rem;display:flex;flex-direction:column;flex:1;min-height:150px}
 .pcard .tag{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent,var(--terracota));font-weight:600;margin-bottom:.9rem}
 .pcard h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;margin-bottom:.6rem;color:var(--grafite)}
 .pcard p{color:var(--grafite-mid);font-size:.92rem;line-height:1.55;flex:1}
@@ -88,6 +91,8 @@ body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
 .pcard.c2{--accent:var(--latao)}
 .pcard.c3{--accent:var(--musgo)}
 .pcard.featured{background:var(--ink-soft);border-top-color:var(--latao)}
+.pcard.featured .pcard-img{height:180px;background:var(--ink);padding:0}
+.pcard.featured .pcard-img img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
 .pcard.featured .tag{color:var(--latao)}
 .pcard.featured h3{color:var(--cream)}
 .pcard.featured p{color:rgba(244,239,230,.75)}
@@ -145,52 +150,76 @@ footer.site-footer .social a:hover{color:var(--latao)}
   <div class="wrap">
     <div class="pgrid">
       <a href="/clareza/" class="pcard featured rv">
-        <span class="tag">Atendimento individual</span>
-        <h3>Sessão de Clareza</h3>
-        <p>Pra quem busca acompanhamento individualizado, olhando pro caso específico da sua família.</p>
-        <span class="arrow">→</span>
+        <div class="pcard-img"><img src="/assets/institucional/lourdes-retrato.jpg" alt="Lourdes Corsi" loading="lazy"></div>
+        <div class="pcard-body">
+          <span class="tag">Atendimento individual</span>
+          <h3>Sessão de Clareza</h3>
+          <p>Pra quem busca acompanhamento individualizado, olhando pro caso específico da sua família.</p>
+          <span class="arrow">→</span>
+        </div>
       </a>
       <a href="/guia-bsc-01/" class="pcard c1 rv" data-stagger="0.05">
-        <span class="tag">Guia</span>
-        <h3>Guia dos 4 Temperamentos</h3>
-        <p>Descubra e entenda o temperamento do seu filho.</p>
-        <span class="arrow">→</span>
+        <div class="pcard-img"><img src="/guia-bsc-01/assets/img/mockups/mockup-guia.png" alt="Guia dos 4 Temperamentos" loading="lazy"></div>
+        <div class="pcard-body">
+          <span class="tag">Guia</span>
+          <h3>Guia dos 4 Temperamentos</h3>
+          <p>Descubra e entenda o temperamento do seu filho.</p>
+          <span class="arrow">→</span>
+        </div>
       </a>
       <a href="/escola-de-maes/" class="pcard c2 rv" data-stagger="0.1">
-        <span class="tag">Comunidade</span>
-        <h3>Escola de Mães</h3>
-        <p>Comunidade, encontros mensais e o acervo completo de aulas.</p>
-        <span class="arrow">→</span>
+        <div class="pcard-img"><img src="/escola-de-maes/assets/img/inside-lifestyle.jpg" alt="Escola de Mães" loading="lazy"></div>
+        <div class="pcard-body">
+          <span class="tag">Comunidade</span>
+          <h3>Escola de Mães</h3>
+          <p>Comunidade, encontros mensais e o acervo completo de aulas.</p>
+          <span class="arrow">→</span>
+        </div>
       </a>
       <a href="/sos-birras/" class="pcard c3 rv" data-stagger="0.15">
-        <span class="tag">Curso</span>
-        <h3>SOS Birras</h3>
-        <p>Lide com as birras antes, durante e depois.</p>
-        <span class="arrow">→</span>
+        <div class="pcard-img"><img src="/sem-telas/assets/img/mockups/kit-antibirras.png" alt="SOS Birras" loading="lazy"></div>
+        <div class="pcard-body">
+          <span class="tag">Curso</span>
+          <h3>SOS Birras</h3>
+          <p>Lide com as birras antes, durante e depois.</p>
+          <span class="arrow">→</span>
+        </div>
       </a>
       <a href="/rotina-visual/" class="pcard c1 rv" data-stagger="0.2">
-        <span class="tag">Ferramenta</span>
-        <h3>Rotina Visual</h3>
-        <p>Ferramentas visuais que simplificam o dia a dia e desenvolvem autonomia no seu filho.</p>
-        <span class="arrow">→</span>
+        <div class="pcard-img"><img src="/sem-telas/assets/img/mockups/rotina-visual.png" alt="Rotina Visual" loading="lazy"></div>
+        <div class="pcard-body">
+          <span class="tag">Ferramenta</span>
+          <h3>Rotina Visual</h3>
+          <p>Ferramentas visuais que simplificam o dia a dia e desenvolvem autonomia no seu filho.</p>
+          <span class="arrow">→</span>
+        </div>
       </a>
       <a href="/sem-telas/" class="pcard c2 rv" data-stagger="0.25">
-        <span class="tag">Curso</span>
-        <h3>Infância Sem Telas</h3>
-        <p>Reduza o tempo de tela sem culpa e crie filhos mais presentes.</p>
-        <span class="arrow">→</span>
+        <div class="pcard-img"><img src="/sem-telas/assets/img/mockups/guia-sem-telas.png" alt="Infância Sem Telas" loading="lazy"></div>
+        <div class="pcard-body">
+          <span class="tag">Curso</span>
+          <h3>Infância Sem Telas</h3>
+          <p>Reduza o tempo de tela sem culpa e crie filhos mais presentes.</p>
+          <span class="arrow">→</span>
+        </div>
       </a>
       <a href="/sono-sem-drama/" class="pcard c3 rv" data-stagger="0.3">
-        <span class="tag">Curso</span>
-        <h3>Sono Sem Drama</h3>
-        <p>Estratégias práticas e respeitosas pra noites de sono bem dormidas.</p>
-        <span class="arrow">→</span>
+        <div class="pcard-img"><img src="/sono-sem-drama/assets/img/logo.png" alt="Sono Sem Drama" loading="lazy"></div>
+        <div class="pcard-body">
+          <span class="tag">Curso</span>
+          <h3>Sono Sem Drama</h3>
+          <p>Estratégias práticas e respeitosas pra noites de sono bem dormidas.</p>
+          <span class="arrow">→</span>
+        </div>
       </a>
       <a href="/guia-de-ferias/" class="pcard c1 rv" data-stagger="0.35">
-        <span class="tag">Guia sazonal</span>
-        <h3>Guia de Férias</h3>
-        <p>Atividades, planner e rotina pras férias escolares.</p>
-        <span class="arrow">→</span>
+        <div class="pcard-img"><img src="/guia-de-ferias/assets/logo.png" alt="Guia de Férias" loading="lazy"></div>
+        <div class="pcard-body">
+          <span class="tag">Guia sazonal</span>
+          <h3>Guia de Férias</h3>
+          <p>Atividades, planner e rotina pras férias escolares.</p>
+          <span class="arrow">→</span>
+        </div>
       </a>
     </div>
   </div>
