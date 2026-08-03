@@ -24,8 +24,8 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .serif{font-family:'Fraunces',serif}
 .eyebrow{font-family:'Work Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--latao)}
-.section{position:relative;padding:7rem 6vw;overflow:hidden}
-.section-dark{background:var(--ink);color:var(--cream)}
+.section{position:relative;padding:7rem 6vw;overflow:hidden;background-color:var(--cream);background-image:linear-gradient(rgba(244,239,230,.85),rgba(244,239,230,.85)),url('/assets/institucional/textures/texture-light.jpg');background-size:cover;background-position:center}
+.section-dark{background-color:var(--ink);background-image:linear-gradient(rgba(34,30,27,.87),rgba(34,30,27,.87)),url('/assets/institucional/textures/texture-dark.jpg');background-size:cover;background-position:center;color:var(--cream)}
 .section-dark .eyebrow{color:var(--latao)}
 .wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
 .glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
@@ -59,7 +59,7 @@ nav.links a.current::after{content:'';position:absolute;bottom:-2px;left:0;right
   .nav-cta{display:none}
 }
 
-.page-hero{position:relative;padding:11rem 6vw 5.5rem;background:var(--ink);color:var(--cream);overflow:hidden}
+.page-hero{position:relative;padding:11rem 6vw 5.5rem;background-color:var(--ink);background-image:linear-gradient(rgba(34,30,27,.87),rgba(34,30,27,.87)),url('/assets/institucional/textures/texture-dark.jpg');background-size:cover;background-position:center;color:var(--cream);overflow:hidden}
 .page-hero .wrap{max-width:760px}
 .page-hero h1{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;margin:1rem 0 1.3rem}
 .page-hero p.sub{font-size:1.06rem;line-height:1.65;color:rgba(244,239,230,.82);max-width:560px;margin-bottom:0}
@@ -122,11 +122,11 @@ body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
 .pillar.a3{--accent:var(--musgo)}
 
 /* MARCAS — logos reais, disposição espalhada */
-.brand-strip{display:flex;flex-wrap:wrap;gap:2.6rem 3.2rem;align-items:center}
-.brand-strip img{max-height:38px;width:auto;filter:grayscale(1) brightness(1.6) contrast(.9);opacity:.82;transition:opacity .25s ease,filter .25s ease}
-.brand-strip img:hover{filter:none;opacity:1}
-.brand-strip a:nth-child(2n){margin-top:1.1rem}
-.brand-strip a:nth-child(3n){margin-top:-.6rem}
+.brand-strip{display:flex;flex-wrap:wrap;gap:2.8rem 3.4rem;align-items:center}
+.brand-strip img{max-height:34px;width:auto;opacity:.88;transition:opacity .25s ease}
+.brand-strip img:hover{opacity:1}
+.brand-strip .txt-logo{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:rgba(244,239,230,.7);transition:color .25s ease}
+.brand-strip .txt-logo:hover{color:var(--cream)}
 
 .footer-cta{text-align:center}
 .footer-cta h2{font-family:'Fraunces',serif;font-style:italic;font-weight:480;font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:1.8rem}
@@ -142,7 +142,6 @@ footer.site-footer .social a:hover{color:var(--latao)}
   .audience-viz{grid-template-columns:1fr;gap:2.5rem}
   .pillars{grid-template-columns:1fr}
   .pillars .pillar:nth-child(2),.pillars .pillar:nth-child(3){margin-top:0}
-  .brand-strip a:nth-child(2n),.brand-strip a:nth-child(3n){margin-top:0}
   footer.site-footer{flex-direction:column;text-align:center}
   footer.site-footer .social a{margin:0 .6rem}
 }
@@ -284,15 +283,15 @@ footer.site-footer .social a:hover{color:var(--latao)}
     <div class="section-head rv">
       <span class="eyebrow">Já caminharam comigo</span>
     </div>
-    <div class="brand-strip rv" data-stagger="0.1">
-      <a href="#" tabindex="-1"><img src="/assets/institucional/logos/fundamento.jpg" alt="Editora Fundamento" loading="lazy" /></a>
-      <a href="#" tabindex="-1"><img src="/assets/institucional/logos/hoomy.jpg" alt="Hoomy" loading="lazy" /></a>
-      <a href="#" tabindex="-1"><img src="/assets/institucional/logos/agorasoumae.jpg" alt="Agora Sou Mãe" loading="lazy" /></a>
-      <a href="#" tabindex="-1"><img src="/assets/institucional/logos/vinagreen.jpg" alt="Vinagreen" loading="lazy" /></a>
-      <a href="#" tabindex="-1"><img src="/assets/institucional/logos/imanix.jpg" alt="Imanix" loading="lazy" /></a>
-      <a href="#" tabindex="-1"><img src="/assets/institucional/logos/tiasonia.jpg" alt="Tia Sônia" loading="lazy" /></a>
-      <a href="#" tabindex="-1"><img src="/assets/institucional/logos/citrino.jpg" alt="Citrino Kids" loading="lazy" /></a>
-      <a href="#" tabindex="-1"><img src="/assets/institucional/logos/danielamuniz.jpg" alt="Daniela Muniz" loading="lazy" /></a>
+    <div class="brand-strip rv">
+      <img src="/assets/institucional/logos/fundamento.png" alt="Editora Fundamento" loading="lazy" />
+      <img src="/assets/institucional/logos/hoomy.png" alt="Hoomy" loading="lazy" />
+      <img src="/assets/institucional/logos/agorasoumae.png" alt="Agora Sou Mãe" loading="lazy" />
+      <img src="/assets/institucional/logos/vinagreen.png" alt="Vinagreen" loading="lazy" />
+      <img src="/assets/institucional/logos/imanix.png" alt="Imanix" loading="lazy" />
+      <img src="/assets/institucional/logos/tiasonia.png" alt="Tia Sônia" loading="lazy" />
+      <img src="/assets/institucional/logos/citrino.png" alt="Citrino Kids" loading="lazy" />
+      <span class="txt-logo">Daniela Muniz</span>
     </div>
   </div>
 </section>

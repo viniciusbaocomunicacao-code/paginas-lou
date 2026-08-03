@@ -24,8 +24,8 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .serif{font-family:'Fraunces',serif}
 .eyebrow{font-family:'Work Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--latao)}
-.section{position:relative;padding:7rem 6vw;overflow:hidden}
-.section-dark{background:var(--ink);color:var(--cream)}
+.section{position:relative;padding:7rem 6vw;overflow:hidden;background-color:var(--cream);background-image:linear-gradient(rgba(244,239,230,.85),rgba(244,239,230,.85)),url('/assets/institucional/textures/texture-light.jpg');background-size:cover;background-position:center}
+.section-dark{background-color:var(--ink);background-image:linear-gradient(rgba(34,30,27,.87),rgba(34,30,27,.87)),url('/assets/institucional/textures/texture-dark.jpg');background-size:cover;background-position:center;color:var(--cream)}
 .section-dark .eyebrow{color:var(--latao)}
 .wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
 .glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
@@ -57,10 +57,14 @@ nav.links a.current::after{content:'';position:absolute;bottom:-2px;left:0;right
   .nav-cta{display:none}
 }
 
-.page-hero{position:relative;padding:11rem 6vw 5.5rem;background:var(--ink);color:var(--cream);overflow:hidden}
-.page-hero .wrap{max-width:760px}
+.page-hero{position:relative;padding:11rem 6vw 5.5rem;background-color:var(--ink);background-image:linear-gradient(rgba(34,30,27,.87),rgba(34,30,27,.87)),url('/assets/institucional/textures/texture-dark.jpg');background-size:cover;background-position:center;color:var(--cream);overflow:hidden}
+.page-hero .wrap{max-width:1180px;display:grid;grid-template-columns:1.15fr .85fr;gap:4vw;align-items:center}
+.page-hero .htxt{max-width:560px}
 .page-hero h1{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;margin:1rem 0 1.3rem}
 .page-hero p.sub{font-size:1.06rem;line-height:1.65;color:rgba(244,239,230,.82);max-width:560px}
+.page-hero .hphoto{position:relative;justify-self:end;margin-top:-1.5rem}
+.page-hero .hphoto img{width:100%;max-width:340px;border-radius:2px;box-shadow:0 34px 68px -30px rgba(0,0,0,.6);position:relative;z-index:2;filter:brightness(1.4) contrast(1.06) saturate(1.05)}
+.page-hero .hphoto::before{content:'';position:absolute;inset:1.4rem -1.4rem -1.4rem 1.4rem;border:1px solid rgba(182,146,78,.35);z-index:1}
 .reveal-word{display:inline-block;opacity:0;filter:blur(6px);transform:translateY(14px);animation:wordIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 70ms)}
 @keyframes wordIn{to{opacity:1;filter:blur(0);transform:translateY(0)}}
 
@@ -103,6 +107,9 @@ footer.site-footer .social a:hover{color:var(--latao)}
 @media (max-width:920px){
   .section{padding:5rem 6vw}
   .page-hero{padding:9rem 6vw 4rem}
+  .page-hero .wrap{grid-template-columns:1fr;gap:2.4rem}
+  .page-hero .hphoto{justify-self:center;margin-top:0;order:-1}
+  .page-hero .hphoto img{max-width:220px}
   .cases{grid-template-columns:1fr}
   .cases .case:nth-child(2){margin-top:0}
   .fases{grid-template-columns:1fr}
@@ -136,9 +143,14 @@ footer.site-footer .social a:hover{color:var(--latao)}
 <section class="page-hero">
   <div class="glow" style="width:420px;height:420px;left:-10%;top:0;background:radial-gradient(circle,rgba(178,80,45,.3),transparent 70%);animation:drift 24s ease-in-out infinite"></div>
   <div class="wrap">
-    <span class="eyebrow">Mentoria Materna</span>
-    <h1 id="heroTitle"></h1>
-    <p class="sub">Grupo e conteúdo resolvem muita coisa. Mas quando o caso é o seu, específico, com a história da sua família, existe um acompanhamento feito pra isso.</p>
+    <div class="htxt">
+      <span class="eyebrow">Mentoria Materna</span>
+      <h1 id="heroTitle"></h1>
+      <p class="sub">Grupo e conteúdo resolvem muita coisa. Mas quando o caso é o seu, específico, com a história da sua família, existe um acompanhamento feito pra isso.</p>
+    </div>
+    <div class="hphoto rv">
+      <img src="/assets/institucional/lourdes-familia.jpg" alt="Lourdes Corsi com a família" width="680" height="1020" loading="eager">
+    </div>
   </div>
 </section>
 
