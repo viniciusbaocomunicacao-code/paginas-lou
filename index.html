@@ -12,84 +12,36 @@
 
 <style>
 :root{
-  --ink:#221E1B;
-  --ink-soft:#2F2A25;
-  --cream:#F4EFE6;
-  --cream-soft:#EAE1D2;
-  --terracota:#B2502D;
-  --terracota-dk:#8F3F23;
-  --latao:#B6924E;
-  --grafite:#2A2622;
-  --grafite-mid:#5B5349;
-  --musgo:#6D7253;
-  --line:rgba(42,38,34,0.12);
-  --line-dark:rgba(244,239,230,0.14);
+  --ink:#221E1B;--ink-soft:#2F2A25;--cream:#F4EFE6;--cream-soft:#EAE1D2;
+  --terracota:#B2502D;--terracota-dk:#8F3F23;--latao:#B6924E;
+  --grafite:#2A2622;--grafite-mid:#5B5349;--musgo:#6D7253;
+  --line:rgba(42,38,34,0.12);--line-dark:rgba(244,239,230,0.14);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  font-family:'Work Sans',sans-serif;
-  background:var(--cream);
-  color:var(--grafite);
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
+body{font-family:'Work Sans',sans-serif;background:var(--cream);color:var(--grafite);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .serif{font-family:'Fraunces',serif}
-.eyebrow{
-  font-family:'Work Sans',sans-serif;
-  font-size:.75rem;
-  font-weight:600;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--latao);
-}
+.eyebrow{font-family:'Work Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--latao)}
 .section{position:relative;padding:7rem 6vw;overflow:hidden;background-color:var(--cream);background-image:linear-gradient(rgba(244,239,230,.85),rgba(244,239,230,.85)),url('/assets/institucional/textures/texture-light.jpg');background-size:cover;background-position:center}
 .section-dark{background-color:var(--ink);background-image:linear-gradient(rgba(34,30,27,.87),rgba(34,30,27,.87)),url('/assets/institucional/textures/texture-dark.jpg');background-size:cover;background-position:center;color:var(--cream)}
 .section-dark .eyebrow{color:var(--latao)}
 .wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
-
-/* ambient glow */
-.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
-@keyframes drift{
-  0%,100%{transform:translate(0,0) scale(1)}
-  50%{transform:translate(-3%,4%) scale(1.08)}
-}
-
-/* botanical signature divider */
-.sprig{display:block;margin:2.25rem auto;opacity:.85}
-.sprig path{fill:none;stroke:var(--latao);stroke-width:1.3;stroke-linecap:round}
+.wave{position:absolute;left:0;width:100%;height:70px;display:block;z-index:1}
+.wave.top{top:-1px}
+.wave.bottom{bottom:-1px;transform:scaleY(-1)}
 
 /* NAV */
-header.site-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1.1rem 6vw;
-  background:rgba(34,30,27,.72);
-  backdrop-filter:blur(14px) saturate(140%);
-  -webkit-backdrop-filter:blur(14px) saturate(140%);
-  border-bottom:1px solid var(--line-dark);
-  transition:padding .3s ease;
-}
+header.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 6vw;background:rgba(34,30,27,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line-dark)}
 .brand{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.25rem;color:var(--cream)}
 .brand span{color:var(--latao)}
 nav.links{display:flex;align-items:center;gap:1.9rem}
-nav.links a{
-  font-size:.86rem;font-weight:500;color:rgba(244,239,230,.82);
-  position:relative;padding:.3rem 0;
-}
+nav.links a{font-size:.86rem;font-weight:500;color:rgba(244,239,230,.82);position:relative;padding:.3rem 0}
 nav.links a:hover{color:var(--cream)}
 nav.links a.current{color:var(--cream)}
-nav.links a.current::after{
-  content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--latao);
-}
-.btn{
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.75rem 1.5rem;border-radius:2px;
-  font-size:.86rem;font-weight:600;letter-spacing:.02em;
-  border:1px solid transparent;cursor:pointer;transition:all .25s ease;
-}
+nav.links a.current::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--latao)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:2px;font-size:.86rem;font-weight:600;letter-spacing:.02em;border:1px solid transparent;cursor:pointer;transition:all .25s ease}
 .btn-primary{background:var(--terracota);color:#fff}
 .btn-primary:hover{background:var(--terracota-dk);transform:translateY(-1px)}
 .btn-ghost{border-color:rgba(244,239,230,.35);color:var(--cream)}
@@ -99,165 +51,125 @@ nav.links a.current::after{
 .nav-cta{display:inline-flex}
 .nav-cta-mobile{display:none}
 .menu-toggle{display:none}
-
 @media (max-width:920px){
-  nav.links{
-    position:fixed;inset:0 0 0 auto;width:min(78vw,320px);height:100vh;
-    background:var(--ink);flex-direction:column;align-items:flex-start;
-    padding:6.5rem 2rem 2rem;gap:1.6rem;
-    transform:translateX(100%);transition:transform .35s ease;
-    border-left:1px solid var(--line-dark);
-  }
+  nav.links{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);height:100vh;background:var(--ink);flex-direction:column;align-items:flex-start;padding:6.5rem 2rem 2rem;gap:1.6rem;transform:translateX(100%);transition:transform .35s ease;border-left:1px solid var(--line-dark)}
   nav.links.open{transform:translateX(0)}
   nav.links a{font-size:1.05rem}
-  .menu-toggle{
-    display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:101;
-  }
+  .menu-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:101}
   .menu-toggle span{width:22px;height:1.5px;background:var(--cream)}
   .nav-cta-mobile{display:inline-flex;margin-top:.5rem}
   .nav-cta{display:none}
 }
 
-/* HERO */
-.hero{
-  position:relative;min-height:92vh;display:flex;align-items:flex-end;
-  padding:8rem 6vw 4.5rem;overflow:hidden;background:var(--ink);
-}
-.hero-photo{
-  position:absolute;inset:0;
-  background-image:url('/assets/institucional/lourdes-retrato.jpg');
-  background-size:cover;background-position:82% 22%;
-  filter:saturate(1.04) contrast(1.02);
-}
-.hero-veil{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(90deg, var(--ink) 42%, rgba(34,30,27,.92) 54%, rgba(34,30,27,.55) 68%, rgba(34,30,27,.22) 100%),
-    linear-gradient(0deg, var(--ink) 0%, rgba(34,30,27,.1) 30%, rgba(34,30,27,0) 55%);
-}
-.hero-content{position:relative;z-index:2;max-width:640px}
-.hero .eyebrow{margin-bottom:1.1rem;display:block}
-.hero h1{
-  font-family:'Fraunces',serif;font-weight:480;font-size:clamp(2.4rem,5.4vw,4rem);
-  line-height:1.05;color:var(--cream);margin-bottom:1.5rem;
-}
-.hero h1 em{font-style:italic;font-weight:420;color:var(--latao)}
-.reveal-word{display:inline-block;opacity:0;filter:blur(6px);transform:translateY(14px);
-  animation:wordIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 70ms)}
+/* HERO — blob orgânico + retrato real */
+.hero{position:relative;padding:9rem 6vw 5.5rem;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center;max-width:1180px;margin:0 auto;position:relative}
+.hero .eyebrow{margin-bottom:.4rem;display:block}
+.hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.05;color:var(--ink);margin:.4rem 0 1.3rem}
+.hero h1 .sq{position:relative;display:inline-block;font-style:italic}
+.hero h1 .sq svg{position:absolute;left:0;bottom:-.1em;width:100%;height:.3em}
+.reveal-word{display:inline-block;opacity:0;filter:blur(6px);transform:translateY(14px);animation:wordIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 70ms)}
 @keyframes wordIn{to{opacity:1;filter:blur(0);transform:translateY(0)}}
-.hero p.sub{font-size:1.05rem;line-height:1.6;color:rgba(244,239,230,.82);max-width:520px;margin-bottom:2.1rem}
-.hero .ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero p.sub{font-size:1.06rem;line-height:1.6;color:var(--grafite-mid);max-width:38ch;margin-bottom:1.8rem}
+.hero .ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.hero .stat-row{display:flex;gap:2.2rem}
+.hero .stat-row b{font-family:'Fraunces',serif;font-size:1.5rem;display:block;color:var(--ink)}
+.hero .stat-row span{font-size:.72rem;color:var(--grafite-mid)}
 
-/* scroll reveal — content visible by default; JS opts elements into the hidden pre-state so a slow/failed observer never hides real content */
+.hero-photo-wrap{position:relative;aspect-ratio:4/5;max-height:560px}
+.blob{position:absolute;inset:0;background:var(--terracota);border-radius:42% 58% 69% 31% / 45% 38% 62% 55%}
+.photo-ph{position:absolute;top:6%;left:10%;width:80%;height:88%;border-radius:38% 62% 60% 40% / 50% 42% 58% 50%;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.4)}
+.photo-ph img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.03)}
+.hero-photo-wrap img{object-position:50% 15%;transform:scale(1.3);transform-origin:50% 18%}
+
 body.js-rv .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;transition-delay:var(--stagger,0s)}
 body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
 
-/* FORMAÇÃO (assimétrico, com tipografia-fantasma de fundo) */
-.formacao-section{overflow:hidden}
-.ghost-word{
-  position:absolute;top:50%;left:-3%;transform:translateY(-50%) rotate(-4deg);
-  font-family:'Fraunces',serif;font-style:italic;font-weight:340;
-  font-size:min(34vw,27rem);color:rgba(244,239,230,.045);
-  line-height:1;pointer-events:none;z-index:0;white-space:nowrap;
-}
-.formacao-grid{display:grid;grid-template-columns:5fr 7fr;gap:3rem;align-items:start}
-.formacao-creds{margin-top:4rem}
-.cred{display:flex;align-items:baseline;gap:1.2rem;padding:.95rem 0;border-bottom:1px solid var(--line-dark)}
-.cred:first-child{border-top:1px solid var(--line-dark)}
-.cred-inst{font-family:'Fraunces',serif;font-style:italic;color:var(--latao);font-size:1.2rem;min-width:100px;flex-shrink:0}
-.cred-role{color:rgba(244,239,230,.82);font-size:.98rem}
-.formacao-body{margin-top:2rem;color:rgba(244,239,230,.86);line-height:1.75;font-size:1.02rem;max-width:520px}
-.story-h{font-family:'Fraunces',serif;font-style:italic;font-weight:420;font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--cream);line-height:1.25}
+/* FORMAÇÃO — dark, musgo blob, sem ghost watermark */
+.formacao{position:relative;background:var(--grafite);background-image:linear-gradient(rgba(34,30,27,.87),rgba(34,30,27,.87)),url('/assets/institucional/textures/texture-dark.jpg');background-size:cover;background-position:center;color:var(--cream);padding:6.5rem 6vw 7rem;overflow:hidden}
+.formacao-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:3.5rem;align-items:center;max-width:1180px;margin:0 auto;position:relative}
+.formacao .eyebrow{color:var(--latao)}
+.formacao h2{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(2rem,3.6vw,2.8rem);font-weight:420;margin:.5rem 0 1.4rem;line-height:1.2}
+.formacao p{color:#D8D0C3;line-height:1.75;margin-bottom:1rem;max-width:52ch;font-size:1.02rem}
+.about-photo{position:relative;aspect-ratio:4/5;max-height:460px}
+.about-blob{position:absolute;inset:0;background:var(--musgo);border-radius:34% 66% 61% 39% / 42% 48% 52% 58%}
+.about-photo .photo-ph{top:-8%;left:8%;width:84%;height:96%}
+.about-photo img{object-position:50% 10%;transform:scale(1.25);transform-origin:42% 15%}
 
-/* METHOD */
-.method-intro{max-width:560px;margin:0 0 3.5rem}
-.method-intro h2{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(1.9rem,4vw,2.8rem);margin:.6rem 0 1rem;color:var(--grafite)}
-.method-intro p{color:var(--grafite-mid);font-size:1.05rem;line-height:1.6}
-.sprig{margin:2.25rem 0}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:start}
-.pillars .pillar:nth-child(2){margin-top:3rem}
-.pillars .pillar:nth-child(3){margin-top:1rem}
-.pillar{
-  background:#fff;padding:2.4rem 2rem 2.1rem;border-radius:3px;position:relative;
-  box-shadow:0 24px 48px -32px rgba(42,38,34,.28);
-  border-top:3px solid var(--accent,var(--terracota));
-  transform-style:preserve-3d;transition:transform .35s ease, box-shadow .35s ease;
-}
-.pillar:hover{box-shadow:0 32px 60px -28px rgba(42,38,34,.34)}
-.pillar .num{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;color:var(--accent,var(--terracota));display:block;margin-bottom:1rem}
-.pillar h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.32rem;margin-bottom:.85rem;color:var(--grafite)}
-.pillar p{color:var(--grafite-mid);line-height:1.65;font-size:.96rem}
-.pillar.p-legado{--accent:var(--terracota)}
-.pillar.p-amadur{--accent:var(--latao)}
-.pillar.p-repert{--accent:var(--musgo)}
+/* MÉTODO — nós conectados (sequência real) */
+.metodo{padding:6.5rem 6vw;position:relative}
+.metodo-head{max-width:640px;margin:0 auto 3.5rem}
+.metodo-head .eyebrow{color:var(--terracota-dk)}
+.metodo-head h2{font-family:'Fraunces',serif;font-style:italic;font-weight:420;font-size:clamp(2rem,3.6vw,2.7rem);margin:.5rem 0 .6rem;color:var(--grafite)}
+.metodo-head p{color:var(--grafite-mid);font-size:1.02rem}
+.nodes{position:relative;max-width:1180px;margin:0 auto}
+.nodes svg.connector{position:absolute;top:5px;left:0;width:100%;height:60px;z-index:0}
+.nodes svg.connector path{fill:none;stroke:var(--latao);stroke-width:2;stroke-dasharray:3 7;stroke-linecap:round}
+.node-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;position:relative;z-index:1}
+.node{text-align:center}
+.node .circ{width:72px;height:72px;border-radius:50%;border:2px solid var(--terracota);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--terracota-dk);background:var(--cream);margin:0 auto 1.1rem}
+.node h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;margin:0 0 .6rem;color:var(--grafite)}
+.node p{font-size:.96rem;color:var(--grafite-mid);line-height:1.65;margin:0}
 
-/* STATS (assimétrico: um número dominante + dois de apoio) */
-.stats-asym{display:grid;grid-template-columns:1.7fr 1fr;gap:3rem;align-items:center}
-.stat-hero b{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(3.2rem,8vw,6rem);color:var(--latao);line-height:1}
-.stat-hero span{font-size:.95rem;color:rgba(244,239,230,.72)}
-.stats-side{display:flex;flex-direction:column;gap:2.2rem;border-left:1px solid var(--line-dark);padding-left:2.2rem}
-.stat-mini b{display:block;font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.6rem,3vw,2.1rem);color:var(--cream)}
-.stat-mini span{font-size:.82rem;color:rgba(244,239,230,.65)}
+/* STATS — bloco de cor cheio, ondas */
+.stats{position:relative;background:var(--terracota-dk);color:var(--cream);padding:5.5rem 6vw;overflow:hidden}
+.stats-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:end;max-width:1180px;margin:0 auto;position:relative}
+.stats-grid .big b{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(3rem,7vw,5.2rem);display:block;line-height:1}
+.stats-grid .big span{font-size:.9rem;color:#F0D9C9}
+.stats-side{display:flex;gap:2.5rem}
+.stats-side b{font-family:'Fraunces',serif;font-weight:600;font-size:1.8rem;display:block}
+.stats-side span{font-size:.78rem;color:#F0D9C9}
 
 /* INSTAGRAM */
-.insta-head{max-width:600px;margin:0 0 3rem}
-.insta-head h2{font-family:'Fraunces',serif;font-style:italic;font-weight:480;font-size:clamp(1.7rem,3.4vw,2.4rem);margin:.6rem 0 1rem;color:var(--grafite)}
+.insta-head{max-width:600px;margin:0 auto 3rem;text-align:left}
+.insta-head h2{font-family:'Fraunces',serif;font-style:italic;font-weight:420;font-size:clamp(1.8rem,3.4vw,2.4rem);margin:.5rem 0 1rem;color:var(--grafite)}
 .insta-head p{color:var(--grafite-mid);font-size:1.02rem;line-height:1.6}
 .insta-embed{max-width:900px;margin:0 auto;border-radius:4px;overflow:hidden}
 .insta-follow{text-align:center;margin-top:2rem}
 
-/* NAV CARDS (assimétrico: índice tipo revista, não 4 caixas iguais) */
-.navcards{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1.5rem}
-.navcards a:nth-child(1){grid-row:1/3}
-.navcards a:nth-child(4){grid-column:2/4}
-.navcard{
-  background:var(--ink-soft);padding:2rem 1.6rem;border-radius:3px;position:relative;overflow:hidden;
-  border-top:3px solid var(--latao);transition:transform .3s ease,background .3s ease;
-  display:flex;flex-direction:column;justify-content:space-between;min-height:150px;
-}
+/* NAV CARDS — organicas, cor alternada */
+.navcards-section{position:relative;background:var(--ink);color:var(--cream);padding:6.5rem 6vw;overflow:hidden}
+.navcards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;max-width:1180px;margin:0 auto;position:relative}
+.navcard{background:var(--ink-soft);padding:2.1rem 1.7rem;position:relative;overflow:hidden;border-top:3px solid var(--accent,var(--latao));transition:transform .3s ease,background .3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:150px}
+.navcard:nth-child(odd){border-radius:4px 20px 4px 20px}
+.navcard:nth-child(even){border-radius:20px 4px 20px 4px}
 .navcard:hover{transform:translateY(-4px);background:#382F27}
-.navcard .tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--latao);font-weight:600;display:block;margin-bottom:.9rem}
+.navcard .tag{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent,var(--latao));font-weight:600;display:block;margin-bottom:.9rem}
 .navcard h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.15rem;color:var(--cream);margin-bottom:.6rem;line-height:1.3}
-.navcards a:nth-child(1) h3{font-size:1.5rem}
-.navcard .arrow{align-self:flex-end;color:var(--latao);font-size:1.2rem;transition:transform .3s ease}
+.navcard .arrow{align-self:flex-end;color:var(--accent,var(--latao));font-size:1.2rem;transition:transform .3s ease}
 .navcard:hover .arrow{transform:translate(3px,-3px)}
+.navcard.n1{--accent:var(--terracota)}
+.navcard.n2{--accent:var(--latao)}
+.navcard.n3{--accent:var(--musgo)}
+.navcard.n4{--accent:var(--terracota)}
 
 /* FOOTER CTA */
-.footer-cta{text-align:center}
-.footer-cta h2{font-family:'Fraunces',serif;font-style:italic;font-weight:480;font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:1.8rem}
-footer.site-footer{
-  background:var(--ink);color:rgba(244,239,230,.6);padding:3rem 6vw 2.2rem;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;
-  border-top:1px solid var(--line-dark);font-size:.85rem;
-}
+.footer-cta{position:relative;background:var(--grafite);color:var(--cream);padding:6rem 6vw 3rem;overflow:hidden}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;border-bottom:1px solid rgba(244,239,230,.15);padding-bottom:3rem;margin-bottom:2rem;max-width:1180px;margin-left:auto;margin-right:auto}
+.footer-cta h2{font-family:'Fraunces',serif;font-style:italic;font-weight:420;font-size:clamp(1.4rem,3.4vw,2.4rem);margin:0}
+.foot-bottom{display:flex;justify-content:space-between;font-size:.75rem;color:#9C9284;max-width:1180px;margin:0 auto}
+footer.site-footer{background:var(--ink);color:rgba(244,239,230,.6);padding:3rem 6vw 2.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;border-top:1px solid var(--line-dark);font-size:.85rem}
 footer.site-footer .social a{margin-left:1.2rem;color:rgba(244,239,230,.6)}
 footer.site-footer .social a:hover{color:var(--latao)}
 
 @media (max-width:920px){
-  .section{padding:5rem 6vw}
-  .formacao-grid{grid-template-columns:1fr;gap:1.5rem}
-  .formacao-creds{margin-top:0}
-  .ghost-word{font-size:min(50vw,14rem);top:8%;transform:translateY(0) rotate(-4deg)}
-  .pillars{grid-template-columns:1fr}
-  .pillars .pillar:nth-child(2),.pillars .pillar:nth-child(3){margin-top:0}
-  .stats-asym{grid-template-columns:1fr;gap:2rem}
-  .stats-side{border-left:none;padding-left:0;border-top:1px solid var(--line-dark);padding-top:1.8rem;flex-direction:row;flex-wrap:wrap;gap:2rem}
+  .section,.hero,.formacao,.metodo,.stats,.navcards-section,.footer-cta{padding-left:6vw;padding-right:6vw}
+  .hero-grid,.formacao-grid,.stats-grid{grid-template-columns:1fr}
+  .hero-photo-wrap{max-height:380px;order:-1}
+  .about-photo{max-height:340px}
+  .node-row{grid-template-columns:1fr;gap:2.2rem}
+  .nodes svg.connector{display:none}
   .navcards{grid-template-columns:1fr 1fr;gap:1rem}
-  .navcards a:nth-child(1){grid-row:auto}
-  .navcards a:nth-child(4){grid-column:auto}
-  .navcards a:nth-child(1) h3{font-size:1.15rem}
+  .foot-inner{flex-direction:column;align-items:flex-start;text-align:left}
   footer.site-footer{flex-direction:column;text-align:center}
   footer.site-footer .social a{margin:0 .6rem}
 }
 @media (max-width:560px){
   .navcards{grid-template-columns:1fr}
-  .hero{align-items:flex-end;padding:7rem 6vw 3.5rem}
-  .hero-photo{background-position:center 12%}
 }
 @media (prefers-reduced-motion:reduce){
   .reveal-word{animation:none;opacity:1;filter:none;transform:none}
   .rv{transition:none;opacity:1;transform:none}
-  .glow{animation:none!important}
 }
 </style>
 </head>
@@ -278,58 +190,63 @@ footer.site-footer .social a:hover{color:var(--latao)}
 </header>
 
 <section class="hero">
-  <div class="hero-photo"></div>
-  <div class="hero-veil"></div>
-  <div class="hero-content">
-    <span class="eyebrow">Educadora Parental</span>
-    <h1 id="heroTitle"></h1>
-    <p class="sub">Anos de estudo e de prática pra ajudar mães a entender os filhos, sair da culpa e construir uma rotina mais feliz e intencional em casa.</p>
-    <div class="ctas">
-      <a href="#metodo" class="btn btn-primary">Conheça o Método LAR</a>
-      <a href="/clareza/" class="btn btn-ghost">Fale comigo</a>
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Educadora Parental</span>
+      <h1 id="heroTitle"></h1>
+      <p class="sub">Anos de estudo e de prática pra ajudar mães a entender os filhos, sair da culpa e construir uma rotina mais feliz e intencional em casa.</p>
+      <div class="ctas">
+        <a href="#metodo" class="btn btn-primary">Conheça o Método LAR</a>
+        <a href="/clareza/" class="btn btn-dark">Fale comigo</a>
+      </div>
+      <div class="stat-row">
+        <div><b>9+</b><span>anos de estrada</span></div>
+        <div><b>7.800+</b><span>alunas ativas</span></div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap rv">
+      <div class="blob"></div>
+      <div class="photo-ph"><img src="/assets/institucional/home-hero.jpg" alt="Lourdes Corsi"></div>
     </div>
   </div>
 </section>
 
-<section class="section section-dark formacao-section">
-  <div class="ghost-word" aria-hidden="true">LAR</div>
-  <div class="wrap formacao-grid">
-    <div class="rv">
+<section class="formacao">
+  <div class="formacao-grid">
+    <div class="about-photo rv">
+      <div class="about-blob"></div>
+      <div class="photo-ph"><img src="/assets/institucional/home-formacao.jpg" alt="Lourdes Corsi"></div>
+    </div>
+    <div class="rv" data-stagger="0.1">
       <span class="eyebrow">Formação</span>
-      <h2 class="story-h">Prazer, eu sou<br>a Lourdes Corsi.</h2>
-    </div>
-    <div class="formacao-creds rv" data-stagger="0.15">
-      <p class="formacao-body" style="margin-top:0">Sou mãe, esposa e educadora parental pela PDA desde 2018, com formação em Letras, Pedagogia e Psicanálise.</p>
-      <p class="formacao-body">Nesses anos, venho ajudando mães a entender o que está por trás do comportamento dos filhos, e a agir sobre a causa, não só sobre o sintoma — foi assim, na prática com centenas de famílias mentoradas, que o Método LAR nasceu.</p>
+      <h2>Prazer, eu sou<br>a Lourdes Corsi.</h2>
+      <p>Sou mãe, esposa e educadora parental pela PDA desde 2018, com formação em Letras, Pedagogia e Psicanálise.</p>
+      <p>Nesses anos, venho ajudando mães a entender o que está por trás do comportamento dos filhos, e a agir sobre a causa, não só sobre o sintoma. Foi assim, na prática com centenas de famílias mentoradas, que o Método LAR nasceu.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="metodo">
-  <div class="wrap">
-    <div class="method-intro rv">
-      <span class="eyebrow">Como eu trabalho</span>
-      <h2>O Método LAR</h2>
-      <p>Três camadas que se sustentam juntas. Nenhuma funciona sozinha.</p>
-    </div>
-    <svg class="sprig" width="120" height="28" viewBox="0 0 120 28" aria-hidden="true">
-      <path d="M2 14 Q30 2 60 14 Q90 26 118 14" />
-      <path d="M60 14 Q58 7 52 4" /><path d="M60 14 Q62 7 68 4" />
-      <path d="M30 9 Q28 4 23 2" /><path d="M90 19 Q92 24 97 26" />
-    </svg>
-    <div class="pillars">
-      <div class="pillar p-legado rv">
-        <span class="num">I</span>
+<section class="metodo" id="metodo">
+  <div class="metodo-head rv">
+    <span class="eyebrow">Como eu trabalho</span>
+    <h2>O Método LAR</h2>
+    <p>Três camadas que se sustentam juntas. Nenhuma funciona sozinha.</p>
+  </div>
+  <div class="nodes rv" data-stagger="0.1">
+    <svg class="connector" viewBox="0 0 1000 60" preserveAspectRatio="none"><path d="M167,35 Q330,10 500,35 Q670,60 833,35"/></svg>
+    <div class="node-row">
+      <div class="node">
+        <div class="circ">I</div>
         <h3>Legado Emocional</h3>
         <p>Seus padrões vêm da sua própria infância. Enquanto você não entender de onde eles vêm, vai repeti-los e ensiná-los aos seus filhos sem perceber.</p>
       </div>
-      <div class="pillar p-amadur rv" data-stagger="0.12">
-        <span class="num">II</span>
+      <div class="node">
+        <div class="circ">II</div>
         <h3>Amadurecimento Parental</h3>
         <p>Saber a teoria não ajuda no meio de uma crise no supermercado. Aqui você desenvolve a firmeza e a calma que sustentam um limite de verdade.</p>
       </div>
-      <div class="pillar p-repert rv" data-stagger="0.24">
-        <span class="num">III</span>
+      <div class="node">
+        <div class="circ">III</div>
         <h3>Repertório Educativo</h3>
         <p>Estratégias validadas pro dia a dia. Sem tentativa e erro, sem fórmula genérica.</p>
       </div>
@@ -337,14 +254,14 @@ footer.site-footer .social a:hover{color:var(--latao)}
   </div>
 </section>
 
-<section class="section section-dark">
-  <div class="wrap">
-    <div class="stats-asym">
-      <div class="stat-hero rv"><b>70mil+</b><span>pessoas acompanham o trabalho</span></div>
-      <div class="stats-side">
-        <div class="stat-mini rv" data-stagger="0.1"><b>9+</b><span>anos de estrada</span></div>
-        <div class="stat-mini rv" data-stagger="0.2"><b>7.800+</b><span>alunas ativas</span></div>
-      </div>
+<section class="stats">
+  <svg class="wave top" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,30 C240,70 480,0 720,25 C960,50 1200,5 1440,35 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <svg class="wave bottom" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,35 C260,0 520,60 780,25 C1020,-5 1240,50 1440,20 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <div class="stats-grid rv">
+    <div class="big"><b>70mil+</b><span>pessoas acompanham o trabalho</span></div>
+    <div class="stats-side">
+      <div><b>9+</b><span>anos de estrada</span></div>
+      <div><b>7.800+</b><span>alunas ativas</span></div>
     </div>
   </div>
 </section>
@@ -367,40 +284,42 @@ footer.site-footer .social a:hover{color:var(--latao)}
   </div>
 </section>
 
-<section class="section section-dark">
-  <div class="wrap">
-    <div class="navcards">
-      <a href="/parcerias/" class="navcard rv">
-        <span class="tag">Marcas</span>
-        <h3>Parcerias</h3>
-        <span class="arrow">→</span>
-      </a>
-      <a href="/consultoria-mentoria/" class="navcard rv" data-stagger="0.08">
-        <span class="tag">Individual</span>
-        <h3>Consultoria e Mentoria</h3>
-        <span class="arrow">→</span>
-      </a>
-      <a href="/produtos/" class="navcard rv" data-stagger="0.16">
-        <span class="tag">Acervo</span>
-        <h3>Produtos</h3>
-        <span class="arrow">→</span>
-      </a>
-      <a href="/eventos/" class="navcard rv" data-stagger="0.24">
-        <span class="tag">Convite</span>
-        <h3>Eventos e Palestras</h3>
-        <span class="arrow">→</span>
-      </a>
-    </div>
+<section class="navcards-section">
+  <svg class="wave top" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,25 C240,55 480,5 720,30 C960,55 1200,10 1440,40 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <svg class="wave bottom" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,25 C240,55 480,5 720,30 C960,55 1200,10 1440,40 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <div class="navcards rv" data-stagger="0.06">
+    <a href="/parcerias/" class="navcard n1">
+      <span class="tag">Marcas</span>
+      <h3>Parcerias</h3>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/consultoria-mentoria/" class="navcard n2">
+      <span class="tag">Individual</span>
+      <h3>Consultoria e Mentoria</h3>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/produtos/" class="navcard n3">
+      <span class="tag">Acervo</span>
+      <h3>Produtos</h3>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/eventos/" class="navcard n4">
+      <span class="tag">Convite</span>
+      <h3>Eventos e Palestras</h3>
+      <span class="arrow">→</span>
+    </a>
   </div>
 </section>
 
-<section class="section footer-cta">
-  <div class="wrap rv">
-    <span class="eyebrow">Vamos conversar?</span>
-    <h2 class="serif" style="font-style:italic;font-weight:420">Toda mãe merece um lugar pra colocar as dúvidas de verdade.</h2>
-    <a href="/clareza/" class="btn btn-primary">Agendar uma conversa</a>
+<footer class="footer-cta">
+  <div class="foot-inner rv">
+    <h2>Vamos conversar sobre a sua família?</h2>
+    <a class="btn btn-primary" href="/clareza/">Fale comigo</a>
   </div>
-</section>
+  <div class="foot-bottom">
+    <span>Lourdes Corsi · Educadora Parental</span>
+  </div>
+</footer>
 
 <footer class="site-footer">
   <span>© 2026 Lourdes Corsi · Todos os direitos reservados</span>
@@ -412,17 +331,19 @@ footer.site-footer .social a:hover{color:var(--latao)}
 </footer>
 
 <script>
-// Word-by-word hero reveal
 (function(){
   var el = document.getElementById('heroTitle');
   var text = "Pare de gritar. Comece a educar.";
   var words = text.split(' ');
   el.innerHTML = words.map(function(w,i){
+    var isEducar = w.indexOf('educar') !== -1;
+    if(isEducar){
+      return '<span class="reveal-word" style="--i:'+i+'"><span class="sq">educar.<svg viewBox="0 0 120 14" preserveAspectRatio="none"><path d="M2 8 Q30 2 60 8 Q90 14 118 6" stroke="#B6924E" stroke-width="4" fill="none" stroke-linecap="round"/></svg></span></span>';
+    }
     return '<span class="reveal-word" style="--i:'+i+'">'+w+'</span>';
   }).join(' ');
 })();
 
-// Scroll reveal (progressive enhancement — see .rv CSS comment for the fallback rationale)
 (function(){
   if(!('IntersectionObserver' in window)) return;
   document.body.classList.add('js-rv');
@@ -438,19 +359,15 @@ footer.site-footer .social a:hover{color:var(--latao)}
     });
   },{threshold:.15});
   items.forEach(function(i){io.observe(i)});
-  // safety net: force-reveal anything the observer hasn't caught after 2.5s
   setTimeout(function(){
     document.querySelectorAll('.rv:not(.visible)').forEach(function(el){ el.classList.add('visible'); });
   },2500);
 })();
 
-// Mobile menu
 (function(){
   var btn = document.getElementById('menuToggle');
   var nav = document.getElementById('navLinks');
-  btn.addEventListener('click', function(){
-    nav.classList.toggle('open');
-  });
+  btn.addEventListener('click', function(){ nav.classList.toggle('open'); });
   nav.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', function(){ nav.classList.remove('open'); });
   });
