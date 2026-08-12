@@ -24,12 +24,10 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .serif{font-family:'Fraunces',serif}
 .eyebrow{font-family:'Work Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--latao)}
-.section{position:relative;padding:7rem 6vw;overflow:hidden;background-color:var(--cream);background-image:linear-gradient(rgba(244,239,230,.85),rgba(244,239,230,.85)),url('/assets/institucional/textures/texture-light.jpg');background-size:cover;background-position:center}
-.section-dark{background-color:var(--ink);background-image:linear-gradient(rgba(34,30,27,.87),rgba(34,30,27,.87)),url('/assets/institucional/textures/texture-dark.jpg');background-size:cover;background-position:center;color:var(--cream)}
-.section-dark .eyebrow{color:var(--latao)}
-.wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
-.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
-@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3%,4%) scale(1.08)}}
+.wrap{max-width:1180px;margin:0 auto;padding:0 6vw}
+.wave{position:absolute;left:0;width:100%;height:70px;display:block;z-index:1}
+.wave.top{top:-1px}
+.wave.bottom{bottom:-1px;transform:scaleY(-1)}
 
 header.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 6vw;background:rgba(34,30,27,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line-dark)}
 .brand{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.25rem;color:var(--cream)}
@@ -42,8 +40,6 @@ nav.links a.current::after{content:'';position:absolute;bottom:-2px;left:0;right
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:2px;font-size:.86rem;font-weight:600;letter-spacing:.02em;border:1px solid transparent;cursor:pointer;transition:all .25s ease}
 .btn-primary{background:var(--terracota);color:#fff}
 .btn-primary:hover{background:var(--terracota-dk);transform:translateY(-1px)}
-.btn-ghost{border-color:rgba(244,239,230,.35);color:var(--cream)}
-.btn-ghost:hover{border-color:var(--latao);color:var(--latao)}
 .btn-dark{border-color:rgba(42,38,34,.3);color:var(--grafite)}
 .btn-dark:hover{border-color:var(--terracota);color:var(--terracota)}
 .nav-cta{display:inline-flex}
@@ -59,49 +55,70 @@ nav.links a.current::after{content:'';position:absolute;bottom:-2px;left:0;right
   .nav-cta{display:none}
 }
 
-.page-hero{position:relative;padding:11rem 6vw 5.5rem;background-color:var(--ink);background-image:linear-gradient(rgba(34,30,27,.87),rgba(34,30,27,.87)),url('/assets/institucional/textures/texture-dark.jpg');background-size:cover;background-position:center;color:var(--cream);overflow:hidden}
-.page-hero .wrap{max-width:760px}
-.page-hero h1{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;margin:1rem 0 1.3rem}
-.page-hero p.sub{font-size:1.06rem;line-height:1.65;color:rgba(244,239,230,.82);max-width:580px}
+/* HERO — full-bleed com foto de palestra real */
+.hero{position:relative;min-height:80vh;display:flex;align-items:flex-end;padding:9rem 6vw 6rem;overflow:hidden;background:var(--ink);color:var(--cream)}
+.hero-photo{position:absolute;inset:0;background-image:url('/assets/institucional/eventos-hero.jpg');background-size:cover;background-position:50% 40%}
+.hero-veil{position:absolute;inset:0;background:
+  linear-gradient(0deg, var(--ink) 0%, rgba(34,30,27,.2) 38%, rgba(34,30,27,0) 62%),
+  linear-gradient(100deg, rgba(34,30,27,.9) 0%, rgba(34,30,27,.55) 26%, rgba(34,30,27,.1) 48%, transparent 64%)}
+.hero .htxt{position:relative;z-index:2;max-width:600px}
+.h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.3rem,5vw,3.9rem);line-height:1.06;margin:.6rem 0 1.2rem}
+.h1 .sq{position:relative;display:inline-block;font-style:italic}
+.h1 .sq svg{position:absolute;left:0;bottom:-.1em;width:100%;height:.28em}
 .reveal-word{display:inline-block;opacity:0;filter:blur(6px);transform:translateY(14px);animation:wordIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 70ms)}
 @keyframes wordIn{to{opacity:1;filter:blur(0);transform:translateY(0)}}
+.hero p.sub{font-size:1.05rem;line-height:1.65;color:rgba(244,239,230,.85);max-width:44ch;margin:0}
+.stat-row{display:flex;gap:2.2rem;margin-top:1.8rem}
+.stat-row b{font-family:'Fraunces',serif;font-size:1.5rem;display:block;color:var(--cream)}
+.stat-row span{font-size:.74rem;color:rgba(244,239,230,.7)}
 
 body.js-rv .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;transition-delay:var(--stagger,0s)}
 body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
 
-.section-head{max-width:640px;margin:0 0 2.6rem}
-.section-head h2{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(1.8rem,3.6vw,2.5rem);margin:.6rem 0 1rem;color:var(--grafite)}
-.section-head.on-dark h2{color:var(--cream)}
+/* QUEM */
+.quem{padding:3.8rem 6vw 0}
+.quem-inner{max-width:760px;margin:0 auto}
+.quem p{font-size:1.05rem;line-height:1.7;color:var(--grafite-mid);margin-top:.5rem}
 
-.tags{display:flex;flex-wrap:wrap;gap:.85rem}
-.tag-pill{border:1px solid var(--line);padding:.7rem 1.3rem;border-radius:40px;font-size:.92rem;color:var(--grafite-mid);background:#fff}
-.tag-pill.on-dark{border-color:rgba(244,239,230,.24);color:rgba(244,239,230,.88);background:transparent}
+/* TEMAS */
+.temas{padding:6.5rem 6vw}
+.temas-head{max-width:620px;margin:0 auto 2.6rem}
+.temas-head p{color:var(--grafite-mid);font-size:1rem;line-height:1.65;margin-top:.7rem}
+.tags{display:flex;flex-wrap:wrap;gap:.9rem;max-width:1180px;margin:0 auto}
+.tag-pill{border:1.5px solid rgba(42,38,34,.15);padding:.75rem 1.4rem;border-radius:40px;font-size:.92rem;color:var(--grafite-mid);background:#fff}
+.tag-pill.on-dark{border-color:rgba(244,239,230,.28);color:rgba(244,239,230,.9);background:rgba(244,239,230,.06)}
 
-/* PORTRAIT + TEXT */
-.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:3.5rem;align-items:center}
-.split img{border-radius:2px;box-shadow:0 30px 60px -28px rgba(0,0,0,.55)}
-.split .txt p{color:rgba(244,239,230,.86);line-height:1.75;font-size:1.02rem;margin-bottom:1.1rem}
-.split .txt p:last-child{margin-bottom:0}
+/* FORMATOS */
+.formatos{position:relative;background:var(--ink);color:var(--cream);padding:7rem 6vw;overflow:hidden}
+.formatos-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:3.6rem;align-items:center;max-width:1180px;margin:0 auto}
+.formatos-photo-wrap{position:relative;aspect-ratio:4/5;max-height:460px}
+.formatos-blob{position:absolute;inset:0;background:var(--musgo);border-radius:40% 60% 55% 45% / 55% 45% 55% 45%}
+.formatos-photo{position:absolute;top:6%;left:8%;width:84%;height:88%;border-radius:36% 64% 58% 42% / 48% 42% 58% 52%;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.4)}
+.formatos-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.formatos-head{margin-bottom:1.6rem}
+.formatos-head p{color:rgba(244,239,230,.8);font-size:.98rem;line-height:1.65;margin-top:.8rem;max-width:52ch}
 
-.footer-cta{text-align:center}
-.footer-cta h2{font-family:'Fraunces',serif;font-style:italic;font-weight:480;font-size:clamp(1.9rem,4.2vw,2.9rem);margin-bottom:1.8rem}
+/* FOOTER CTA */
+.footer-cta{padding:7rem 6vw;text-align:center}
+.footer-cta h2{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(1.8rem,3.8vw,2.7rem);margin:.6rem 0 1.8rem}
+.footer-cta h2 .sq{position:relative;display:inline-block}
+.footer-cta h2 .sq svg{position:absolute;left:0;bottom:-.08em;width:100%;height:.26em}
 .footer-cta .ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-footer.site-footer{background:var(--ink);color:rgba(244,239,230,.6);padding:3rem 6vw 2.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;border-top:1px solid var(--line-dark);font-size:.85rem}
-footer.site-footer .social a{margin-left:1.2rem;color:rgba(244,239,230,.6)}
-footer.site-footer .social a:hover{color:var(--latao)}
+
+/* FOOTER */
+.foot{position:relative;background:var(--ink);color:rgba(244,239,230,.6);padding:4.5rem 6vw 2.2rem;overflow:hidden}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.2rem;font-size:.85rem;max-width:1180px;margin:0 auto}
+.foot-bottom .social a{margin-left:1.2rem;color:rgba(244,239,230,.6);text-decoration:none}
+.foot-bottom .social a:hover{color:var(--latao)}
 
 @media (max-width:920px){
-  .section{padding:5rem 6vw}
-  .page-hero{padding:9rem 6vw 4rem}
-  .split{grid-template-columns:1fr;gap:2rem}
-  .split img{max-width:280px;margin:0 auto}
-  footer.site-footer{flex-direction:column;text-align:center}
-  footer.site-footer .social a{margin:0 .6rem}
+  .formatos-grid{grid-template-columns:1fr}
+  .formatos-photo-wrap{max-height:360px}
+  .footer-cta .ctas{flex-direction:column;align-items:center}
 }
 @media (prefers-reduced-motion:reduce){
   .reveal-word{animation:none;opacity:1;filter:none;transform:none}
   .rv{transition:none;opacity:1;transform:none}
-  .glow{animation:none!important}
 }
 </style>
 </head>
@@ -121,38 +138,57 @@ footer.site-footer .social a:hover{color:var(--latao)}
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </header>
 
-<section class="page-hero">
-  <div class="glow" style="width:420px;height:420px;left:-10%;top:0;background:radial-gradient(circle,rgba(178,80,45,.3),transparent 70%);animation:drift 24s ease-in-out infinite"></div>
-  <div class="wrap">
+<section class="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-veil"></div>
+  <div class="htxt">
     <span class="eyebrow">Palestras e eventos</span>
-    <h1 id="heroTitle"></h1>
+    <h1 class="h1" id="heroTitle"></h1>
     <p class="sub">Comportamento infantil, rotina e maternidade real, direto pra quem lida com famílias todos os dias: escolas, empresas, congressos e clubes de mães.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-head rv">
-      <span class="eyebrow">Temas que eu levo</span>
-    </div>
-    <div class="tags rv" data-stagger="0.1">
-      <span class="tag-pill">Temperamentos infantis</span>
-      <span class="tag-pill">Birras e limites</span>
-      <span class="tag-pill">Rotina e autonomia infantil</span>
-      <span class="tag-pill">Telas e infância</span>
-      <span class="tag-pill">Sono infantil</span>
-      <span class="tag-pill">Legado emocional e maternidade real</span>
+    <div class="stat-row">
+      <div><b>9+</b><span>anos de estrada</span></div>
+      <div><b>70mil+</b><span>pessoas acompanham o trabalho</span></div>
     </div>
   </div>
 </section>
 
-<section class="section section-dark">
-  <div class="glow" style="width:360px;height:360px;right:-6%;bottom:-10%;background:radial-gradient(circle,rgba(182,146,78,.22),transparent 70%);animation:drift 20s ease-in-out infinite reverse"></div>
-  <div class="wrap split">
-    <img src="/assets/institucional/lourdes-retrato.jpg" alt="Lourdes Corsi" loading="lazy" style="object-fit:cover;object-position:top;height:420px;width:100%" class="rv" />
-    <div class="txt rv" data-stagger="0.1">
-      <span class="eyebrow">Formatos</span>
-      <div class="tags" style="justify-content:flex-start;margin-top:1rem">
+<section class="quem">
+  <div class="quem-inner rv">
+    <span class="eyebrow" style="color:var(--terracota-dk)">Quem vai subir no seu palco</span>
+    <p>Educadora parental pela PDA desde 2018, com formação em Letras, Pedagogia e Psicanálise. Lourdes é criadora do Método LAR, construído na prática com centenas de famílias mentoradas.</p>
+  </div>
+</section>
+
+<section class="temas">
+  <div class="temas-head rv">
+    <span class="eyebrow" style="color:var(--terracota-dk)">Temas que eu levo</span>
+    <p>Todo o conteúdo nasce da prática: quase dez anos ouvindo mães e pais reais, dentro do Método LAR que a Lourdes desenvolveu. Cada palestra parte de um desses temas e se ajusta ao tempo e ao público do seu evento.</p>
+  </div>
+  <div class="tags rv" data-stagger="0.08">
+    <span class="tag-pill">Temperamentos infantis</span>
+    <span class="tag-pill">Birras e limites</span>
+    <span class="tag-pill">Rotina e autonomia infantil</span>
+    <span class="tag-pill">Telas e infância</span>
+    <span class="tag-pill">Sono infantil</span>
+    <span class="tag-pill">Legado emocional e maternidade real</span>
+  </div>
+</section>
+
+<section class="formatos">
+  <svg class="wave top" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,25 C240,55 480,5 720,30 C960,55 1200,10 1440,40 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <svg class="wave bottom" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,35 C260,0 520,60 780,25 C1020,-5 1240,50 1440,20 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <div class="formatos-grid">
+    <div class="formatos-photo-wrap rv">
+      <div class="formatos-blob"></div>
+      <div class="formatos-photo"><img src="/assets/institucional/eventos-formatos.jpg" alt="Lourdes Corsi"></div>
+    </div>
+    <div class="rv" data-stagger="0.1">
+      <div class="formatos-head">
+        <span class="eyebrow">Formatos</span>
+        <h2 class="serif" style="font-style:italic;font-weight:420;font-size:clamp(1.7rem,3.2vw,2.3rem)">Do jeito que encaixa na sua programação</h2>
+        <p>Cada convite é conversado individualmente. Junto com você, a Lourdes define o tempo disponível, se o encontro é presencial ou online, e qual desses formatos faz mais sentido pro seu público.</p>
+      </div>
+      <div class="tags">
         <span class="tag-pill on-dark">Palestra (presencial ou online)</span>
         <span class="tag-pill on-dark">Workshop prático</span>
         <span class="tag-pill on-dark">Mesa redonda</span>
@@ -166,10 +202,10 @@ footer.site-footer .social a:hover{color:var(--latao)}
   </div>
 </section>
 
-<section class="section footer-cta">
+<section class="footer-cta">
   <div class="wrap rv">
-    <span class="eyebrow">Quer me convidar?</span>
-    <h2 class="serif" style="font-style:italic;font-weight:420">Vamos levar a Lourdes pro seu público.</h2>
+    <span class="eyebrow" style="color:var(--terracota-dk)">Quer me convidar?</span>
+    <h2 class="serif">Vamos levar a Lourdes pro seu <span class="sq">público<svg viewBox="0 0 150 14" preserveAspectRatio="none"><path d="M2 8 Q38 2 75 8 Q112 14 148 6" stroke="#B6924E" stroke-width="4" fill="none" stroke-linecap="round"/></svg></span>.</h2>
     <div class="ctas">
       <a href="/clareza/" class="btn btn-primary">Fale comigo</a>
       <a href="mailto:contato@lourdescorsi.com.br" class="btn btn-dark">contato@lourdescorsi.com.br</a>
@@ -177,13 +213,16 @@ footer.site-footer .social a:hover{color:var(--latao)}
   </div>
 </section>
 
-<footer class="site-footer">
-  <span>© 2026 Lourdes Corsi · Todos os direitos reservados</span>
-  <span class="social">
-    <a href="https://instagram.com/lourdes.corsi" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://youtube.com/@lourdescorsi" target="_blank" rel="noopener">YouTube</a>
-    <a href="mailto:contato@lourdescorsi.com.br">E-mail</a>
-  </span>
+<footer class="foot">
+  <svg class="wave top" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C260,5 520,60 780,25 C1020,-5 1240,45 1440,15 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <div class="foot-bottom">
+    <span>© 2026 Lourdes Corsi · Todos os direitos reservados</span>
+    <span class="social">
+      <a href="https://instagram.com/lourdes.corsi" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://youtube.com/@lourdescorsi" target="_blank" rel="noopener">YouTube</a>
+      <a href="mailto:contato@lourdescorsi.com.br">E-mail</a>
+    </span>
+  </div>
 </footer>
 
 <script>
@@ -192,6 +231,10 @@ footer.site-footer .social a:hover{color:var(--latao)}
   var text = "Leve a Lourdes pro seu evento.";
   var words = text.split(' ');
   el.innerHTML = words.map(function(w,i){
+    var isEvento = w.indexOf('evento') !== -1;
+    if(isEvento){
+      return '<span class="reveal-word" style="--i:'+i+'"><span class="sq">evento<svg viewBox="0 0 170 14" preserveAspectRatio="none"><path d="M2 8 Q42 2 85 8 Q128 14 168 6" stroke="#B6924E" stroke-width="4" fill="none" stroke-linecap="round"/></svg></span></span>';
+    }
     return '<span class="reveal-word" style="--i:'+i+'">'+w+'</span>';
   }).join(' ');
 })();
