@@ -28,8 +28,9 @@ a{color:inherit;text-decoration:none}
 .section-dark{background-color:var(--ink);background-image:linear-gradient(rgba(34,30,27,.87),rgba(34,30,27,.87)),url('/assets/institucional/textures/texture-dark.jpg');background-size:cover;background-position:center;color:var(--cream)}
 .section-dark .eyebrow{color:var(--latao)}
 .wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
-.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
-@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3%,4%) scale(1.08)}}
+.wave{position:absolute;left:0;width:100%;height:70px;display:block;z-index:1}
+.wave.top{top:-1px}
+.wave.bottom{bottom:-1px;transform:scaleY(-1)}
 
 header.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 6vw;background:rgba(34,30,27,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line-dark)}
 .brand{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.25rem;color:var(--cream)}
@@ -44,8 +45,6 @@ nav.links a.current::after{content:'';position:absolute;bottom:-2px;left:0;right
 .btn-primary:hover{background:var(--terracota-dk);transform:translateY(-1px)}
 .btn-ghost{border-color:rgba(244,239,230,.35);color:var(--cream)}
 .btn-ghost:hover{border-color:var(--latao);color:var(--latao)}
-.btn-dark{border-color:rgba(42,38,34,.3);color:var(--grafite)}
-.btn-dark:hover{border-color:var(--terracota);color:var(--terracota)}
 .nav-cta{display:inline-flex}
 .nav-cta-mobile{display:none}
 .menu-toggle{display:none}
@@ -59,96 +58,135 @@ nav.links a.current::after{content:'';position:absolute;bottom:-2px;left:0;right
   .nav-cta{display:none}
 }
 
-.page-hero{position:relative;padding:11rem 6vw 5.5rem;background-color:var(--ink);background-image:linear-gradient(rgba(34,30,27,.87),rgba(34,30,27,.87)),url('/assets/institucional/textures/texture-dark.jpg');background-size:cover;background-position:center;color:var(--cream);overflow:hidden}
-.page-hero .wrap{max-width:760px}
-.page-hero h1{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;margin:1rem 0 1.3rem}
-.page-hero p.sub{font-size:1.06rem;line-height:1.65;color:rgba(244,239,230,.82);max-width:560px;margin-bottom:0}
+/* HERO — blob + retrato + selo (fundo claro) */
+.hero{position:relative;background:var(--cream);color:var(--ink);padding:9rem 6vw 6rem;overflow:hidden}
+.hero .eyebrow{color:var(--terracota-dk)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center;max-width:1180px;margin:0 auto;position:relative}
+.hero h1{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(2.5rem,5.6vw,4.4rem);line-height:1;margin:.6rem 0 1.3rem;letter-spacing:-.01em;color:var(--ink)}
+.hero h1 .sq{position:relative;display:inline-block}
+.hero h1 .sq svg{position:absolute;left:0;bottom:-.1em;width:100%;height:.28em}
 .reveal-word{display:inline-block;opacity:0;filter:blur(6px);transform:translateY(14px);animation:wordIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 70ms)}
 @keyframes wordIn{to{opacity:1;filter:blur(0);transform:translateY(0)}}
+.hero p.sub{font-size:1.08rem;line-height:1.65;color:var(--grafite-mid);max-width:44ch;margin-bottom:0}
+
+.hero-photo-wrap{position:relative;aspect-ratio:4/5;max-height:540px}
+.blob{position:absolute;inset:0;background:var(--terracota);border-radius:31% 69% 60% 40% / 52% 45% 55% 48%}
+.photo-ph{position:absolute;top:6%;left:9%;width:82%;height:88%;border-radius:36% 64% 58% 42% / 48% 40% 60% 52%;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.4)}
+.photo-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;filter:saturate(1.05) contrast(1.03)}
+.badge{position:absolute;left:-46px;bottom:0;width:190px;height:190px;background:var(--grafite);border-radius:50%;box-shadow:0 16px 36px -10px rgba(42,38,34,.3)}
+.badge svg{width:100%;height:100%}
+.badge .ring{animation:spin 26s linear infinite;transform-origin:95px 95px}
+@media (prefers-reduced-motion:reduce){.badge .ring{animation:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.badge .core{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.badge .core svg{width:30%;height:30%}
 
 body.js-rv .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;transition-delay:var(--stagger,0s)}
 body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
 
-/* PULL-QUOTE / COMUNIDADE (assimétrico) */
-.quote-grid{display:grid;grid-template-columns:7fr 5fr;gap:3rem;align-items:start}
-.pull-quote{font-family:'Fraunces',serif;font-style:italic;font-weight:420;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.35;color:var(--cream)}
-.pull-quote span{color:var(--latao)}
-.quote-support{margin-top:2.8rem;padding-left:2rem;border-left:2px solid var(--line-dark)}
-.quote-support p{color:rgba(244,239,230,.82);line-height:1.7;font-size:.98rem;margin-bottom:1rem}
+/* QUOTE (ink) */
+.quote{position:relative;background:var(--ink);color:var(--cream);padding:6rem 6vw;overflow:hidden}
+.quote-grid{display:grid;grid-template-columns:7fr 5fr;gap:3rem;align-items:start;max-width:1180px;margin:0 auto;position:relative}
+.quote-glow{position:absolute;width:460px;height:460px;border-radius:50%;filter:blur(100px);background:radial-gradient(circle,rgba(178,80,45,.4),transparent 70%);top:-16%;right:-10%;pointer-events:none}
+.quote-mark{position:absolute;font-family:'Fraunces',serif;font-size:16rem;line-height:1;color:rgba(244,239,230,.05);top:-3.2rem;left:-.8rem;pointer-events:none;font-style:italic;user-select:none}
+.pull{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.35;position:relative;color:var(--cream)}
+.pull b{color:var(--latao);font-weight:700;font-style:normal}
+.quote-support{margin-top:2.6rem;padding-left:2rem;position:relative}
+.quote-support::before{content:"";position:absolute;left:0;top:.3rem;bottom:.3rem;width:2px;background:repeating-linear-gradient(180deg,var(--latao) 0 6px,transparent 6px 11px);border-radius:2px}
+.quote-support p{color:rgba(244,239,230,.78);line-height:1.7;font-size:.98rem;margin:0 0 1rem}
 .quote-support p:last-child{margin-bottom:0}
 
-/* AUDIÊNCIA — visual, dados reais */
-.section-head{max-width:640px;margin:0 0 3rem}
-.section-head h2{font-family:'Fraunces',serif;font-weight:480;font-size:clamp(1.8rem,3.6vw,2.5rem);margin:.6rem 0 1rem;color:var(--grafite)}
-.section-head.on-dark h2{color:var(--cream)}
-.audience-viz{display:grid;grid-template-columns:1.5fr 1fr;gap:3.5rem;align-items:start}
-.viz-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--latao);font-weight:600;display:block;margin-bottom:1.3rem}
-.age-bars{display:flex;flex-direction:column;gap:.7rem}
+/* AUDIÊNCIA */
+.data{position:relative;background:var(--terracota-dk);color:var(--cream);padding:6rem 6vw;overflow:hidden}
+.data-head{max-width:640px;margin-bottom:3rem;max-width:1180px;margin-left:auto;margin-right:auto}
+.data-head h2{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.9rem,3.6vw,2.6rem);margin:.4rem 0 0}
+.audience-viz{display:grid;grid-template-columns:1.5fr 1fr;gap:3.5rem;align-items:start;max-width:1180px;margin:0 auto}
+.viz-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#F0D9C9;font-weight:700;display:block;margin-bottom:1.2rem}
+.age-bars{display:flex;flex-direction:column;gap:.65rem}
 .age-row{display:grid;grid-template-columns:56px 1fr 46px;align-items:center;gap:.9rem}
-.age-tag{font-size:.82rem;color:rgba(244,239,230,.68)}
-.age-bar-track{height:11px;background:rgba(244,239,230,.08);border-radius:2px;overflow:hidden}
-.age-bar{height:100%;background:var(--terracota);border-radius:2px}
-.age-val{font-size:.82rem;color:rgba(244,239,230,.75);text-align:right;font-variant-numeric:tabular-nums}
-.age-row.peak .age-tag,.age-row.peak .age-val{color:var(--latao);font-weight:600}
+.age-tag{font-size:.82rem;color:rgba(244,239,230,.7)}
+.age-bar-track{height:10px;background:rgba(244,239,230,.14);border-radius:2px;overflow:hidden}
+.age-bar{height:100%;background:var(--cream)}
+.age-val{font-size:.82rem;text-align:right;font-variant-numeric:tabular-nums;color:rgba(244,239,230,.75)}
+.age-row.peak .age-tag,.age-row.peak .age-val{color:var(--cream);font-weight:700}
 .age-row.peak .age-bar{background:var(--latao)}
-.viz-side{display:flex;flex-direction:column;gap:2.6rem}
-.gender-bar{display:flex;height:16px;border-radius:3px;overflow:hidden;margin-bottom:1rem}
-.gender-seg-f{background:var(--terracota)}
-.gender-seg-m{background:rgba(244,239,230,.16)}
-.gender-legend{display:flex;flex-direction:column;gap:.5rem;font-size:.9rem;color:rgba(244,239,230,.8)}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.6rem}
-.dot-f{background:var(--terracota)}
-.dot-m{background:rgba(244,239,230,.3)}
-.city-row{display:grid;grid-template-columns:136px 1fr 40px;align-items:center;gap:.8rem;margin-bottom:.6rem}
-.city-name{font-size:.82rem;color:rgba(244,239,230,.72);white-space:nowrap}
-.city-bar-track{height:6px;background:rgba(244,239,230,.08);border-radius:2px;overflow:hidden}
-.city-bar{height:100%;background:var(--latao);border-radius:2px}
-.city-val{font-size:.8rem;color:rgba(244,239,230,.75);text-align:right}
+.viz-side{display:flex;flex-direction:column;gap:2.4rem}
+.gender-bar{display:flex;height:14px;border-radius:3px;overflow:hidden;margin-bottom:.9rem}
+.gender-seg-f{background:var(--cream)}
+.gender-seg-m{background:rgba(244,239,230,.2)}
+.gender-legend{display:flex;flex-direction:column;gap:.4rem;font-size:.88rem;color:rgba(244,239,230,.85)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.55rem}
+.dot-f{background:var(--cream)}
+.dot-m{background:rgba(244,239,230,.35)}
+.city-row{display:grid;grid-template-columns:132px 1fr 40px;align-items:center;gap:.7rem;margin-bottom:.55rem}
+.city-name{font-size:.8rem;color:rgba(244,239,230,.75);white-space:nowrap}
+.city-bar-track{height:6px;background:rgba(244,239,230,.14);border-radius:2px;overflow:hidden}
+.city-bar{height:100%;background:var(--latao)}
+.city-val{font-size:.78rem;text-align:right;color:rgba(244,239,230,.75)}
 
 /* FORMATOS */
-.tags{display:flex;flex-wrap:wrap;gap:.85rem}
-.tag-pill{border:1px solid var(--line);padding:.7rem 1.3rem;border-radius:40px;font-size:.92rem;color:var(--grafite-mid);background:#fff}
+.formatos{padding:6rem 0}
+.section-head{max-width:640px;margin-bottom:2.5rem}
+.section-head h2{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.9rem,3.6vw,2.6rem);margin:.4rem 0 0;color:var(--grafite)}
+.tags{display:flex;flex-wrap:wrap;gap:1rem 1.1rem}
+.tag-pill{border:1px solid rgba(42,38,34,.15);padding:.7rem 1.3rem;border-radius:40px;font-size:.9rem;color:var(--grafite-mid);background:#fff}
 
-/* PRINCÍPIOS (mesmo tratamento assimétrico do Método LAR) */
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:start}
-.pillars .pillar:nth-child(2){margin-top:2.6rem}
-.pillars .pillar:nth-child(3){margin-top:.8rem}
-.pillar{background:#fff;padding:2.4rem 2rem 2.1rem;border-radius:3px;position:relative;box-shadow:0 24px 48px -32px rgba(42,38,34,.28);border-top:3px solid var(--accent,var(--terracota));transition:transform .35s ease, box-shadow .35s ease}
-.pillar:hover{box-shadow:0 32px 60px -28px rgba(42,38,34,.34)}
-.pillar h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.28rem;margin-bottom:.85rem;color:var(--grafite)}
-.pillar p{color:var(--grafite-mid);line-height:1.65;font-size:.96rem}
-.pillar.a1{--accent:var(--terracota)}
-.pillar.a2{--accent:var(--latao)}
-.pillar.a3{--accent:var(--musgo)}
+/* PRINCÍPIOS (musgo, paralelos, não numerados) */
+.principios{background:var(--musgo);color:var(--cream);padding:7rem 6vw 8.5rem;position:relative;overflow:hidden}
+.principios .section-head{max-width:1180px;margin-left:auto;margin-right:auto}
+.principios .section-head h2{color:var(--cream)}
+.principios .eyebrow{color:#E7DDBE}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.1rem;max-width:1180px;margin:0 auto}
+.p-card{background:rgba(244,239,230,.09);border:1px solid rgba(244,239,230,.18);padding:2.3rem 1.8rem;position:relative}
+.p-card:nth-child(odd){border-radius:6px 26px 6px 26px}
+.p-card:nth-child(even){border-radius:26px 6px 26px 6px}
+.p-card .ic-wrap{width:54px;height:54px;border-radius:52% 48% 42% 58% / 58% 42% 58% 42%;background:rgba(244,239,230,.15);display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem}
+.p-card .ic{width:24px;height:24px}
+.p-card h3{font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;margin:0 0 .7rem}
+.p-card p{font-size:.92rem;line-height:1.6;color:rgba(244,239,230,.82);margin:0}
 
-/* MARCAS — logos reais, disposição espalhada */
-.brand-strip{display:flex;flex-wrap:wrap;gap:3.2rem 4rem;align-items:center}
-.brand-strip img{max-height:56px;width:auto;opacity:.88;transition:opacity .25s ease}
-.brand-strip img:hover{opacity:1}
-.brand-strip .txt-logo{font-family:'Fraunces',serif;font-style:italic;font-size:1.55rem;color:rgba(244,239,230,.7);transition:color .25s ease}
-.brand-strip .txt-logo:hover{color:var(--cream)}
+/* MARCAS — marquee infinito */
+.brands{padding:5rem 0 6rem}
+.brands .wrap{text-align:center}
+.brands .eyebrow{display:block;margin-bottom:0}
+.marquee{width:100%;overflow:hidden;margin-top:2.5rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:5rem;width:max-content;animation:marquee 26s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-track img{height:64px;width:auto;max-width:210px;object-fit:contain;flex:none;transition:transform .25s ease}
+.marquee-track img:hover{transform:scale(1.16)}
+.txt-logo{font-family:'Fraunces',serif;font-style:italic;font-size:1.9rem;color:var(--grafite-mid);flex:none;white-space:nowrap;transition:transform .25s ease}
+.txt-logo:hover{transform:scale(1.1)}
 
-.footer-cta{text-align:center}
-.footer-cta h2{font-family:'Fraunces',serif;font-style:italic;font-weight:480;font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:1.8rem}
-footer.site-footer{background:var(--ink);color:rgba(244,239,230,.6);padding:3rem 6vw 2.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;border-top:1px solid var(--line-dark);font-size:.85rem}
+/* FOOTER CTA */
+.foot{position:relative;background:var(--ink);color:var(--cream);padding:6rem 6vw 3rem;overflow:hidden}
+.foot-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:center;max-width:1180px;margin:0 auto}
+.foot h2{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(1.4rem,3.1vw,2.2rem);margin:.5rem 0 1.7rem}
+.foot .btn-cta{display:inline-block;background:var(--terracota);color:var(--cream);font-weight:700;font-size:.88rem;padding:.9rem 1.8rem;border-radius:4px;text-decoration:none}
+.foot-blob-wrap{position:relative;height:220px}
+.foot-blob{position:absolute;inset:4% 12%;background:var(--terracota-dk);border-radius:38% 62% 55% 45% / 48% 40% 60% 52%}
+.foot-stat{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 1.5rem}
+.foot-stat b{font-family:'Fraunces',serif;font-size:2.4rem;line-height:1}
+.foot-stat span{font-size:.76rem;color:#F0D9C9;max-width:15ch;margin-top:.4rem}
+.foot-bottom{display:flex;justify-content:space-between;font-size:.75rem;color:#9C9284;margin-top:4rem;padding-top:1.5rem;border-top:1px solid rgba(244,239,230,.12);max-width:1180px;margin-left:auto;margin-right:auto}
+
+footer.site-footer{background:var(--ink);color:rgba(244,239,230,.6);padding:2.5rem 6vw 2.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;font-size:.85rem}
 footer.site-footer .social a{margin-left:1.2rem;color:rgba(244,239,230,.6)}
 footer.site-footer .social a:hover{color:var(--latao)}
 
 @media (max-width:920px){
-  .section{padding:5rem 6vw}
-  .page-hero{padding:9rem 6vw 4rem}
-  .quote-grid{grid-template-columns:1fr;gap:1.5rem}
-  .quote-support{padding-left:1.2rem;margin-top:1.5rem}
-  .audience-viz{grid-template-columns:1fr;gap:2.5rem}
-  .pillars{grid-template-columns:1fr}
-  .pillars .pillar:nth-child(2),.pillars .pillar:nth-child(3){margin-top:0}
+  .hero-grid,.quote-grid,.audience-viz,.foot-grid{grid-template-columns:1fr}
+  .hero-photo-wrap{order:-1;max-height:380px}
+  .p-grid{grid-template-columns:1fr}
+  .foot-blob-wrap{order:-1;height:200px;margin-bottom:1rem}
+  .quote-mark{font-size:9rem}
   footer.site-footer{flex-direction:column;text-align:center}
   footer.site-footer .social a{margin:0 .6rem}
 }
 @media (prefers-reduced-motion:reduce){
   .reveal-word{animation:none;opacity:1;filter:none;transform:none}
   .rv{transition:none;opacity:1;transform:none}
-  .glow{animation:none!important}
 }
 </style>
 </head>
@@ -168,19 +206,39 @@ footer.site-footer .social a:hover{color:var(--latao)}
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </header>
 
-<section class="page-hero">
-  <div class="glow" style="width:420px;height:420px;left:-10%;top:0;background:radial-gradient(circle,rgba(178,80,45,.3),transparent 70%);animation:drift 24s ease-in-out infinite"></div>
-  <div class="wrap">
-    <span class="eyebrow">Marcas e parcerias</span>
-    <h1 id="heroTitle"></h1>
-    <p class="sub">Mais de 70 mil pessoas acompanham o meu trabalho. Quando recomendo algo, existe confiança construída em quase 10 anos.</p>
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Marcas e Parcerias</span>
+      <h1 id="heroTitle"></h1>
+      <p class="sub">Mais de 70 mil pessoas acompanham o meu trabalho. Quando recomendo algo, existe confiança construída em quase 10 anos.</p>
+    </div>
+    <div class="hero-photo-wrap rv">
+      <div class="blob"></div>
+      <div class="photo-ph"><img src="/assets/institucional/parcerias-hero.jpg" alt="Lourdes Corsi"></div>
+      <div class="badge">
+        <svg viewBox="0 0 190 190">
+          <g class="ring">
+            <path id="rp2" d="M95,11 a84,84 0 1,1 -0.1,0" fill="none"/>
+            <text font-family="Fraunces,serif" font-size="11.5" letter-spacing="2.8" fill="#F4EFE6">
+              <textPath href="#rp2">9 ANOS DE COMUNIDADE · MARCAS PARCEIRAS · 9 ANOS ·</textPath>
+            </text>
+          </g>
+          <g class="core">
+            <path d="M4 14 L14 5 L24 14 M7 12 V22 H21 V12" stroke="#B6924E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="scale(1.9) translate(3,1)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section section-dark">
-  <div class="glow" style="width:360px;height:360px;right:-6%;bottom:-10%;background:radial-gradient(circle,rgba(182,146,78,.22),transparent 70%);animation:drift 20s ease-in-out infinite reverse"></div>
-  <div class="wrap quote-grid">
-    <p class="pull-quote rv">Ao longo de <span>9 anos</span> compartilho meu dia a dia com uma audiência que foi transformada em <span>comunidade</span>.</p>
+<section class="quote">
+  <svg class="wave top" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,45 C260,10 520,55 760,30 C1000,5 1220,50 1440,20 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <div class="quote-glow"></div>
+  <div class="quote-mark">"</div>
+  <div class="quote-grid">
+    <p class="pull rv">Ao longo de <b>9 anos</b> compartilho meu dia a dia com uma audiência que foi transformada em comunidade.</p>
     <div class="quote-support rv" data-stagger="0.15">
       <p>É por isso que as recomendações que faço geram identificação e credibilidade: quando recomendo algo, meu público escuta, porque existe confiança.</p>
       <p>Acredito em parcerias que fazem sentido pra essa comunidade e que entregam valor tanto pra quem me acompanha quanto pra marca que escolhe caminhar comigo.</p>
@@ -188,14 +246,14 @@ footer.site-footer .social a:hover{color:var(--latao)}
   </div>
 </section>
 
-<section class="section section-dark">
-  <div class="wrap">
-    <div class="section-head on-dark rv">
-      <span class="eyebrow">Audiência</span>
-      <h2>Quem está do outro lado da tela</h2>
-    </div>
+<section class="data">
+  <svg class="wave top" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,30 C240,70 480,0 720,25 C960,50 1200,5 1440,35 L1440,0 L0,0 Z" fill="#221E1B"/></svg>
+  <svg class="wave bottom" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,35 C260,0 520,60 780,25 C1020,-5 1240,50 1440,20 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <div class="data-head rv">
+    <span class="eyebrow" style="color:#F0D9C9">Audiência</span>
+    <h2>Quem está do outro lado da tela</h2>
   </div>
-  <div class="wrap audience-viz">
+  <div class="audience-viz">
     <div class="rv">
       <span class="viz-label">Faixa etária</span>
       <div class="age-bars">
@@ -211,10 +269,7 @@ footer.site-footer .social a:hover{color:var(--latao)}
     <div class="viz-side rv" data-stagger="0.15">
       <div>
         <span class="viz-label">Gênero</span>
-        <div class="gender-bar">
-          <div class="gender-seg-f" style="width:96.4%"></div>
-          <div class="gender-seg-m" style="width:4.6%"></div>
-        </div>
+        <div class="gender-bar"><div class="gender-seg-f" style="width:96.4%"></div><div class="gender-seg-m" style="width:4.6%"></div></div>
         <div class="gender-legend">
           <span><i class="dot dot-f"></i>96,4% mulheres</span>
           <span><i class="dot dot-m"></i>4,6% homens</span>
@@ -232,10 +287,10 @@ footer.site-footer .social a:hover{color:var(--latao)}
   </div>
 </section>
 
-<section class="section">
+<section class="formatos">
   <div class="wrap">
     <div class="section-head rv">
-      <span class="eyebrow">Formatos de parceria</span>
+      <span class="eyebrow" style="color:var(--terracota-dk)">Formatos de parceria</span>
       <h2>Como a parceria pode acontecer</h2>
     </div>
     <div class="tags rv" data-stagger="0.1">
@@ -252,54 +307,76 @@ footer.site-footer .social a:hover{color:var(--latao)}
   </div>
 </section>
 
-<section class="section section-dark">
-  <div class="wrap">
-    <div class="section-head on-dark rv">
-      <span class="eyebrow">Como eu trabalho o conteúdo</span>
-      <h2>Três princípios que não mudam</h2>
+<section class="principios">
+  <svg class="wave top" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,25 C240,55 480,5 720,30 C960,55 1200,10 1440,40 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <svg class="wave bottom" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,25 C240,55 480,5 720,30 C960,55 1200,10 1440,40 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <div class="section-head rv">
+    <span class="eyebrow">Como eu trabalho o conteúdo</span>
+    <h2>Três princípios que não mudam</h2>
+  </div>
+  <div class="p-grid rv" data-stagger="0.08">
+    <div class="p-card">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 38 38"><circle cx="19" cy="19" r="16" fill="none" stroke="#F4EFE6" stroke-width="2.6"/><path d="M19 11v8l5.5 3.5" stroke="#F4EFE6" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3>Fortalecimento de marca</h3>
+      <p>Coloco à disposição o que tenho de mais valioso: a confiança que construí com quem me acompanha.</p>
     </div>
-    <div class="pillars">
-      <div class="pillar a1 rv">
-        <h3>Fortalecimento de marca</h3>
-        <p>Coloco à disposição o que tenho de mais valioso: a confiança que construí com quem me acompanha.</p>
-      </div>
-      <div class="pillar a2 rv" data-stagger="0.12">
-        <h3>Conteúdo contextualizado</h3>
-        <p>Narrativas pensadas pra cada campanha, não só pra estética.</p>
-      </div>
-      <div class="pillar a3 rv" data-stagger="0.24">
-        <h3>Autenticidade</h3>
-        <p>Nada de publi com cara de publi.</p>
-      </div>
+    <div class="p-card">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 38 38"><path d="M8 12h22M8 19h16M8 26h22" stroke="#F4EFE6" stroke-width="2.6" stroke-linecap="round"/></svg></div>
+      <h3>Conteúdo contextualizado</h3>
+      <p>Narrativas pensadas pra cada campanha, não só pra estética.</p>
+    </div>
+    <div class="p-card">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 38 38"><path d="M19 6c6 5 12 8 12 15a12 12 0 0 1-24 0c0-7 6-10 12-15z" fill="none" stroke="#F4EFE6" stroke-width="2.6" stroke-linejoin="round"/></svg></div>
+      <h3>Autenticidade</h3>
+      <p>Nada de publi com cara de publi.</p>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="brands">
   <div class="wrap">
-    <div class="section-head rv">
-      <span class="eyebrow">Já caminharam comigo</span>
-    </div>
-    <div class="brand-strip rv">
-      <img src="/assets/institucional/logos/fundamento.png" alt="Editora Fundamento" loading="lazy" />
-      <img src="/assets/institucional/logos/hoomy.png" alt="Hoomy" loading="lazy" />
-      <img src="/assets/institucional/logos/agorasoumae.png" alt="Agora Sou Mãe" loading="lazy" />
-      <img src="/assets/institucional/logos/vinagreen.png" alt="Vinagreen" loading="lazy" />
-      <img src="/assets/institucional/logos/imanix.png" alt="Imanix" loading="lazy" />
-      <img src="/assets/institucional/logos/tiasonia.png" alt="Tia Sônia" loading="lazy" />
-      <img src="/assets/institucional/logos/citrino.png" alt="Citrino Kids" loading="lazy" />
+    <span class="eyebrow" style="color:var(--terracota-dk)">Já caminharam comigo</span>
+  </div>
+  <div class="marquee rv">
+    <div class="marquee-track">
+      <img src="/assets/institucional/logos/fundamento.png" alt="Editora Fundamento" loading="lazy">
+      <img src="/assets/institucional/logos/hoomy.png" alt="Hoomy" loading="lazy">
+      <img src="/assets/institucional/logos/agorasoumae.png" alt="Agora Sou Mãe" loading="lazy">
+      <img src="/assets/institucional/logos/vinagreen.png" alt="Vinagreen" loading="lazy">
+      <img src="/assets/institucional/logos/imanix.png" alt="Imanix" loading="lazy">
+      <img src="/assets/institucional/logos/tiasonia.png" alt="Tia Sônia" loading="lazy">
+      <img src="/assets/institucional/logos/citrino.png" alt="Citrino Kids" loading="lazy">
+      <span class="txt-logo">Daniela Muniz</span>
+      <img src="/assets/institucional/logos/fundamento.png" alt="Editora Fundamento" loading="lazy">
+      <img src="/assets/institucional/logos/hoomy.png" alt="Hoomy" loading="lazy">
+      <img src="/assets/institucional/logos/agorasoumae.png" alt="Agora Sou Mãe" loading="lazy">
+      <img src="/assets/institucional/logos/vinagreen.png" alt="Vinagreen" loading="lazy">
+      <img src="/assets/institucional/logos/imanix.png" alt="Imanix" loading="lazy">
+      <img src="/assets/institucional/logos/tiasonia.png" alt="Tia Sônia" loading="lazy">
+      <img src="/assets/institucional/logos/citrino.png" alt="Citrino Kids" loading="lazy">
       <span class="txt-logo">Daniela Muniz</span>
     </div>
   </div>
 </section>
 
-<section class="section footer-cta section-dark">
-  <div class="wrap rv">
-    <span class="eyebrow">Vamos conversar?</span>
-    <h2 class="serif" style="font-style:italic;font-weight:420">Quero que a sua marca alcance uma comunidade de mães altamente engajadas.</h2>
-    <a href="mailto:contato@lourdescorsi.com.br" class="btn btn-primary">Fale comigo</a>
+<footer class="foot">
+  <svg class="wave top" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C260,5 520,60 780,25 C1020,-5 1240,45 1440,15 L1440,0 L0,0 Z" fill="#F4EFE6"/></svg>
+  <div class="foot-grid rv">
+    <div>
+      <span class="eyebrow">Vamos conversar?</span>
+      <h2>Quero que a sua marca alcance uma comunidade de mães altamente engajadas.</h2>
+      <a class="btn-cta" href="mailto:contato@lourdescorsi.com.br">Fale comigo</a>
+    </div>
+    <div class="foot-blob-wrap">
+      <div class="foot-blob"></div>
+      <div class="foot-stat"><b>70mil+</b><span>pessoas acompanham o trabalho</span></div>
+    </div>
   </div>
-</section>
+  <div class="foot-bottom">
+    <span>Lourdes Corsi · Marcas e Parcerias</span>
+    <span>© 2026 Lourdes Corsi</span>
+  </div>
+</footer>
 
 <footer class="site-footer">
   <span>© 2026 Lourdes Corsi · Todos os direitos reservados</span>
@@ -316,6 +393,10 @@ footer.site-footer .social a:hover{color:var(--latao)}
   var text = "Uma comunidade que confia e escuta.";
   var words = text.split(' ');
   el.innerHTML = words.map(function(w,i){
+    var isConfia = w.indexOf('confia') !== -1;
+    if(isConfia){
+      return '<span class="reveal-word" style="--i:'+i+'"><span class="sq">confia<svg viewBox="0 0 160 14" preserveAspectRatio="none"><path d="M2 8 Q40 2 80 8 Q120 14 158 6" stroke="#B6924E" stroke-width="4" fill="none" stroke-linecap="round"/></svg></span></span>';
+    }
     return '<span class="reveal-word" style="--i:'+i+'">'+w+'</span>';
   }).join(' ');
 })();
