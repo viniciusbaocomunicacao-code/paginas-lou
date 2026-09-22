@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kit Antibirras — Lourdes Corsi</title>
+<meta name="description" content="Guia prático para saber o que fazer antes, durante e depois da birra. Acesso digital imediato por R$3,90." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,600;0,9..144,700;1,9..144,420;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --ink:#33172A;--ink-soft:#3F2035;--cream:#FBF3EF;--cream-soft:#F3DCE4;
+  --terracota:#A34E77;--terracota-dk:#7E3A5C;--latao:#FA9F22;
+  --grafite:#2E2029;--grafite-mid:#6B4F5C;--musgo:#EF6163;--rosa:#E9A5D0;
+  --line:rgba(46,32,41,0.12);--line-dark:rgba(251,243,239,0.14);
+  --ease-out:cubic-bezier(.23,1,.32,1);--ease-in-out:cubic-bezier(.77,0,.175,1);--ease-drawer:cubic-bezier(.32,.72,0,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Work Sans',sans-serif;background:var(--cream);color:var(--grafite);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Fraunces',serif}
+.eyebrow{font-family:'Work Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--latao)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 6vw}
+.wave{position:absolute;left:0;width:100%;height:70px;display:block;z-index:1}
+.wave.top{top:-1px}
+.wave.bottom{bottom:-1px;transform:scaleY(-1)}
+
+header.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 6vw;background:rgba(51,23,42,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line-dark)}
+.brand{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.25rem;color:var(--cream)}
+.brand span{color:var(--latao)}
+nav.links{display:flex;align-items:center;gap:1.9rem}
+nav.links a{font-size:.86rem;font-weight:500;color:rgba(251,243,239,.82);position:relative;padding:.3rem 0}
+nav.links a:hover{color:var(--cream)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:2px;font-size:.86rem;font-weight:600;letter-spacing:.02em;border:1px solid transparent;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease,transform .15s var(--ease-out),box-shadow .18s ease}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--terracota);color:#fff}
+@media (hover:hover) and (pointer:fine){.btn-primary:hover{background:var(--terracota-dk);transform:translateY(-1px)}}
+.btn-ghost{border-color:rgba(46,32,41,.3);color:var(--grafite)}
+.btn-ghost:hover{border-color:var(--terracota);color:var(--terracota)}
+.nav-cta{display:inline-flex}
+.nav-cta-mobile{display:none}
+.menu-toggle{display:none}
+@media (max-width:920px){
+  nav.links{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);height:100vh;background:var(--ink);flex-direction:column;align-items:flex-start;padding:6.5rem 2rem 2rem;gap:1.6rem;transform:translateX(100%);transition:transform .32s var(--ease-drawer);border-left:1px solid var(--line-dark)}
+  nav.links.open{transform:translateX(0)}
+  nav.links a{font-size:1.05rem}
+  .menu-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:101}
+  .menu-toggle span{width:22px;height:1.5px;background:var(--cream);transition:transform .25s var(--ease-out),opacity .2s ease}
+  .menu-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .nav-cta-mobile{display:inline-flex;margin-top:.5rem}
+  .nav-cta{display:none}
+}
+
+.h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.1rem,4.6vw,3.5rem);line-height:1.12;margin:.6rem 0 1.1rem}
+.h1 .sq{position:relative;display:inline-block;font-style:italic}
+.h1 .sq svg{position:absolute;left:0;bottom:-.1em;width:100%;height:.28em}
+.reveal-word{display:inline-block;opacity:0;filter:blur(6px);transform:translateY(14px);animation:wordIn .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 70ms)}
+@keyframes wordIn{to{opacity:1;filter:blur(0);transform:translateY(0)}}
+body.js-rv .rv{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease-out), transform .6s var(--ease-out);transition-delay:var(--stagger,0s)}
+body.js-rv .rv.visible{opacity:1;transform:translateY(0)}
+
+h2.h2{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(1.75rem,3.4vw,2.5rem);line-height:1.2;margin:.4rem 0 1rem}
+
+/* ── HERO ── */
+.hero{position:relative;background:var(--cream);color:var(--ink);padding:9rem 6vw 6rem;overflow:hidden}
+.hero-glow{position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(110px);background:radial-gradient(circle,rgba(250,159,34,.32),transparent 70%);top:-16%;right:-6%;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center;max-width:1180px;margin:0 auto;position:relative}
+.hero .eyebrow{color:var(--terracota-dk)}
+.hero p.lead{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.25rem;color:var(--ink);margin:0 0 1.1rem;max-width:38ch}
+.hero p.sub{font-size:1.02rem;line-height:1.65;color:var(--grafite-mid);max-width:44ch;margin:0 0 1.2rem}
+.hero p.emphasis{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--terracota-dk);margin:0 0 1.8rem;padding-left:.9rem;border-left:2px solid var(--terracota)}
+.price-block .price-tag{display:block;font-size:.88rem;font-weight:600;color:var(--grafite-mid);margin-bottom:.9rem}
+.price-block .btn-primary{font-size:.94rem;padding:1rem 1.9rem;box-shadow:0 18px 40px -16px rgba(163,78,119,.55)}
+.price-block .cta-sub{font-size:.8rem;color:var(--grafite-mid);margin-top:.7rem}
+
+/* HERO VISUAL */
+.hero-visual{position:relative;aspect-ratio:4/5;max-height:520px}
+.kv-blob{position:absolute;inset:6% 6% 10% 12%;background:var(--latao);opacity:.9;border-radius:42% 58% 62% 38% / 48% 42% 58% 52%}
+.kv-device{position:absolute;top:11%;left:6%;width:60%;background:#FDF6F7;border-radius:16px;box-shadow:0 30px 60px -18px rgba(0,0,0,.35);padding:1.2rem 1.15rem;transform:rotate(-3deg)}
+.kv-device .dots{display:flex;gap:5px;margin-bottom:.7rem}
+.kv-device .dots span{width:6px;height:6px;border-radius:50%;background:rgba(46,32,41,.16)}
+.kv-device h4{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:1.05rem;color:var(--ink);margin-bottom:.55rem}
+.kv-device .ln{height:6px;border-radius:4px;background:rgba(46,32,41,.1);margin-bottom:.4rem}
+.kv-device .ln.w1{width:90%}.kv-device .ln.w2{width:68%}.kv-device .ln.w3{width:80%}
+.kv-sos{position:absolute;right:2%;bottom:8%;width:52%;background:var(--terracota-dk);color:var(--cream);border-radius:14px;padding:1.1rem 1.2rem;box-shadow:0 26px 52px -18px rgba(0,0,0,.42);transform:rotate(5deg)}
+.kv-sos .tag{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#F6D6E8}
+.kv-sos h4{font-family:'Fraunces',serif;font-size:1.2rem;margin:.35rem 0 .3rem}
+.kv-sos p{font-size:.76rem;line-height:1.45;color:rgba(251,243,239,.85);margin:0}
+.kv-cards{position:absolute;left:2%;top:0;display:flex;gap:7px;transform:rotate(-9deg)}
+.kv-card-mini{width:36px;height:46px;border-radius:6px;background:#fff;box-shadow:0 12px 20px -8px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center}
+.kv-card-mini span{width:15px;height:15px;border-radius:50%}
+.kv-card-mini:nth-child(1) span{background:var(--musgo)}
+.kv-card-mini:nth-child(2) span{background:var(--terracota)}
+.kv-card-mini:nth-child(3) span{background:var(--latao)}
+.kv-badge{position:absolute;left:-8%;bottom:0;width:138px;height:138px}
+.kv-badge svg{width:100%;height:100%}
+.kv-badge .ring{animation:spin 30s linear infinite;transform-origin:69px 69px}
+@media (prefers-reduced-motion:reduce){.kv-badge .ring{animation:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.kv-badge .core{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.kv-badge .core svg{width:30%;height:30%}
+
+/* ── IDENTIFICAÇÃO (ink) ── */
+.ident{position:relative;background:var(--ink);color:var(--cream);padding:6.5rem 6vw 7rem;overflow:hidden}
+.ident-head{max-width:640px;margin:0 auto 2.6rem;max-width:1180px}
+.ident-head h2{color:var(--cream);margin-top:.5rem}
+.beat-list{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem .7rem;max-width:1180px;margin:0 auto 2.6rem}
+.beat-list li{font-size:.94rem;color:rgba(251,243,239,.82);padding:.5rem 1rem;border:1px solid rgba(251,243,239,.18);border-radius:30px}
+.ident-pull{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.42;color:var(--cream);max-width:60ch;margin:0 auto 1rem}
+.ident-bridge{color:rgba(251,243,239,.75);font-size:1rem;max-width:1180px;margin:0 auto 2.6rem}
+.dilemma-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;max-width:1180px;margin:0 auto 2.6rem}
+.dilemma-card{position:relative;padding-left:1.8rem}
+.dilemma-card::before{content:"";position:absolute;left:0;top:.2rem;bottom:.2rem;width:2px;background:repeating-linear-gradient(180deg,var(--latao) 0 6px,transparent 6px 11px);border-radius:2px}
+.dilemma-card .qmark{font-family:'Fraunces',serif;font-style:italic;font-size:2.6rem;color:rgba(251,243,239,.16);line-height:.6;display:block;margin-bottom:.3rem}
+.dilemma-card p{color:rgba(251,243,239,.88);font-size:1.02rem;line-height:1.6;margin:0;font-style:italic;font-family:'Fraunces',serif}
+.ident-close{text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--latao);max-width:1180px;margin:0 auto}
+
+/* ── PERSPECTIVA (cream) ── */
+.perspectiva{padding:7rem 6vw 6.5rem}
+.perspectiva-inner{max-width:700px;margin:0 auto}
+.perspectiva p{color:var(--grafite-mid);font-size:1.02rem;line-height:1.68;margin:0 0 1.1rem}
+.perspectiva .accent-lines{border-left:2px solid var(--terracota);padding-left:1.1rem;margin:1.6rem 0}
+.perspectiva .accent-lines p{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);font-size:1.08rem;margin:0 0 .3rem}
+.metaphor-block{background:var(--cream-soft);border-radius:4px;padding:2.6rem clamp(1.5rem,4vw,3.2rem);margin-top:2.2rem;position:relative;overflow:hidden}
+.metaphor-block::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--terracota)}
+.metaphor-pull{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.35;color:var(--ink);margin:0 0 .8rem}
+.metaphor-support{color:var(--grafite-mid);font-size:.98rem;line-height:1.7;margin:0}
+
+/* ── MÉTODO (terracota-dk) ── */
+.metodo{position:relative;background:var(--terracota-dk);color:var(--cream);padding:6.5rem 6vw;overflow:hidden}
+.metodo-head{max-width:640px;margin:0 auto 3.2rem;max-width:1180px}
+.metodo-head h2{color:var(--cream)}
+.phase-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1180px;margin:0 auto}
+.phase{position:relative}
+.phase .tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--latao)}
+.phase h3{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;margin:.4rem 0 1rem}
+.phase-card{background:rgba(251,243,239,.08);border:1px solid rgba(251,243,239,.18);border-radius:14px;padding:1.5rem 1.5rem 1.6rem}
+.phase-card p{font-size:.92rem;line-height:1.58;color:rgba(251,243,239,.9);margin:0}
+.metodo-destaque{text-align:center;max-width:640px;margin:3.4rem auto 0}
+.metodo-flow{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(1.5rem,3vw,2rem);color:var(--cream);margin-bottom:.8rem}
+.metodo-destaque p{color:rgba(251,243,239,.8);font-size:.98rem;line-height:1.6;margin:0}
+
+/* ── INCLUSO (cream) ── */
+.incluso{padding:7rem 6vw 6.5rem}
+.incluso-head{max-width:640px;margin:0 auto 2.8rem}
+.incluso-head .lead{color:var(--grafite-mid);font-size:1.02rem;margin-top:.4rem}
+.incluso-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;max-width:1180px;margin:0 auto 2.6rem}
+.icard{background:#fff;border-radius:4px 18px 4px 18px;box-shadow:0 20px 42px -30px rgba(46,32,41,.3);padding:1.5rem 1.4rem;border-top:3px solid var(--accent,var(--terracota))}
+.icard .ic-wrap{width:44px;height:44px;border-radius:54% 46% 40% 60% / 58% 42% 58% 42%;background:rgba(46,32,41,.07);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.icard .ic{width:21px;height:21px;color:var(--accent,var(--terracota))}
+.icard h3{font-family:'Fraunces',serif;font-weight:700;font-size:1.02rem;margin:0 0 .4rem;color:var(--grafite)}
+.icard p{color:var(--grafite-mid);font-size:.86rem;line-height:1.5;margin:0}
+.icard.c1{--accent:var(--terracota)}
+.icard.c2{--accent:var(--latao)}
+.icard.c3{--accent:var(--musgo)}
+.wayfind-card{background:var(--cream-soft);border-radius:4px;padding:1.8rem clamp(1.5rem,4vw,2.4rem);position:relative;overflow:hidden;max-width:1180px;margin:0 auto}
+.wayfind-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--latao)}
+.wayfind-card p{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--ink);margin:0}
+
+/* ── PARA QUEM (cream-soft) ── */
+.paraquem{background:var(--cream-soft);padding:7rem 6vw}
+.paraquem-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;max-width:1180px;margin:0 auto;align-items:start}
+.paraquem p{color:var(--grafite-mid);font-size:1.02rem;line-height:1.65;margin:0 0 1rem}
+.paraquem .lead-in{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin-bottom:1rem}
+.quote-list{list-style:none;display:flex;flex-direction:column;gap:.9rem}
+.quote-list li{position:relative;padding-left:1.6rem;font-family:'Fraunces',serif;font-style:italic;font-size:1.02rem;color:var(--ink);line-height:1.5}
+.quote-list li::before{content:"“";position:absolute;left:0;top:-.1rem;font-size:1.6rem;color:var(--terracota-dk)}
+.not-for-card{background:var(--ink);color:var(--cream);border-radius:16px;padding:2.2rem 2rem;position:relative}
+.not-for-card .tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--latao);display:block;margin-bottom:.9rem}
+.not-for-card p{color:rgba(251,243,239,.85);font-size:.96rem;line-height:1.65;margin:0 0 1rem}
+.not-for-card p.final{color:var(--cream);font-family:'Fraunces',serif;font-weight:700;font-style:italic;margin:0}
+
+/* ── OFERTA (ink) ── */
+.oferta{position:relative;background:var(--ink);color:var(--cream);padding:7rem 6vw;overflow:hidden}
+.oferta-head{max-width:620px;margin:0 auto 3rem;text-align:center}
+.oferta-head h2{color:var(--cream)}
+.oferta-head p{color:rgba(251,243,239,.8);font-size:1rem;line-height:1.6}
+.oferta-card{background:#FDF6F7;border-radius:20px;padding:2.8rem clamp(1.6rem,4vw,3.4rem);max-width:480px;margin:0 auto;text-align:center;box-shadow:0 44px 100px -30px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.oferta-card::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--terracota)}
+.oferta-badge{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terracota-dk);background:rgba(163,78,119,.1);padding:.4rem 1rem;border-radius:30px;margin-bottom:1rem}
+.oferta-card .for{color:var(--grafite-mid);font-size:.92rem;margin-bottom:1.6rem}
+.oferta-card .label{font-size:.8rem;font-weight:600;letter-spacing:.04em;color:var(--grafite-mid);text-transform:uppercase;margin-bottom:.5rem}
+.oferta-price{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(2.8rem,6vw,3.8rem);color:var(--terracota-dk);line-height:1;margin-bottom:1.7rem}
+.oferta-price .rs{font-size:1.3rem;vertical-align:super;margin-right:1px}
+.oferta-card .btn-primary{display:block;width:100%;font-size:.98rem;padding:1.05rem 1.5rem}
+.oferta-card .cta-sub{font-size:.8rem;color:var(--grafite-mid);margin-top:.9rem}
+.oferta-note{text-align:center;max-width:520px;margin:1.8rem auto 0;font-family:'Fraunces',serif;font-style:italic;font-size:.94rem;color:rgba(251,243,239,.65)}
+
+/* ── BARATO (cream) ── */
+.barato{padding:7rem 6vw}
+.barato-inner{max-width:660px;margin:0 auto}
+.barato p{color:var(--grafite-mid);font-size:1.02rem;line-height:1.68;margin:0 0 1.1rem}
+.barato .pull{font-family:'Fraunces',serif;font-style:italic;font-weight:600;color:var(--ink);font-size:1.15rem;margin-top:1.6rem}
+
+/* ── SOBRE (cream-soft) ── */
+.sobre{background:var(--cream-soft);padding:6.5rem 6vw}
+.sobre-inner{display:flex;gap:2.4rem;align-items:center;max-width:900px;margin:0 auto;flex-wrap:wrap}
+.sobre-photo-wrap{position:relative;width:150px;height:150px;flex:none}
+.sobre-blob{position:absolute;inset:0;background:var(--rosa);border-radius:44% 56% 40% 60% / 52% 46% 54% 48%}
+.sobre-photo{position:absolute;top:6%;left:8%;width:84%;height:88%;border-radius:40% 60% 44% 56% / 50% 44% 56% 50%;overflow:hidden}
+.sobre-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.sobre-text{flex:1;min-width:260px}
+.sobre-text p{color:var(--grafite-mid);font-size:.98rem;line-height:1.68;margin:0 0 .8rem}
+.sobre-text p:first-of-type{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);font-size:1.08rem}
+
+/* ── FAQ (cream) ── */
+.faq{padding:7rem 6vw 6.5rem}
+.faq-head{max-width:640px;margin:0 auto 2.6rem}
+.faq-list{display:flex;flex-direction:column;gap:.8rem;max-width:760px;margin:0 auto}
+details.faq-item{background:#fff;border-radius:12px;border:1px solid var(--line);overflow:hidden}
+details.faq-item summary{list-style:none;cursor:pointer;padding:1.3rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:'Work Sans',sans-serif;font-weight:600;font-size:.98rem;color:var(--ink)}
+details.faq-item summary::-webkit-details-marker{display:none}
+details.faq-item summary .chev{flex:none;width:20px;height:20px;color:var(--terracota-dk);transition:transform .25s var(--ease-out)}
+details.faq-item[open] summary .chev{transform:rotate(45deg)}
+details.faq-item .faq-a{padding:0 1.5rem 1.4rem;color:var(--grafite-mid);font-size:.94rem;line-height:1.65}
+
+/* ── CTA FINAL ── */
+.footer-cta{padding:7rem 6vw;text-align:center;background:var(--cream-soft)}
+.footer-cta h2{margin:.5rem auto 1.2rem;max-width:26ch}
+.footer-cta h2 .sq{position:relative;display:inline-block}
+.footer-cta h2 .sq svg{position:absolute;left:0;bottom:-.08em;width:100%;height:.26em}
+.footer-cta p.sub{color:var(--grafite-mid);font-size:1.02rem;margin:0 auto 1.8rem;max-width:44ch}
+.footer-cta .price-line{font-family:'Fraunces',serif;font-weight:700;font-size:1.8rem;color:var(--terracota-dk);margin-bottom:1.1rem}
+
+/* ── FOOTER ── */
+.foot{position:relative;background:var(--ink);color:rgba(251,243,239,.6);padding:4.5rem 6vw 2.2rem;overflow:hidden}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.2rem;font-size:.85rem;max-width:1180px;margin:0 auto}
+.foot-bottom .social a{margin-left:1.2rem;color:rgba(251,243,239,.6);text-decoration:none}
+.foot-bottom .social a:hover{color:var(--latao)}
+
+@media (max-width:920px){
+  .hero-grid{grid-template-columns:1fr;align-items:stretch}
+  .hero-visual{order:-1;height:min(78vw,340px);width:min(86vw,360px);max-height:none;max-width:none;margin:0 auto 3rem}
+  .kv-badge{width:110px;height:110px}
+  .kv-badge .ring{transform-origin:55px 55px}
+  .dilemma-grid{grid-template-columns:1fr}
+  .phase-row{grid-template-columns:1fr;gap:1.6rem}
+  .incluso-grid{grid-template-columns:repeat(2,1fr)}
+  .paraquem-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .incluso-grid{grid-template-columns:1fr}
+  .beat-list{gap:.4rem}
+  .beat-list li{font-size:.86rem;padding:.42rem .85rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal-word{animation:none;opacity:1;filter:none;transform:none}
+  .rv{transition:none;opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <a href="/" class="brand">Lourdes <span>Corsi</span></a>
+  <nav class="links" id="navLinks">
+    <a href="/">Sobre</a>
+    <a href="/parcerias/">Parcerias</a>
+    <a href="/consultoria-mentoria/">Consultoria e Mentoria</a>
+    <a href="/produtos/">Produtos</a>
+    <a href="/eventos/">Eventos e Palestras</a>
+    <a href="https://pay.hotmart.com/C98848643I?off=oh7taoyx&checkoutMode=10" class="btn btn-primary nav-cta-mobile" target="_blank" rel="noopener">Quero o Kit</a>
+  </nav>
+  <a href="https://pay.hotmart.com/C98848643I?off=oh7taoyx&checkoutMode=10" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Quero o Kit</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- BLOCO 1 — HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Kit Antibirras</span>
+      <h1 class="h1" id="heroTitle"></h1>
+      <p class="lead">Você sabe o que fazer nos próximos minutos?</p>
+      <p class="sub">O Kit Antibirras é um guia prático para mães de crianças de 2 a 5 anos que querem saber o que fazer antes, durante e depois das birras — sem gritar, ameaçar ou acabar cedendo só para a crise parar.</p>
+      <p class="emphasis">Na próxima birra, você não precisa improvisar.</p>
+      <div class="price-block">
+        <span class="price-tag">Acesso digital imediato por R$3,90</span>
+        <a href="https://pay.hotmart.com/C98848643I?off=oh7taoyx&checkoutMode=10" class="btn btn-primary" target="_blank" rel="noopener">Quero o Kit Antibirras por R$3,90</a>
+        <p class="cta-sub">Material digital + ferramentas para imprimir e usar em casa.</p>
+      </div>
+    </div>
+    <div class="hero-visual rv">
+      <div class="kv-blob"></div>
+      <div class="kv-cards">
+        <div class="kv-card-mini"><span></span></div>
+        <div class="kv-card-mini"><span></span></div>
+        <div class="kv-card-mini"><span></span></div>
+      </div>
+      <div class="kv-device">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <h4>Kit Antibirras</h4>
+        <div class="ln w1"></div>
+        <div class="ln w2"></div>
+        <div class="ln w3"></div>
+      </div>
+      <div class="kv-sos">
+        <span class="tag">Consulta rápida</span>
+        <h4>SOS Birra</h4>
+        <p>O passo a passo pra usar em pleno choro, direto do celular.</p>
+      </div>
+      <div class="kv-badge">
+        <svg viewBox="0 0 138 138">
+          <g class="ring">
+            <path id="rpc2" d="M69,8 a61,61 0 1,1 -0.1,0" fill="none"/>
+            <text font-family="Fraunces,serif" font-size="8.6" letter-spacing="2.2" fill="#33172A">
+              <textPath href="#rpc2">ANTES · DURANTE · DEPOIS ·</textPath>
+            </text>
+          </g>
+          <g class="core">
+            <circle cx="69" cy="69" r="30" fill="var(--latao)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 2 — IDENTIFICAÇÃO -->
+<section class="ident">
+  <svg class="wave top" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,35 C260,0 520,60 780,25 C1020,-5 1240,50 1440,20 L1440,0 L0,0 Z" fill="#FBF3EF"/></svg>
+  <div class="ident-head rv">
+    <span class="eyebrow">Talvez a birra nem seja a parte mais difícil</span>
+    <h2 class="h2">A parte difícil é não saber o que fazer quando ela começa.</h2>
+  </div>
+  <ul class="beat-list rv" data-stagger="0.04">
+    <li>Você diz “não”.</li>
+    <li>Seu filho chora.</li>
+    <li>Você explica o motivo.</li>
+    <li>Ele continua.</li>
+    <li>Você explica de novo.</li>
+    <li>Tenta acolher.</li>
+    <li>Tenta distrair.</li>
+    <li>Começa a se perguntar se está sendo dura demais.</li>
+    <li>Ele insiste.</li>
+    <li>Você já está cansada.</li>
+  </ul>
+  <p class="ident-pull rv" style="text-align:center">“Depois de vinte minutos você percebe que está discutindo com uma criança de três anos sobre uma decisão que já tinha tomado antes da conversa começar.”</p>
+  <p class="ident-bridge rv" style="text-align:center">É nessa hora que muitas mães ficam presas entre duas opções:</p>
+  <div class="dilemma-grid">
+    <div class="dilemma-card rv">
+      <span class="qmark">"</span>
+      <p>Se eu sustento o limite, parece que estou ignorando o que ele sente.</p>
+    </div>
+    <div class="dilemma-card rv" data-stagger="0.1">
+      <span class="qmark">"</span>
+      <p>Se eu acolho, fico com medo de estar cedendo.</p>
+    </div>
+  </div>
+  <p class="ident-close rv" style="margin-top:2.6rem">Mas existe outra possibilidade.</p>
+</section>
+
+<!-- BLOCO 3 — NOVA PERSPECTIVA -->
+<section class="perspectiva">
+  <div class="perspectiva-inner">
+    <span class="eyebrow rv" style="color:var(--terracota-dk)">Uma nova perspectiva</span>
+    <h2 class="h2 rv">Seu filho pode estar frustrado — e o limite ainda continuar correto.</h2>
+    <p class="rv">Entre os 2 e 5 anos, a criança ainda está desenvolvendo habilidades para esperar, controlar impulsos, suportar frustrações e fazer aquilo que precisa mesmo quando não está com vontade.</p>
+    <div class="accent-lines rv">
+      <p>Por isso, nem sempre explicar mais resolve.</p>
+      <p>Nem sempre pedir novamente resolve.</p>
+    </div>
+    <p class="rv">E você não precisa convencer seu filho de que o limite é maravilhoso antes de sustentá-lo.</p>
+    <p class="rv">Em muitas situações, ele ainda precisa que o adulto <strong>antecipe, oriente, conduza, impeça</strong> quando necessário <strong>e permaneça firme</strong> enquanto a frustração passa.</p>
+    <div class="metaphor-block rv">
+      <p class="metaphor-pull">O objetivo não é “vencer” a birra.</p>
+      <p class="metaphor-support">É saber atravessá-la sem entrar nela junto com seu filho.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 4 — O MÉTODO -->
+<section class="metodo">
+  <svg class="wave top" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,25 C240,55 480,5 720,30 C960,55 1200,10 1440,40 L1440,0 L0,0 Z" fill="#FBF3EF"/></svg>
+  <div class="metodo-head rv">
+    <span class="eyebrow" style="color:#F6D6E8">O método</span>
+    <h2 class="h2">O Kit organiza a birra em 3 momentos</h2>
+  </div>
+  <div class="phase-row rv" data-stagger="0.08">
+    <div class="phase">
+      <span class="tag">Antes</span>
+      <h3>Prever e limitar</h3>
+      <div class="phase-card"><p>Você aprende a identificar situações que costumam terminar em conflito, preparar melhor transições e escolher limites que realmente consegue sustentar.</p></div>
+    </div>
+    <div class="phase">
+      <span class="tag">Durante</span>
+      <h3>Conduzir e sustentar</h3>
+      <div class="phase-card"><p>Você sabe quando falar menos, quando intervir, como manter o limite e como não transformar o choro em uma negociação infinita.</p></div>
+    </div>
+    <div class="phase">
+      <span class="tag">Depois</span>
+      <h3>Ensinar</h3>
+      <div class="phase-card"><p>Você entende quando conversar, como reparar o que aconteceu e como ensinar uma alternativa sem transformar a criança no erro que cometeu.</p></div>
+    </div>
+  </div>
+  <div class="metodo-destaque rv">
+    <p class="metodo-flow">Antes → Durante → Depois</p>
+    <p>Porque o melhor momento para ensinar sobre uma birra geralmente não é no auge da birra.</p>
+  </div>
+</section>
+
+<!-- BLOCO 5 — O QUE VOCÊ VAI RECEBER -->
+<section class="incluso">
+  <div class="incluso-head rv">
+    <span class="eyebrow" style="color:var(--terracota-dk)">O que vem no kit</span>
+    <h2 class="h2">Não é um ebook pra você ler e esquecer.</h2>
+    <p class="lead">É um material pra abrir quando precisar.</p>
+  </div>
+  <div class="incluso-grid rv" data-stagger="0.04">
+    <div class="icard c1">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="4" width="12" height="24" rx="3"/><path d="M16 10v8"/><circle cx="16" cy="21" r="1.3" fill="currentColor" stroke="none"/></svg></div>
+      <h3>Cartão SOS Birra</h3>
+      <p>Consultar pelo celular quando a crise já começou.</p>
+    </div>
+    <div class="icard c2">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8" cy="9" r="2"/><path d="M14 9h12"/><circle cx="8" cy="16" r="2"/><path d="M14 16h12"/><circle cx="8" cy="23" r="2"/><path d="M14 23h12"/></svg></div>
+      <h3>Protocolo em 6 passos</h3>
+      <p>Saber qual é o próximo passo durante a birra.</p>
+    </div>
+    <div class="icard c3">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H14l-6 6v-6H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z"/></svg></div>
+      <h3>Banco de frases</h3>
+      <p>Reduzir explicações infinitas e saber como responder.</p>
+    </div>
+    <div class="icard c1">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l8-3 8 3 8-3v19l-8 3-8-3-8 3z"/><path d="M13 5v19M21 8v19"/></svg></div>
+      <h3>Mapa Antes/Durante/Depois</h3>
+      <p>Organizar a condução da situação.</p>
+    </div>
+    <div class="icard c2">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="13" r="7"/><path d="M18 18l8 8"/></svg></div>
+      <h3>Plano de observação</h3>
+      <p>Descobrir o que costuma acontecer antes e depois das crises.</p>
+    </div>
+    <div class="icard c3">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h16M18 7l4 5-4 5"/><path d="M26 20H10M14 15l-4 5 4 5"/></svg></div>
+      <h3>Agora / Depois</h3>
+      <p>Tornar transições mais compreensíveis.</p>
+    </div>
+    <div class="icard c1">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="19" r="7"/><circle cx="19" cy="12" r="7" fill="none"/></svg></div>
+      <h3>Sistema de moedinhas</h3>
+      <p>Deixar alguns limites de uso mais concretos.</p>
+    </div>
+    <div class="icard c2">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="16" cy="16" r="6"/><path d="M16 4v4M16 24v4M4 16h4M24 16h4M7.5 7.5l2.8 2.8M21.7 21.7l2.8 2.8M7.5 24.5l2.8-2.8M21.7 10.3l2.8-2.8"/></svg></div>
+      <h3>Cartões de calma</h3>
+      <p>Praticar estratégias em momentos tranquilos.</p>
+    </div>
+    <div class="icard c3">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="22" height="21" rx="2"/><path d="M5 12h22"/><path d="M10 17h4M10 22h9"/></svg></div>
+      <h3>Rotinas visuais</h3>
+      <p>Apoiar banheiro, dentes e sono.</p>
+    </div>
+    <div class="icard c1">
+      <div class="ic-wrap"><svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4l10 4v8c0 7-4.5 11-10 12-5.5-1-10-5-10-12v-8l10-4z"/><path d="M11 16.5l3.5 3.5 6.5-7"/></svg></div>
+      <h3>Cards de regras</h3>
+      <p>Mostrar o que não pode e o que fazer no lugar.</p>
+    </div>
+  </div>
+  <div class="wayfind-card rv">
+    <p>Você pode abrir no celular hoje e imprimir as ferramentas que fizerem sentido para sua casa.</p>
+  </div>
+</section>
+
+<!-- BLOCO 6 — PARA QUEM É -->
+<section class="paraquem">
+  <div class="paraquem-grid">
+    <div class="rv">
+      <span class="eyebrow" style="color:var(--terracota-dk)">Para quem é</span>
+      <h2 class="h2">Este Kit foi feito para você se…</h2>
+      <p>Seu filho tem entre 2 e 5 anos e você percebe que as birras aparecem especialmente diante de “não”, transições, telas, banho, hora de sair, guardar coisas ou fazer algo que ele não queria.</p>
+      <p class="lead-in">Você sente que:</p>
+      <ul class="quote-list">
+        <li>Eu falo e parece que ele não escuta.</li>
+        <li>Preciso repetir tudo dez vezes.</li>
+        <li>Não sei quando acolher e quando simplesmente manter o limite.</li>
+        <li>Às vezes cedo porque não aguento mais a discussão.</li>
+        <li>Eu queria conseguir conduzir isso sem perder a cabeça junto.</li>
+      </ul>
+    </div>
+    <div class="not-for-card rv" data-stagger="0.1">
+      <span class="tag">E não é para…</span>
+      <p>Quem procura uma fórmula para fazer uma criança nunca mais chorar, nunca mais se frustrar ou obedecer imediatamente em qualquer situação.</p>
+      <p class="final">Esse não é o objetivo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 7 — OFERTA -->
+<section class="oferta">
+  <div class="oferta-head rv">
+    <span class="eyebrow">A oferta</span>
+    <h2 class="h2">Você não precisa esperar a próxima crise para decidir o que vai fazer.</h2>
+    <p>Por R$3,90, você recebe o Kit Antibirras completo em formato digital, com o guia de condução e as ferramentas visuais para usar em casa.</p>
+  </div>
+  <div class="oferta-card rv">
+    <span class="oferta-badge">Kit Antibirras</span>
+    <p class="for">Para mães de crianças de 2 a 5 anos</p>
+    <span class="label">Acesso digital imediato</span>
+    <p class="oferta-price"><span class="rs">R$</span>3,90</p>
+    <a href="https://pay.hotmart.com/C98848643I?off=oh7taoyx&checkoutMode=10" class="btn btn-primary" target="_blank" rel="noopener">Quero acessar o Kit agora</a>
+    <p class="cta-sub">Pagamento único. Produto digital.</p>
+  </div>
+  <p class="oferta-note rv">Nesta nova função como produto de entrada da Lourdes, o Kit está disponível por R$3,90.</p>
+</section>
+
+<!-- BLOCO 8 — POR QUE TÃO BARATO -->
+<section class="barato">
+  <div class="barato-inner">
+    <span class="eyebrow rv" style="color:var(--terracota-dk)">Uma pergunta justa</span>
+    <h2 class="h2 rv">Por que um material desses custa R$3,90?</h2>
+    <p class="rv">Porque este não é meu curso completo sobre birras.</p>
+    <p class="rv">Ele foi pensado para ser uma porta de entrada prática para mães que ainda não conhecem meu trabalho e precisam de uma primeira orientação clara para uma situação que acontece dentro de casa.</p>
+    <p class="rv">É um material pequeno, específico e aplicável.</p>
+    <p class="rv">Se depois você perceber que precisa aprofundar o tema, existem outros caminhos.</p>
+    <p class="pull rv">Mas você não precisa começar comprando o produto mais completo. Pode começar resolvendo o próximo passo.</p>
+  </div>
+</section>
+
+<!-- BLOCO 9 — SOBRE LOURDES -->
+<section class="sobre">
+  <div class="sobre-inner rv">
+    <div class="sobre-photo-wrap">
+      <div class="sobre-blob"></div>
+      <div class="sobre-photo"><img src="/assets/institucional/lourdes-retrato.jpg" alt="Lourdes Corsi"></div>
+    </div>
+    <div class="sobre-text">
+      <span class="eyebrow" style="color:var(--terracota-dk)">Quem preparou este material</span>
+      <p>Lourdes Corsi é educadora parental e mãe.</p>
+      <p>Seu trabalho parte de uma ideia simples: respeitar a infância não exige que os pais abandonem a responsabilidade de guiar.</p>
+      <p>Ao longo do seu trabalho com famílias, Lourdes ensina mães a compreender melhor os filhos, estabelecer limites, sustentar decisões e educar com mais clareza — sem reduzir a maternidade a frases prontas ou técnicas desconectadas da vida real.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 10 — FAQ -->
+<section class="faq">
+  <div class="faq-head rv">
+    <span class="eyebrow" style="color:var(--terracota-dk)">Perguntas frequentes</span>
+    <h2 class="h2">Perguntas frequentes</h2>
+  </div>
+  <div class="faq-list rv" data-stagger="0.04">
+    <details class="faq-item">
+      <summary>Meu filho tem 2 anos. Serve?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-a">Sim. O material foi pensado para crianças entre 2 e 5 anos, mas as orientações deixam claro que crianças menores costumam precisar de mais condução do adulto, enquanto as maiores começam gradualmente a participar mais.</div>
+    </details>
+    <details class="faq-item">
+      <summary>É um curso?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-a">Não. É um material digital prático, com guia e ferramentas visuais.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Preciso imprimir?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-a">Não para começar. O protocolo, o SOS Birra e o banco de frases podem ser consultados pelo celular. Alguns recursos adicionais foram feitos para impressão.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Vai fazer meu filho parar de ter birras?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-a">Essa não é a promessa. O objetivo é que você saiba melhor como conduzir quando elas acontecerem.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Serve para qualquer tipo de dificuldade comportamental?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-a">Não. É um material geral de educação parental. Situações de sofrimento intenso, agressões importantes, risco, prejuízo significativo ou preocupações de desenvolvimento podem exigir avaliação individual de um profissional habilitado.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Como recebo?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+      <div class="faq-a">Após a confirmação do pagamento, você recebe acesso ao material digital.</div>
+    </details>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="footer-cta">
+  <div class="wrap rv">
+    <span class="eyebrow" style="color:var(--terracota-dk)">Antes que a próxima birra comece</span>
+    <h2 class="h2">Se a próxima birra começasse hoje, você saberia qual é o seu <span class="sq">próximo passo<svg viewBox="0 0 220 14" preserveAspectRatio="none"><path d="M2 8 Q55 2 110 8 Q165 14 218 6" stroke="#FA9F22" stroke-width="4" fill="none" stroke-linecap="round"/></svg></span>?</h2>
+    <p class="sub">Tenha o protocolo à mão antes de precisar dele.</p>
+    <p class="price-line">R$3,90</p>
+    <a href="https://pay.hotmart.com/C98848643I?off=oh7taoyx&checkoutMode=10" class="btn btn-primary" target="_blank" rel="noopener">Quero o Kit Antibirras</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <svg class="wave top" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C260,5 520,60 780,25 C1020,-5 1240,45 1440,15 L1440,0 L0,0 Z" fill="#F3DCE4"/></svg>
+  <div class="foot-bottom">
+    <span>© 2026 Lourdes Corsi · Todos os direitos reservados</span>
+    <span class="social">
+      <a href="https://instagram.com/lourdes.corsi" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://youtube.com/@lourdescorsi" target="_blank" rel="noopener">YouTube</a>
+      <a href="mailto:contato@lourdescorsi.com.br">E-mail</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var el = document.getElementById('heroTitle');
+  var text = "Seu filho ouviu “não” e começou a gritar.";
+  var words = text.split(' ');
+  el.innerHTML = words.map(function(w,i){
+    var isGritar = w.indexOf('gritar') !== -1;
+    if(isGritar){
+      return '<span class="reveal-word" style="--i:'+i+'"><span class="sq">gritar.<svg viewBox="0 0 130 14" preserveAspectRatio="none"><path d="M2 8 Q33 2 65 8 Q97 14 128 6" stroke="#FA9F22" stroke-width="4" fill="none" stroke-linecap="round"/></svg></span></span>';
+    }
+    return '<span class="reveal-word" style="--i:'+i+'">'+w+'</span>';
+  }).join(' ');
+})();
+
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  document.body.classList.add('js-rv');
+  var items = document.querySelectorAll('.rv');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var stag = e.target.getAttribute('data-stagger');
+        if(stag) e.target.style.setProperty('--stagger', stag+'s');
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  items.forEach(function(i){io.observe(i)});
+  setTimeout(function(){
+    document.querySelectorAll('.rv:not(.visible)').forEach(function(el){ el.classList.add('visible'); });
+  },2500);
+})();
+
+(function(){
+  var btn = document.getElementById('menuToggle');
+  var nav = document.getElementById('navLinks');
+  btn.addEventListener('click', function(){ nav.classList.toggle('open'); btn.classList.toggle('open'); });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); });
+  });
+})();
+</script>
+</body>
+</html>
