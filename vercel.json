@@ -1,14 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": true,
-  "redirects": [
-    {
-      "source": "/sono-sem-drama",
-      "destination": "/"
-    },
-    {
-      "source": "/sono-sem-drama/:path*",
-      "destination": "/"
-    }
-  ]
+  "trailingSlash": true
 }
